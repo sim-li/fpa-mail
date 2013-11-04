@@ -6,7 +6,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 public final class NavigationView extends ViewPart {
-    private TFile root;
+    private TFileComposite root;
     private TreeViewer viewer;
 
     @Override
@@ -20,12 +20,12 @@ public final class NavigationView extends ViewPart {
         viewer.setInput(root.getPath());
     }
 
-    private TFile createModel() {
-        root = new TFile(System.getenv("HOME"));
+    private TFileComposite createModel() {
+        root = new TFileComposite(System.getenv("HOME"));
         return root;
     }
 
-    public TFile getModel() {
+    public TFileComposite getModel() {
         return root;
     }
 

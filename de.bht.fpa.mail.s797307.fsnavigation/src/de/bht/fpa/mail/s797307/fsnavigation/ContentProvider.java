@@ -12,13 +12,13 @@ public class ContentProvider implements ITreeContentProvider {
 
     @Override
     public Object[] getChildren(Object parentElement) {
-        TFile d = new TFile(parentElement);
+        TFileComposite d = new TFileComposite(parentElement);
         return d.getChildren();
     }
 
     @Override
     public boolean hasChildren(Object element) {
-        TFile d = new TFile(element);
+        TFileComposite d = new TFileComposite(element);
         return d.isDirectory();
     }
 
