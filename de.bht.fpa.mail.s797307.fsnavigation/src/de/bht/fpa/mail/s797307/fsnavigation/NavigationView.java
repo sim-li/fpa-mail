@@ -6,23 +6,27 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 public final class NavigationView extends ViewPart {
-
+    private TFile root;
     private TreeViewer viewer;
 
     @Override
     public void createPartControl(Composite parent) {
         viewer = new TreeViewer(parent);
         LabelProvider l = new LabelProvider();
-        DemoContentProvider d = new DemoContentProvider();
-        String s = createModel();
-
+        ContentProvider cp = new ContentProvider(this);
         viewer.setLabelProvider(l);
-        viewer.setContentProvider(d);
-        viewer.setInput(s);
+        viewer.setContentProvider(cp);
+        createModel();
+        viewer.setInput(root.getPath());
     }
 
-    private String createModel() {
-        return "Wurzel";
+    private TFile createModel() {
+        root = new TFile(System.getenv("HOME"));
+        return root;
+    }
+
+    public TFile getModel() {
+        return root;
     }
 
     @Override
