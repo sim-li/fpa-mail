@@ -1,32 +1,31 @@
 package de.bht.fpa.mail.s797307.fsnavigation;
 
-import org.eclipse.jface.viewers.LabelProvider;
+import java.io.File;
+
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 public final class NavigationView extends ViewPart {
-    private TFileComposite root;
     private TreeViewer viewer;
 
     @Override
     public void createPartControl(Composite parent) {
         viewer = new TreeViewer(parent);
-        LabelProvider l = new LabelProvider();
+        ViewLabelProvider l = new ViewLabelProvider();
         ContentProvider cp = new ContentProvider(this);
         viewer.setLabelProvider(l);
         viewer.setContentProvider(cp);
-        createModel();
-        viewer.setInput(root.getPath());
+        viewer.setInput(createModel());
     }
 
-    private TFileComposite createModel() {
-        root = new TFileComposite(System.getenv("HOME"));
-        return root;
+    private TFile createModel() {
+        return new TFile(new File(System.getenv("HOME")));
     }
 
-    public TFileComposite getModel() {
-        return root;
+    public void setInput(String s) {
+        System.out.println(s);
+        // viewer.setInput(new TFile(new File(s)));
     }
 
     @Override
