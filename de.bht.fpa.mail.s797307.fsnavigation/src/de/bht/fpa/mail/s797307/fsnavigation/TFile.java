@@ -7,7 +7,8 @@ import java.util.Collection;
 import org.eclipse.swt.graphics.Image;
 
 public class TFile {
-    Image img = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.png").createImage();
+    Image folderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico").createImage();
+    Image fileIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/file.ico").createImage();
 
     private final File file;
 
@@ -38,9 +39,9 @@ public class TFile {
 
     public Image getImage() {
         if (file.isDirectory()) {
-            return img;
+            return folderIcon;
         }
-        return null;
+        return fileIcon;
     }
 
 }

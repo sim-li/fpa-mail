@@ -20,8 +20,6 @@ public class ContentProvider implements ITreeContentProvider {
         return ((TFile) element).hasChildren();
     }
 
-    // ==========================================================================
-
     @Override
     public Object[] getElements(Object parent) {
         return getChildren(parent);
