@@ -8,6 +8,7 @@ import javax.xml.bind.DataBindingException;
 import javax.xml.bind.JAXB;
 
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
@@ -16,17 +17,15 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
-import de.bht.fpa.mail.s797307.fsnavigation.filters.XMLFilter;
-import de.bht.fpa.mail.s797307.fsnavigation.listeners.ExecutionListener;
 
 public final class NavigationView extends ViewPart implements ISelectionChangedListener {
     private TreeViewer viewer;
 
     @Override
     public void createPartControl(Composite parent) {
-        viewer = new TreeViewer(parent);
         ViewLabelProvider l = new ViewLabelProvider();
         ContentProvider cp = new ContentProvider(this);
+        viewer = new TreeViewer(parent);
         viewer.setLabelProvider(l);
         viewer.setContentProvider(cp);
         viewer.setInput(createModel());
@@ -35,14 +34,16 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
     }
 
     private TFile createModel() {
-        // return new TFile(new File(System.getenv("HOME")));
-        return new TFile(new File("/Users/ccrider/Beuth/FPA/bht.haschemi/mailer-common/de.bht.fpa.mail.common"));
+        // return new TFile(
+        // new
+        // File("/Users/ccrider/Beuth/FPA/bht.haschemi/mailer-common/de.bht.fpa.mail.common/maildata"));
+        return new TFile(new File(System.getenv("HOME")));
     }
 
     public void initalizeExecutionListener() {
         ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
                 .getService(ICommandService.class);
-        commandService.addExecutionListener(new ExecutionListener(viewer));
+        commandService.addExecutionListener(new ExecutionController(viewer));
     }
 
     @Override
@@ -50,24 +51,38 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
         viewer.getControl().setFocus();
     }
 
-    @Override
-    public void selectionChanged(SelectionChangedEvent event) {
-        TFile directory = (TFile) viewer.getInput();
-        Collection<Message> messages = new LinkedList<Message>();
+    public void displayMessages(Collection<Message> messages, TFile directory) {
+        System.out.println("Selected base directory: " + directory.getText());
+        System.out.println("Number of messages: " + messages.size());
+        for (Message message : messages) {
+            System.out.println(message.toString());
+        }
+        System.out.println("*");
+    }
 
-        for (TFile f : directory.getChildren(new XMLFilter())) {
+    public void parseDirectory(TFile directory) {
+        Collection<Message> messages = new LinkedList<Message>();
+        for (TFile f : directory.getChildren(FilterFactory.xmlFilter())) {
             try {
-                System.out.print(f.getText() + " ");
                 Message message = JAXB.unmarshal(f.getFile(), Message.class);
                 if (message != null) {
                     messages.add(message);
                 }
             } catch (DataBindingException e) {
-                System.err.println("Error parsing XML File.");
+                System.err.println("Error parsing XML File: " + f.getText());
             }
-
+            if (messages.size() > 0) {
+                displayMessages(messages, directory);
+            }
         }
-        System.out.println("COUNT: " + messages.size());
-        System.out.println(messages.toString());
     }
+
+    @Override
+    public void selectionChanged(SelectionChangedEvent event) {
+        ITreeSelection selection = (ITreeSelection) viewer.getSelection();
+        if (!selection.isEmpty()) {
+            parseDirectory((TFile) selection.getFirstElement());
+        }
+    }
+
 }

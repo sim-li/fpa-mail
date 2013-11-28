@@ -3,8 +3,6 @@ package de.bht.fpa.mail.s797307.fsnavigation;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.bht.fpa.mail.s797307.fsnavigation.filters.DirectoryFilter;
-
 public class ContentProvider implements ITreeContentProvider {
     protected NavigationView view;
 
@@ -14,12 +12,12 @@ public class ContentProvider implements ITreeContentProvider {
 
     @Override
     public Object[] getChildren(Object parentElement) {
-        return ((TFile) parentElement).getChildren(new DirectoryFilter());
+        return ((TFile) parentElement).getChildren(FilterFactory.directoryFilter());
     }
 
     @Override
     public boolean hasChildren(Object element) {
-        return ((TFile) element).hasChildren(new DirectoryFilter());
+        return ((TFile) element).hasChildren(FilterFactory.directoryFilter());
     }
 
     @Override
