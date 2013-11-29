@@ -1,11 +1,15 @@
 package de.bht.fpa.mail.s797307.fsnavigation.handlers;
 
+import java.io.File;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import de.bht.fpa.mail.s797307.fsnavigation.TFile;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -28,6 +32,6 @@ public class DirectoryHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
         DirectoryDialog openDialog = new DirectoryDialog(window.getShell());
-        return openDialog.open();
+        return new TFile(new File(openDialog.open()));
     }
 }

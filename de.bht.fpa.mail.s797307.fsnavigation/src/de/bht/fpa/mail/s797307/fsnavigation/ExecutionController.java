@@ -1,7 +1,5 @@
 package de.bht.fpa.mail.s797307.fsnavigation;
 
-import java.io.File;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IExecutionListener;
@@ -30,7 +28,8 @@ public class ExecutionController implements IExecutionListener {
     @Override
     public void postExecuteSuccess(String commandId, Object returnValue) {
         if (returnValue != null) {
-            viewer.setInput(new TFile(new File((String) returnValue)));
+            TFile returnFile = (TFile) returnValue;
+            viewer.setInput(returnFile);
         }
     }
 
