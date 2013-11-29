@@ -9,6 +9,7 @@ import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import de.bht.fpa.mail.s797307.fsnavigation.HistoryManager;
 import de.bht.fpa.mail.s797307.fsnavigation.TFile;
 
 /**
@@ -32,6 +33,9 @@ public class DirectoryHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
         DirectoryDialog openDialog = new DirectoryDialog(window.getShell());
-        return new TFile(new File(openDialog.open()));
+        TFile selection = new TFile(new File(openDialog.open()));
+        HistoryManager.getInstance().add(selection);
+        HistoryManager.getInstance().saveHistory();
+        return selection;
     }
 }
