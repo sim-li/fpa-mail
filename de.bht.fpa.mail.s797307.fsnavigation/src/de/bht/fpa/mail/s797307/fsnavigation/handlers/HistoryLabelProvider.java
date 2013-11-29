@@ -18,7 +18,7 @@ public class HistoryLabelProvider extends LabelProvider {
     @Override
     public String getText(Object element) {
         if (HistoryManager.getInstance().isEmpty()) {
-            return "No history jet";
+            return "No base directories in history";
         }
         return ((File) element).getAbsolutePath();
     }

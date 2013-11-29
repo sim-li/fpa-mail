@@ -21,6 +21,9 @@ public class HistoryContentProvider implements IStructuredContentProvider {
 
     @Override
     public Object[] getElements(Object inputElement) {
+        if (HistoryManager.getInstance().isEmpty()) {
+            return new String[] { "No base directories in history" };
+        }
         return HistoryManager.getInstance().getHistory();
     }
 }

@@ -27,7 +27,6 @@ public final class HistoryManager {
             }
             fis.close();
         } catch (IOException e) {
-            System.out.println("First run of programm -> History still empty");
         }
     }
 
@@ -63,10 +62,7 @@ public final class HistoryManager {
     }
 
     public boolean isEmpty() {
-        if (history.size() > 0) {
-            return false;
-        }
-        return true;
+        return history.size() == 0;
     }
 
     public String getDefaultRoot() {

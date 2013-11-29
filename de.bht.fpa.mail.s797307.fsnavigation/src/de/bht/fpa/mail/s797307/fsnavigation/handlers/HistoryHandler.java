@@ -10,6 +10,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import de.bht.fpa.mail.s797307.fsnavigation.HistoryManager;
 import de.bht.fpa.mail.s797307.fsnavigation.TFile;
 
 public class HistoryHandler extends AbstractHandler {
@@ -23,9 +24,9 @@ public class HistoryHandler extends AbstractHandler {
         ListDialog dialog = new ListDialog(window.getShell());
         dialog.setContentProvider(new HistoryContentProvider());
         dialog.setLabelProvider(new HistoryLabelProvider());
-        dialog.setTitle("Select working directory from history");
         dialog.setInput(new TFile[] {});
-        if (dialog.open() != Window.OK) {
+        Object returnCode = dialog.open();
+        if ((int) returnCode != Window.OK || HistoryManager.getInstance().isEmpty()) {
             return null;
         }
         TFile result = new TFile((File) dialog.getResult()[0]);
