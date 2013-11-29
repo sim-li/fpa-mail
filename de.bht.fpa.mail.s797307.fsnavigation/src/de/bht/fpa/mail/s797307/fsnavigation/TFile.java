@@ -2,12 +2,17 @@ package de.bht.fpa.mail.s797307.fsnavigation;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedList;
 
 import org.eclipse.swt.graphics.Image;
 
-public class TFile {
+public class TFile implements Serializable {
+    /**
+     * TFile Object
+     */
+    private static final long serialVersionUID = 1234234324234L;
     private final Image folderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico")
             .createImage();
     private final Image fileIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/file.ico")

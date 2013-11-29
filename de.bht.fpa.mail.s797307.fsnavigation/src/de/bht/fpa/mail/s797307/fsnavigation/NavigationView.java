@@ -1,6 +1,5 @@
 package de.bht.fpa.mail.s797307.fsnavigation;
 
-import java.io.File;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -34,10 +33,8 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
     }
 
     private TFile createModel() {
-        // return new TFile(
-        // new
-        // File("/Users/ccrider/Beuth/FPA/bht.haschemi/mailer-common/de.bht.fpa.mail.common/maildata"));
-        return new TFile(new File(System.getenv("HOME")));
+        HistoryManager.getInstance().loadHistory();
+        return new TFile(HistoryManager.getInstance().getBaseDirectory());
     }
 
     public void initalizeExecutionListener() {

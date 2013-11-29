@@ -34,7 +34,7 @@ public class DirectoryHandler extends AbstractHandler {
         IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
         DirectoryDialog openDialog = new DirectoryDialog(window.getShell());
         TFile selection = new TFile(new File(openDialog.open()));
-        HistoryManager.getInstance().add(selection);
+        HistoryManager.getInstance().add(selection.getFile());
         HistoryManager.getInstance().saveHistory();
         return selection;
     }
