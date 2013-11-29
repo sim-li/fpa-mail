@@ -33,7 +33,11 @@ public class DirectoryHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
         DirectoryDialog openDialog = new DirectoryDialog(window.getShell());
-        TFile selection = new TFile(new File(openDialog.open()));
+        String filename = openDialog.open();
+        if (filename == null) {
+            return null;
+        }
+        TFile selection = new TFile(new File(filename));
         HistoryManager.getInstance().add(selection.getFile());
         HistoryManager.getInstance().saveHistory();
         return selection;

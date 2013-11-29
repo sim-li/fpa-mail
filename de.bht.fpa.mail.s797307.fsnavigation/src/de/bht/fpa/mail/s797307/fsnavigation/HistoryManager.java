@@ -36,7 +36,6 @@ public final class HistoryManager {
         if (!history.isEmpty()) {
             try {
                 fos = new FileOutputStream(f.getAbsolutePath());
-                System.out.println(f.getAbsolutePath());
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 oos.writeObject(history);
             } catch (IOException e) {
