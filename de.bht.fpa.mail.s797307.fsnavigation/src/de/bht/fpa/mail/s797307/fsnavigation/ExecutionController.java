@@ -29,8 +29,9 @@ public class ExecutionController implements IExecutionListener {
 
     @Override
     public void postExecuteSuccess(String commandId, Object returnValue) {
-        viewer.setInput(new TFile(new File((String) returnValue)));
-
+        if (returnValue != null) {
+            viewer.setInput(new TFile(new File((String) returnValue)));
+        }
     }
 
     @Override
