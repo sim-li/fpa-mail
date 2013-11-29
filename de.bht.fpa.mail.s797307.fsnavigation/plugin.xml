@@ -71,7 +71,6 @@
                id="de.bht.fpa.mail.s797307.fsnavigation.toolbars.sampleToolbar">
             <command
                   commandId="de.bht.fpa.mail.s797307.fsnavigation.commands.openDirectory"
-                  icon="icons/sample.gif"
                   id="de.bht.fpa.mail.s797307.fsnavigation.toolbars.openDirectory"
                   tooltip="Say hello world">
             </command>

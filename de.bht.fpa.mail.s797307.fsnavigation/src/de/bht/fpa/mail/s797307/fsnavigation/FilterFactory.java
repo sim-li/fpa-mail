@@ -1,10 +1,12 @@
 package de.bht.fpa.mail.s797307.fsnavigation;
 
 import java.io.File;
-
 import java.io.FileFilter;
 
-public class FilterFactory {
+final class FilterFactory {
+
+    private FilterFactory() {
+    }
 
     public static FileFilter directoryFilter() {
         return new FileFilter() {

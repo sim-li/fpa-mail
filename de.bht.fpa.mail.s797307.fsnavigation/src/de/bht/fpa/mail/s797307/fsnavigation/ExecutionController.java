@@ -8,9 +8,8 @@ import org.eclipse.core.commands.IExecutionListener;
 import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.jface.viewers.Viewer;
 
-
 public class ExecutionController implements IExecutionListener {
-    Viewer viewer;
+    private final Viewer viewer;
 
     public ExecutionController(Viewer viewer) {
         this.viewer = viewer;

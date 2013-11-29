@@ -8,8 +8,10 @@ import java.util.LinkedList;
 import org.eclipse.swt.graphics.Image;
 
 public class TFile {
-    Image folderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico").createImage();
-    Image fileIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/file.ico").createImage();
+    private final Image folderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico")
+            .createImage();
+    private final Image fileIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/file.ico")
+            .createImage();
 
     private final File file;
 

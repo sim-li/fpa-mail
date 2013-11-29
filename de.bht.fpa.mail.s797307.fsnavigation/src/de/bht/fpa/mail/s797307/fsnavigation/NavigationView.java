@@ -52,7 +52,7 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
     }
 
     public void printMessages(Collection<Message> messages, TFile directory) {
-        System.out.println("Selected base directory: " + directory.getText());
+        System.out.println("Selected base directory: " + directory.getFile().getAbsolutePath());
         System.out.println("Number of messages: " + messages.size());
         for (Message message : messages) {
             System.out.println(message.toString());
