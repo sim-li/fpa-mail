@@ -51,7 +51,7 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
         viewer.getControl().setFocus();
     }
 
-    public void displayMessages(Collection<Message> messages, TFile directory) {
+    public void printMessages(Collection<Message> messages, TFile directory) {
         System.out.println("Selected base directory: " + directory.getText());
         System.out.println("Number of messages: " + messages.size());
         for (Message message : messages) {
@@ -72,7 +72,7 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
                 System.err.println("Error parsing XML File: " + f.getText());
             }
             if (messages.size() > 0) {
-                displayMessages(messages, directory);
+                printMessages(messages, directory);
             }
         }
     }
