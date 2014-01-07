@@ -29,6 +29,9 @@ public final class NavigationView extends ViewPart implements ISelectionChangedL
         viewer.setContentProvider(cp);
         viewer.setInput(createModel());
         viewer.addSelectionChangedListener(this);
+        getSite().setSelectionProvider(viewer);
+        getViewSite().getPage().addSelectionListener(new NavigationListener(this));
+        getSite().setSelectionProvider(viewer);
         initalizeExecutionListener();
     }
 

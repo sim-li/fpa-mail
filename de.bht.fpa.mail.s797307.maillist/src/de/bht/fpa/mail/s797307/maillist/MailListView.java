@@ -72,9 +72,9 @@ public class MailListView extends ViewPart {
         subject.bindToProperty("subject");
         subject.build();
         Collection<Message> messages = new RandomTestDataProvider(50).getMessages();
-        System.out.println(messages);
         t.setInput(messages);
         tableViewer = t.getTableViewer();
+        getSite().setSelectionProvider(tableViewer);
     }
 
     @Override
