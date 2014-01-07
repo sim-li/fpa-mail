@@ -3,7 +3,6 @@ package de.bht.fpa.mail.s797307.maillist;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
@@ -12,7 +11,6 @@ import de.bht.fpa.mail.s000000.common.mail.model.Recipient;
 import de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider;
 import de.ralfebert.rcputils.properties.BaseValue;
 import de.ralfebert.rcputils.tables.ColumnBuilder;
-import de.ralfebert.rcputils.tables.ICellFormatter;
 import de.ralfebert.rcputils.tables.TableViewerBuilder;
 
 public class MailListView extends ViewPart {
@@ -38,10 +36,10 @@ public class MailListView extends ViewPart {
         ColumnBuilder read = t.createColumn("Read");
         read.setPixelWidth(READ_PERCENT_WIDTH);
         // read.bindToProperty("read");
-        read.format(new ICellFormatter() {
-
+        read.bindToValue(new BaseValue<Message>() {
             @Override
-            public void formatCell(ViewerCell cell, Object value) {
+            public Object get(Message message) {
+                return message.isRead();
             }
         });
         read.build();
@@ -51,15 +49,6 @@ public class MailListView extends ViewPart {
         sender.build();
         ColumnBuilder recipients = t.createColumn("Recipients");
         recipients.setPixelWidth(RECIPIENTS_PERCENT_WIDTH);
-        // [[Message: id=1533104654051427387
-        // sender=[Sender: id=2691333030509271361 email=schmidt_lola@home.de
-        // personal=lola schmidt ]
-        // received=Fri Aug 09 23:09:03 CEST 3918
-        // subject=My pants are on the run
-        // read=false
-        // importance=high attachment=()
-        // recipient=([Recipient: id=5579141307399660638 type=null
-        // email=schmidt_frank@myspace.com personal=trude stulle ])
         recipients.bindToValue(new BaseValue<Message>() {
             @Override
             public Object get(Message message) {
