@@ -1,5 +1,6 @@
 package de.bht.fpa.mail.s797307.maillist;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.TableViewer;
@@ -12,6 +13,8 @@ import de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider;
 import de.ralfebert.rcputils.properties.BaseValue;
 import de.ralfebert.rcputils.tables.ColumnBuilder;
 import de.ralfebert.rcputils.tables.TableViewerBuilder;
+import de.ralfebert.rcputils.tables.format.Formatter;
+import de.ralfebert.rcputils.tables.format.StringValueFormatter;
 
 public class MailListView extends ViewPart {
     private static final int IMPORTANCE_PERCENT_WIDTH = 70;
@@ -31,11 +34,13 @@ public class MailListView extends ViewPart {
         importance.build();
         ColumnBuilder received = t.createColumn("Received");
         received.setPixelWidth(RECEIVED_PERCENT_WIDTH);
+        received.useAsDefaultSortColumn();
+        StringValueFormatter dateFormat = Formatter.forDate(SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM));
+        received.format(dateFormat);
         received.bindToProperty("received");
         received.build();
         ColumnBuilder read = t.createColumn("Read");
         read.setPixelWidth(READ_PERCENT_WIDTH);
-        // read.bindToProperty("read");
         read.bindToValue(new BaseValue<Message>() {
             @Override
             public Object get(Message message) {
