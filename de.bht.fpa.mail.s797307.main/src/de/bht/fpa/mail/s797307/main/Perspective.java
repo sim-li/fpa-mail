@@ -65,7 +65,6 @@ public class Perspective implements IPerspectiveFactory {
     public static final String LEFT = PERSPECTIVE_ID + ".left";
     public static final String TOP = PERSPECTIVE_ID + ".top";
     public static final String BOTTOM = PERSPECTIVE_ID + ".bottom";
-
     private static final float BOTTOM_RATIO = 0.50f;
     private static final float TOP_RATIO = 0.50f;
     private static final float LEFT_RATIO = 0.25f;
