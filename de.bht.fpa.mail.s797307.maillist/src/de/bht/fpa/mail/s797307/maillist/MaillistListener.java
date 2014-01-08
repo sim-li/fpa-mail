@@ -30,23 +30,26 @@ public class MaillistListener implements ISelectionListener {
     }
 
     public void parseDirectory(TFile directory) {
-        /* BUG IS HERE */
         if (!directory.hasChildren(FilterFactory.xmlFilter())) {
-            System.out.println("FUCK YOU");
-            mailListView.clear();
             return;
         }
+        boolean gotMessages = false;
+        mailListView.clear();
         for (TFile f : directory.getChildren(FilterFactory.xmlFilter())) {
             try {
                 Message message = JAXB.unmarshal(f.getFile(), Message.class);
                 if (message != null) {
+                    gotMessages = true;
                     mailListView.addMessage(message);
                 }
             } catch (DataBindingException e) {
                 System.err.println("Error parsing XML File: " + f.getText());
             }
         }
-
+        if (gotMessages) {
+            mailListView.updateMessages();
+            gotMessages = false;
+        }
         mailListView.refresh();
     }
 }

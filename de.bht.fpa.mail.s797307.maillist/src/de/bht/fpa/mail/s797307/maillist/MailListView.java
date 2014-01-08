@@ -84,6 +84,12 @@ public class MailListView extends ViewPart {
         messages.add(message);
     }
 
+    public void updateMessages() {
+        if (messages.size() > 0) {
+            tableViewer.setInput(messages);
+        }
+    }
+
     public void refresh() {
         tableViewer.refresh();
     }
