@@ -90,6 +90,7 @@ public class MailListView extends ViewPart {
 
     public void clear() {
         tableViewer.remove(messages);
+        messages.clear();
     }
 
     @Override

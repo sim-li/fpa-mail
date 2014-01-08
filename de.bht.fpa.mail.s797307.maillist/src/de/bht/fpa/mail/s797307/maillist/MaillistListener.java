@@ -30,6 +30,12 @@ public class MaillistListener implements ISelectionListener {
     }
 
     public void parseDirectory(TFile directory) {
+        /* BUG IS HERE */
+        if (!directory.hasChildren(FilterFactory.xmlFilter())) {
+            System.out.println("FUCK YOU");
+            mailListView.clear();
+            return;
+        }
         for (TFile f : directory.getChildren(FilterFactory.xmlFilter())) {
             try {
                 Message message = JAXB.unmarshal(f.getFile(), Message.class);
@@ -40,9 +46,7 @@ public class MaillistListener implements ISelectionListener {
                 System.err.println("Error parsing XML File: " + f.getText());
             }
         }
-        if (!directory.hasChildren(FilterFactory.xmlFilter())) {
-            mailListView.clear();
-        }
+
         mailListView.refresh();
     }
 }
