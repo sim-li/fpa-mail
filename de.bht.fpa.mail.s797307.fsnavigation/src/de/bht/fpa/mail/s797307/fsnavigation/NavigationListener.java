@@ -23,8 +23,5 @@ public final class NavigationListener implements ISelectionListener {
 
     @Override
     public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-        // Message message =
-        // SelectionHelper.handleStructuredSelection(selection, Message.class);
-        System.out.println(selection);
     }
 }

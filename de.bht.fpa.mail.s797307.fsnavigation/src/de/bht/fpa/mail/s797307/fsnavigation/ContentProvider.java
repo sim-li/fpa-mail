@@ -3,6 +3,7 @@ package de.bht.fpa.mail.s797307.fsnavigation;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+
 public class ContentProvider implements ITreeContentProvider {
     protected NavigationView view;
 

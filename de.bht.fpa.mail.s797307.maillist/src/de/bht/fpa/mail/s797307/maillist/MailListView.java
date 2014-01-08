@@ -75,6 +75,7 @@ public class MailListView extends ViewPart {
         t.setInput(messages);
         tableViewer = t.getTableViewer();
         getSite().setSelectionProvider(tableViewer);
+        getViewSite().getPage().addSelectionListener(new MaillistListener(this));
     }
 
     @Override
