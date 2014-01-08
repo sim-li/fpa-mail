@@ -30,11 +30,11 @@ public class MaillistListener implements ISelectionListener {
     }
 
     public void parseDirectory(TFile directory) {
+        mailListView.clear();
         if (!directory.hasChildren(FilterFactory.xmlFilter())) {
             return;
         }
         boolean gotMessages = false;
-        mailListView.clear();
         for (TFile f : directory.getChildren(FilterFactory.xmlFilter())) {
             try {
                 Message message = JAXB.unmarshal(f.getFile(), Message.class);
