@@ -6,6 +6,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
 
+import de.bht.fpa.mail.s797307.common.util.TFile;
+
 
 public final class NavigationView extends ViewPart {
     private TreeViewer viewer;

@@ -9,8 +9,8 @@ import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import de.bht.fpa.mail.s797307.common.util.TFile;
 import de.bht.fpa.mail.s797307.fsnavigation.HistoryManager;
-import de.bht.fpa.mail.s797307.fsnavigation.TFile;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
