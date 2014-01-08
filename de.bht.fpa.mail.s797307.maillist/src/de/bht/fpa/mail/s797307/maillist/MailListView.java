@@ -1,6 +1,7 @@
 package de.bht.fpa.mail.s797307.maillist;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.TableViewer;
@@ -9,7 +10,6 @@ import org.eclipse.ui.part.ViewPart;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s000000.common.mail.model.Recipient;
-import de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider;
 import de.ralfebert.rcputils.properties.BaseValue;
 import de.ralfebert.rcputils.tables.ColumnBuilder;
 import de.ralfebert.rcputils.tables.TableViewerBuilder;
@@ -23,6 +23,7 @@ public class MailListView extends ViewPart {
     private static final int SENDER_PERCENT_WIDTH = 160;
     private static final int RECIPIENTS_PERCENT_WIDTH = 160;
     private static final int SUBJECT_PERCENT_WIDTH = 250;
+    private final Collection<Message> messages = new ArrayList<Message>();
     private TableViewer tableViewer;
 
     @Override
@@ -71,11 +72,22 @@ public class MailListView extends ViewPart {
         subject.setPixelWidth(SUBJECT_PERCENT_WIDTH);
         subject.bindToProperty("subject");
         subject.build();
-        Collection<Message> messages = new RandomTestDataProvider(50).getMessages();
         t.setInput(messages);
         tableViewer = t.getTableViewer();
         getSite().setSelectionProvider(tableViewer);
         getViewSite().getPage().addSelectionListener(new MaillistListener(this));
+    }
+
+    public void addMessage(Message message) {
+        messages.add(message);
+    }
+
+    public void refresh() {
+        tableViewer.refresh();
+    }
+
+    public void clear() {
+        tableViewer.remove(messages);
     }
 
     @Override
