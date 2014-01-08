@@ -63,7 +63,9 @@ public class MailListView extends ViewPart {
                 for (Recipient recipient : message.getRecipients()) {
                     sb.append(", " + recipient.getEmail());
                 }
-
+                if (sb.length() <= prefix.length()) {
+                    return "";
+                }
                 return sb.substring(prefix.length()).toString();
             }
         });

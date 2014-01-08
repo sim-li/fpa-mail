@@ -8,7 +8,6 @@ import org.eclipse.ui.part.ViewPart;
 
 import de.bht.fpa.mail.s797307.common.util.TFile;
 
-
 public final class NavigationView extends ViewPart {
     private TreeViewer viewer;
 
@@ -20,15 +19,19 @@ public final class NavigationView extends ViewPart {
         viewer.setLabelProvider(l);
         viewer.setContentProvider(cp);
         viewer.setInput(createModel());
+        getSite().setSelectionProvider(viewer);
         // getViewSite().getPage().addSelectionListener(new
         // NavigationListener(this));
-        getSite().setSelectionProvider(viewer);
         initalizeExecutionListener();
     }
 
     private TFile createModel() {
         HistoryManager.getInstance().loadHistory();
         return new TFile(HistoryManager.getInstance().getBaseDirectory());
+    }
+
+    public void setInput(Object input) {
+        viewer.setInput(input);
     }
 
     public void initalizeExecutionListener() {
