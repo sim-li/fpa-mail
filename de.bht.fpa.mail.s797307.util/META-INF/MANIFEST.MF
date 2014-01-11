@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Util
-Bundle-SymbolicName: de.bht.fpa.mail.s797307.util
+Bundle-SymbolicName: de.bht.fpa.mail.s797307.util;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.bht.fpa.mail.s797307.util.Activator
 Require-Bundle: org.eclipse.ui,

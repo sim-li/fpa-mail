@@ -5,12 +5,14 @@ Bundle-SymbolicName: de.bht.fpa.mail.s797307.maillist;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.bht.fpa.mail.s797307.maillist.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ de.bht.fpa.mail.common;bundle-version="1.0.3",
+ de.bht.fpa.mail.s797307.util;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.bht.fpa.mail.s000000.common.mail.model,
  de.bht.fpa.mail.s000000.common.mail.testdata,
- de.bht.fpa.mail.s797307.common.util,
+ de.bht.fpa.mail.s797307.util,
  de.ralfebert.rcputils.properties,
  de.ralfebert.rcputils.tables,
  de.ralfebert.rcputils.tables.format

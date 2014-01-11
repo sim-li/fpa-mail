@@ -1,0 +1,54 @@
+!SESSION 2014-01-11 16:56:12.360 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-01-11 16:56:58.848
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.ide 4 4 2014-01-11 17:07:27.753
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2014-01-11 17:07:27.754
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-01-11 17:07:27.754
+!MESSAGE The project description file (.project) for 'eclipse-configuration' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SESSION 2014-01-11 17:07:41.130 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-01-11 17:07:46.739
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2014-01-11 17:07:48.829
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-01-11 17:20:20.045 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-01-11 17:20:25.695
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2014-01-11 17:20:28.201
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-01-11 18:10:00.503 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.modeling.product -keyring /Users/funkjaymatada/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-01-11 18:10:05.791
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
