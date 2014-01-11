@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.part.ViewPart;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
@@ -17,6 +22,9 @@ import de.ralfebert.rcputils.tables.format.Formatter;
 import de.ralfebert.rcputils.tables.format.StringValueFormatter;
 
 public class MailListView extends ViewPart {
+  public MailListView() {
+  }
+
   private static final int IMPORTANCE_PERCENT_WIDTH = 70;
   private static final int RECEIVED_PERCENT_WIDTH = 140;
   private static final int READ_PERCENT_WIDTH = 40;
@@ -25,10 +33,27 @@ public class MailListView extends ViewPart {
   private static final int SUBJECT_PERCENT_WIDTH = 250;
   private final Collection<Message> messages = new ArrayList<Message>();
   private TableViewer tableViewer;
+  private Text searchText;
 
   @Override
   public void createPartControl(Composite parent) {
-    TableViewerBuilder t = new TableViewerBuilder(parent);
+
+    parent.setLayout(new GridLayout(2, false));
+
+    Label lblNewLabel = new Label(parent, SWT.NONE);
+    lblNewLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+    lblNewLabel.setText("Search Messages");
+
+    searchText = new Text(parent, SWT.BORDER);
+    searchText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+    Label label = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
+    label.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
+
+    Composite tableArea = new Composite(parent, SWT.NONE);
+    tableArea.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+
+    TableViewerBuilder t = new TableViewerBuilder(tableArea);
     ColumnBuilder importance = t.createColumn("Importance");
     importance.setPixelWidth(IMPORTANCE_PERCENT_WIDTH);
     importance.bindToProperty("importance");
