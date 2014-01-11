@@ -6,43 +6,43 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
 
-import de.bht.fpa.mail.s797307.common.util.TFile;
+import de.bht.fpa.mail.s797307.util.TFile;
 
 public final class NavigationView extends ViewPart {
-    private TreeViewer viewer;
+  private TreeViewer viewer;
 
-    @Override
-    public void createPartControl(Composite parent) {
-        ViewLabelProvider l = new ViewLabelProvider();
-        ContentProvider cp = new ContentProvider(this);
-        viewer = new TreeViewer(parent);
-        viewer.setLabelProvider(l);
-        viewer.setContentProvider(cp);
-        viewer.setInput(createModel());
-        getSite().setSelectionProvider(viewer);
-        // getViewSite().getPage().addSelectionListener(new
-        // NavigationListener(this));
-        initalizeExecutionListener();
-    }
+  @Override
+  public void createPartControl(Composite parent) {
+    ViewLabelProvider l = new ViewLabelProvider();
+    ContentProvider cp = new ContentProvider(this);
+    viewer = new TreeViewer(parent);
+    viewer.setLabelProvider(l);
+    viewer.setContentProvider(cp);
+    viewer.setInput(createModel());
+    getSite().setSelectionProvider(viewer);
+    // getViewSite().getPage().addSelectionListener(new
+    // NavigationListener(this));
+    initalizeExecutionListener();
+  }
 
-    private TFile createModel() {
-        HistoryManager.getInstance().loadHistory();
-        return new TFile(HistoryManager.getInstance().getBaseDirectory());
-    }
+  private TFile createModel() {
+    HistoryManager.getInstance().loadHistory();
+    return new TFile(HistoryManager.getInstance().getBaseDirectory());
+  }
 
-    public void setInput(Object input) {
-        viewer.setInput(input);
-    }
+  public void setInput(Object input) {
+    viewer.setInput(input);
+  }
 
-    public void initalizeExecutionListener() {
-        ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-                .getService(ICommandService.class);
-        commandService.addExecutionListener(new ExecutionController(viewer));
-    }
+  public void initalizeExecutionListener() {
+    ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+        .getService(ICommandService.class);
+    commandService.addExecutionListener(new ExecutionController(viewer));
+  }
 
-    @Override
-    public void setFocus() {
-        // TODO Auto-generated method stub
+  @Override
+  public void setFocus() {
+    // TODO Auto-generated method stub
 
-    }
+  }
 }
