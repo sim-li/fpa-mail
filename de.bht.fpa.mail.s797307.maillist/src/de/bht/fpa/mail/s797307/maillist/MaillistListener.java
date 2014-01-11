@@ -18,7 +18,6 @@ public class MaillistListener implements ISelectionListener {
     this.mailListView = mailListView;
   }
 
-  @SuppressWarnings("unchecked")
   @Override
   public void selectionChanged(IWorkbenchPart part, ISelection selection) {
     if (selection instanceof TreeSelection) {
@@ -38,7 +37,7 @@ public class MaillistListener implements ISelectionListener {
     for (TFile f : directory.getChildren(FilterFactory.xmlFilter())) {
       try {
         Message message = JAXB.unmarshal(f.getFile(), Message.class);
-        if (message != null) {
+        if (message.getText() != null) {
           gotMessages = true;
           mailListView.addMessage(message);
         }

@@ -17,91 +17,91 @@ import de.ralfebert.rcputils.tables.format.Formatter;
 import de.ralfebert.rcputils.tables.format.StringValueFormatter;
 
 public class MailListView extends ViewPart {
-    private static final int IMPORTANCE_PERCENT_WIDTH = 70;
-    private static final int RECEIVED_PERCENT_WIDTH = 140;
-    private static final int READ_PERCENT_WIDTH = 40;
-    private static final int SENDER_PERCENT_WIDTH = 160;
-    private static final int RECIPIENTS_PERCENT_WIDTH = 160;
-    private static final int SUBJECT_PERCENT_WIDTH = 250;
-    private final Collection<Message> messages = new ArrayList<Message>();
-    private TableViewer tableViewer;
+  private static final int IMPORTANCE_PERCENT_WIDTH = 70;
+  private static final int RECEIVED_PERCENT_WIDTH = 140;
+  private static final int READ_PERCENT_WIDTH = 40;
+  private static final int SENDER_PERCENT_WIDTH = 160;
+  private static final int RECIPIENTS_PERCENT_WIDTH = 160;
+  private static final int SUBJECT_PERCENT_WIDTH = 250;
+  private final Collection<Message> messages = new ArrayList<Message>();
+  private TableViewer tableViewer;
 
-    @Override
-    public void createPartControl(Composite parent) {
-        TableViewerBuilder t = new TableViewerBuilder(parent);
-        ColumnBuilder importance = t.createColumn("Importance");
-        importance.setPixelWidth(IMPORTANCE_PERCENT_WIDTH);
-        importance.bindToProperty("importance");
-        importance.build();
-        ColumnBuilder received = t.createColumn("Received");
-        received.setPixelWidth(RECEIVED_PERCENT_WIDTH);
-        received.useAsDefaultSortColumn();
-        StringValueFormatter dateFormat = Formatter.forDate(SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM));
-        received.format(dateFormat);
-        received.bindToProperty("received");
-        received.build();
-        ColumnBuilder read = t.createColumn("Read");
-        read.setPixelWidth(READ_PERCENT_WIDTH);
-        read.bindToValue(new BaseValue<Message>() {
-            @Override
-            public Object get(Message message) {
-                return message.isRead();
-            }
-        });
-        read.build();
-        ColumnBuilder sender = t.createColumn("Sender");
-        sender.setPixelWidth(SENDER_PERCENT_WIDTH);
-        sender.bindToProperty("sender.email");
-        sender.build();
-        ColumnBuilder recipients = t.createColumn("Recipients");
-        recipients.setPixelWidth(RECIPIENTS_PERCENT_WIDTH);
-        recipients.bindToValue(new BaseValue<Message>() {
-            @Override
-            public Object get(Message message) {
-                StringBuilder sb = new StringBuilder();
-                String prefix = ", ";
-                for (Recipient recipient : message.getRecipients()) {
-                    sb.append(", " + recipient.getEmail());
-                }
-                if (sb.length() <= prefix.length()) {
-                    return "";
-                }
-                return sb.substring(prefix.length()).toString();
-            }
-        });
-        recipients.build();
-        ColumnBuilder subject = t.createColumn("Subject");
-        subject.setPixelWidth(SUBJECT_PERCENT_WIDTH);
-        subject.bindToProperty("subject");
-        subject.build();
-        t.setInput(messages);
-        tableViewer = t.getTableViewer();
-        getSite().setSelectionProvider(tableViewer);
-        getViewSite().getPage().addSelectionListener(new MaillistListener(this));
-    }
-
-    public void addMessage(Message message) {
-        messages.add(message);
-    }
-
-    public void updateMessages() {
-        if (messages.size() > 0) {
-            tableViewer.setInput(messages);
+  @Override
+  public void createPartControl(Composite parent) {
+    TableViewerBuilder t = new TableViewerBuilder(parent);
+    ColumnBuilder importance = t.createColumn("Importance");
+    importance.setPixelWidth(IMPORTANCE_PERCENT_WIDTH);
+    importance.bindToProperty("importance");
+    importance.build();
+    ColumnBuilder received = t.createColumn("Received");
+    received.setPixelWidth(RECEIVED_PERCENT_WIDTH);
+    received.useAsDefaultSortColumn();
+    StringValueFormatter dateFormat = Formatter.forDate(SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM));
+    received.format(dateFormat);
+    received.bindToProperty("received");
+    received.build();
+    ColumnBuilder read = t.createColumn("Read");
+    read.setPixelWidth(READ_PERCENT_WIDTH);
+    read.bindToValue(new BaseValue<Message>() {
+      @Override
+      public Object get(Message message) {
+        return message.isRead();
+      }
+    });
+    read.build();
+    ColumnBuilder sender = t.createColumn("Sender");
+    sender.setPixelWidth(SENDER_PERCENT_WIDTH);
+    sender.bindToProperty("sender.email");
+    sender.build();
+    ColumnBuilder recipients = t.createColumn("Recipients");
+    recipients.setPixelWidth(RECIPIENTS_PERCENT_WIDTH);
+    recipients.bindToValue(new BaseValue<Message>() {
+      @Override
+      public Object get(Message message) {
+        StringBuilder sb = new StringBuilder();
+        String prefix = ", ";
+        for (Recipient recipient : message.getRecipients()) {
+          sb.append(", " + recipient.getEmail());
         }
-    }
+        if (sb.length() <= prefix.length()) {
+          return "";
+        }
+        return sb.substring(prefix.length()).toString();
+      }
+    });
+    recipients.build();
+    ColumnBuilder subject = t.createColumn("Subject");
+    subject.setPixelWidth(SUBJECT_PERCENT_WIDTH);
+    subject.bindToProperty("subject");
+    subject.build();
+    t.setInput(messages);
+    tableViewer = t.getTableViewer();
+    getSite().setSelectionProvider(tableViewer);
+    getViewSite().getPage().addSelectionListener(new MaillistListener(this));
+  }
 
-    public void refresh() {
-        tableViewer.refresh();
-    }
+  public void addMessage(Message message) {
+    messages.add(message);
+  }
 
-    public void clear() {
-        tableViewer.remove(messages);
-        messages.clear();
+  public void updateMessages() {
+    if (messages.size() > 0) {
+      tableViewer.setInput(messages);
     }
+  }
 
-    @Override
-    public void setFocus() {
+  public void refresh() {
+    tableViewer.refresh();
+  }
 
-    }
+  public void clear() {
+    tableViewer.remove(messages);
+    messages.clear();
+  }
+
+  @Override
+  public void setFocus() {
+
+  }
 
 }
