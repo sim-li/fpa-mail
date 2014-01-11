@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -49,7 +52,6 @@ public class MailListView extends ViewPart {
 
     Label label = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
     label.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-
     Composite tableArea = new Composite(parent, SWT.NONE);
     tableArea.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
@@ -103,6 +105,52 @@ public class MailListView extends ViewPart {
     tableViewer = t.getTableViewer();
     getSite().setSelectionProvider(tableViewer);
     getViewSite().getPage().addSelectionListener(new MaillistListener(this));
+
+    final StringBuilder currentSearch = new StringBuilder();
+    tableViewer.addFilter(new ViewerFilter() {
+      @Override
+      public boolean select(Viewer viewer, Object parentElement, Object element) {
+        if (element instanceof Message) {
+          // • Message.subject,
+          // • Message.text,
+          // • Message.received,
+          // • Message.sent,
+          // • Message.receiver.email, Message.receiver.personal,
+          // • Message.sender.email Message.sender.personal
+
+          Message message = (Message) element;
+          String searchString = currentSearch.toString();
+          StringBuilder receiverContent = new StringBuilder();
+          for (Recipient recipient : message.getRecipients()) {
+            receiverContent.append(recipient.getEmail());
+            receiverContent.append(recipient.getPersonal());
+
+          }
+          boolean textFound = message.getSubject().contains(searchString) || message.getText().contains(searchString)
+              || message.getReceived().toString().contains(searchString)
+              || message.getSent().toString().contains(searchString)
+              || message.getSender().getEmail().contains(searchString)
+              || message.getSender().getPersonal().contains(searchString)
+              || receiverContent.toString().contains(searchString);
+          return textFound;
+        }
+        return false;
+      }
+    });
+
+    searchText.addKeyListener(new KeyListener() {
+      @Override
+      public void keyReleased(org.eclipse.swt.events.KeyEvent e) {
+        currentSearch.delete(0, currentSearch.length());
+        currentSearch.append(searchText.getText());
+        tableViewer.refresh();
+      }
+
+      @Override
+      public void keyPressed(org.eclipse.swt.events.KeyEvent e) {
+      }
+    });
+
   }
 
   public void addMessage(Message message) {
