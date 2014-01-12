@@ -5,20 +5,19 @@ import java.util.TreeSet;
 
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
 import de.bht.fpa.mail.s000000.common.filter.NullFilter;
-import de.bht.fpa.mail.s000000.common.mail.model.Importance;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
-public class ImportanceFilter extends Filter {
-  Importance importance;
+public class ReadFilter extends Filter {
+  private final boolean isRead;
 
-  public ImportanceFilter(IFilter filter, Importance importance) {
+  public ReadFilter(IFilter filter, Boolean isRead) {
     super(filter);
-    this.importance = importance;
+    this.isRead = isRead;
   }
 
-  public ImportanceFilter(Importance importance) {
+  public ReadFilter(Boolean isRead) {
     super(new NullFilter());
-    this.importance = importance;
+    this.isRead = isRead;
   }
 
   @Override
@@ -26,7 +25,7 @@ public class ImportanceFilter extends Filter {
     Iterable<Message> messages = filterWithParent(messagesToFilter);
     Set<Message> filteredMessages = new TreeSet<Message>();
     for (Message m : messages) {
-      if (m.getImportance().equals(importance)) {
+      if (m.isRead() == isRead) {
         filteredMessages.add(m);
       }
     }

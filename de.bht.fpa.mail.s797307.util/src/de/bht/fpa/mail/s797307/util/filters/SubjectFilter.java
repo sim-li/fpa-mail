@@ -3,22 +3,25 @@ package de.bht.fpa.mail.s797307.util.filters;
 import java.util.Set;
 import java.util.TreeSet;
 
+import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
 import de.bht.fpa.mail.s000000.common.filter.NullFilter;
-import de.bht.fpa.mail.s000000.common.mail.model.Importance;
+import de.bht.fpa.mail.s000000.common.filter.StringCompareHelper;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
-public class ImportanceFilter extends Filter {
-  Importance importance;
+public class SubjectFilter extends Filter {
+  String searchString;
+  FilterOperator operator;
 
-  public ImportanceFilter(IFilter filter, Importance importance) {
+  public SubjectFilter(IFilter filter, String searchString, FilterOperator operator) {
     super(filter);
-    this.importance = importance;
+    this.searchString = searchString;
+    this.operator = operator;
   }
 
-  public ImportanceFilter(Importance importance) {
+  public SubjectFilter(String searchString) {
     super(new NullFilter());
-    this.importance = importance;
+    this.searchString = searchString;
   }
 
   @Override
@@ -26,7 +29,7 @@ public class ImportanceFilter extends Filter {
     Iterable<Message> messages = filterWithParent(messagesToFilter);
     Set<Message> filteredMessages = new TreeSet<Message>();
     for (Message m : messages) {
-      if (m.getImportance().equals(importance)) {
+      if (StringCompareHelper.matches(m.getSubject(), searchString, operator)) {
         filteredMessages.add(m);
       }
     }
