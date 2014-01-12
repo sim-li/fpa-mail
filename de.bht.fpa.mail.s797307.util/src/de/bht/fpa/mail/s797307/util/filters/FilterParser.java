@@ -38,7 +38,7 @@ public final class FilterParser {
      * starts with „NER“). ends with: String endet mit einem anderen String
      * („NERD“ ends with „RD“).
      */
-    return false;
+    return true;
   }
 
   public static boolean isFilterName(String s) {
@@ -61,17 +61,22 @@ public final class FilterParser {
      * die E-Mails, die in der Ergebnismenge aller Filter enthalten sind. Dieser
      * Filter kombiniert demnach andere Filter. Union (Vereinigung): G
      */
-    return false;
+    return true;
   }
 
   public static boolean isSearchString(String s) {
     // HELLO@WORLD.COM, etc.
-    return false;
+    return true;
   }
 
   public static void main(String[] args) {
     String in = "Subject( Union( Importance(Subject(\"Huhu\")), Read(true) ), \"Mama\" )";
-    buildList(in);
+    LinkedList<ParsingList> pl = buildList(in);
+    for (ParsingList pel : pl) {
+      for (String s : pel.getList()) {
+        System.out.println(s);
+      }
+    }
   }
 
   public static LinkedList<ParsingList> buildList(String input) {
@@ -86,7 +91,7 @@ public final class FilterParser {
     // Build List.
     LinkedList<ParsingList> results = new LinkedList<ParsingList>();
     ParsingList parsingList = new ParsingList();
-    for (int i = expressions.length - 1; i > 1; i--) {
+    for (int i = expressions.length - 1; i >= 0; i--) {
       String rawExpression = expressions[i];
       String expression = rawExpression.trim();
       if (expression.isEmpty()) {
@@ -97,7 +102,7 @@ public final class FilterParser {
         continue;
       }
       results.push(parsingList);
-      parsingList.clear();
+      parsingList = new ParsingList();
     }
     return results;
   }
