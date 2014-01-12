@@ -3,6 +3,7 @@ package de.bht.fpa.mail.s797307.util.filters;
 import java.util.LinkedList;
 
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
+import de.bht.fpa.mail.s000000.common.filter.NullFilter;
 import de.bht.fpa.mail.s797307.util.FilterOperator;
 import de.bht.fpa.mail.s797307.util.FilterType;
 
@@ -27,7 +28,9 @@ public final class FilterParser {
   }
 
   public static void main(String[] args) {
-    String in = "Subject( Union( Importance(Subject(\"Huhu\")), Read(true) ), \"Mama\" )";
+    String in = "Subject( " + "Union(Importance(Subject(\"Huhu\"), \"high\"), Read(true))," + " \"Mama\" )";
+    // String in =
+    // "Union(Sender(\"me@this.com\",contains),Recipient(\"foo@bar.de\",is))";
     LinkedList<ParsingList> pl = buildList(in);
     for (ParsingList pel : pl) {
       System.out.println("--");
@@ -38,9 +41,21 @@ public final class FilterParser {
   }
 
   public static IFilter parse(LinkedList<ParsingList> results, IFilter filter) {
+    ParsingList result = results.pop();
+    String filterName = result.getFirst();
+    if (!isFilterName(filterName)) {
+      return new NullFilter();
+    }
+    while (result.size() > 1) {
+      String expression = result.pop();
+      if (isFilterName(expression)) {
+        return new NullFilter();
+      }
+      if (!isOperator(expression)) {
 
+      }
+    }
     return filter;
-
   }
 
   public static LinkedList<ParsingList> buildList(String input) {
