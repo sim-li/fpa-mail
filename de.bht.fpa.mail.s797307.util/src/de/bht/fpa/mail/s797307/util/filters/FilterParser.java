@@ -1,8 +1,20 @@
 package de.bht.fpa.mail.s797307.util.filters;
 
 import java.util.LinkedList;
-
-import de.bht.fpa.mail.s000000.common.filter.IFilter;
+// public ImportanceFilter(IFilter filter, Importance importance)
+// public IntersectionFilter(IFilter... filters)
+// public ReadFilter(IFilter filter, Boolean isRead)
+// public RecipientsFilter(IFilter filter, String searchString,
+// FilterOperator operator)
+// public SenderFilter(IFilter filter, String searchString, FilterOperator
+// operator)
+// public SubjectFilter(IFilter filter, String searchString, FilterOperator
+// operator)
+// public TextFilter(IFilter filter, String searchString, FilterOperator
+// operator)
+// public UnionFilter(IFilter... filters)
+// String in =
+// "Union(Sender(\"me@this.com\",contains),Recipient(\"foo@bar.de\",is))";
 
 public final class FilterParser {
   /*
@@ -58,30 +70,20 @@ public final class FilterParser {
   }
 
   public static void main(String[] args) {
-    // public ImportanceFilter(IFilter filter, Importance importance)
-    // public IntersectionFilter(IFilter... filters)
-    // public ReadFilter(IFilter filter, Boolean isRead)
-    // public RecipientsFilter(IFilter filter, String searchString,
-    // FilterOperator operator)
-    // public SenderFilter(IFilter filter, String searchString, FilterOperator
-    // operator)
-    // public SubjectFilter(IFilter filter, String searchString, FilterOperator
-    // operator)
-    // public TextFilter(IFilter filter, String searchString, FilterOperator
-    // operator)
-    // public UnionFilter(IFilter... filters)
-    // String in =
-    // "Union(Sender(\"me@this.com\",contains),Recipient(\"foo@bar.de\",is))";
     String in = "Subject( Union( Importance(Subject(\"Huhu\")), Read(true) ), \"Mama\" )";
-    String regex = "[(),]";
-    String[] expressions = in.split(regex);
-    IFilter filterChain;
+    buildList(in);
+  }
+
+  public static LinkedList<ParsingList> buildList(String input) {
+    String[] expressions = input.split("[(),]");
+    // Visualize It!
     for (String expr : expressions) {
       String exprTr = expr.trim();
       if (!exprTr.isEmpty()) {
         System.out.println(exprTr);
       }
     }
+    // Build List.
     LinkedList<ParsingList> results = new LinkedList<ParsingList>();
     ParsingList parsingList = new ParsingList();
     for (int i = expressions.length - 1; i > 1; i--) {
@@ -97,5 +99,6 @@ public final class FilterParser {
       results.push(parsingList);
       parsingList.clear();
     }
+    return results;
   }
 }
