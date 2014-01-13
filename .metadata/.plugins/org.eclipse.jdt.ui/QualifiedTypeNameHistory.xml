@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.TFile"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyListener"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.events.KeyListener"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.StringCompareHelper"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.filters.IntersectionFilter"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.mail.model.Importance"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.IFilter"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.FilterOperator"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.FilterType"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.FilterType"/>
+<fullyQualifiedTypeName name="org.eclipse.core.commands.AbstractHandler"/>
 </qualifiedTypeNameHistroy>

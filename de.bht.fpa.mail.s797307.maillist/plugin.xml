@@ -22,5 +22,29 @@
          </view>
       </perspectiveExtension>
    </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="de.bht.fpa.mail.s797307.maillist.actionSet"
+            label="Sample Action Set"
+            visible="true">
+         <menu
+               id="sampleMenu"
+               label="Sample &amp;Menu">
+            <separator
+                  name="sampleGroup">
+            </separator>
+         </menu>
+         <action
+               class="de.bht.fpa.mail.s797307.maillist.actions.FilterConfigHandler"
+               icon="icons/sample.gif"
+               id="de.bht.fpa.mail.s797307.maillist.actions.FilterConfigHandler"
+               label="&amp;Sample Action"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               tooltip="Hello, Eclipse world">
+         </action>
+      </actionSet>
+   </extension>
 
 </plugin>

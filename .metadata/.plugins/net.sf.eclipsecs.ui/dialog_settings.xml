@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="net.sf.eclipsecs.core.config.GlobalCheckConfigurationWorkingSet">
-		<item value="31" key="colWidth3"/>
 		<item value="-1" key="selectedRow"/>
+		<item value="31" key="colWidth3"/>
 		<item value="78" key="colWidth2"/>
 		<item value="0" key="sortColumn"/>
 		<item value="79" key="colWidth1"/>
