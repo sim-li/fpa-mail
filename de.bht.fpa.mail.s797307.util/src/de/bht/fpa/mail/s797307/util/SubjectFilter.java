@@ -19,6 +19,12 @@ public class SubjectFilter extends Filter {
     this.operator = operator;
   }
 
+  public SubjectFilter(String searchString, FilterOperator operator) {
+    super(new NullFilter());
+    this.searchString = searchString;
+    this.operator = operator;
+  }
+
   public SubjectFilter(String searchString) {
     super(new NullFilter());
     this.searchString = searchString;

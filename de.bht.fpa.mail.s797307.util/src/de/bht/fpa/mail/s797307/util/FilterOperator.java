@@ -27,4 +27,7 @@ public enum FilterOperator {
     return value;
   }
 
+  public static void main(String[] args) {
+  }
+
 }

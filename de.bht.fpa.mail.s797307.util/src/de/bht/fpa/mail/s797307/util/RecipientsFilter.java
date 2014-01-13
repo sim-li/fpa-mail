@@ -20,6 +20,12 @@ public class RecipientsFilter extends Filter {
     this.operator = operator;
   }
 
+  public RecipientsFilter(String searchString, FilterOperator operator) {
+    super(new NullFilter());
+    this.searchString = searchString;
+    this.operator = operator;
+  }
+
   public RecipientsFilter(String searchString) {
     super(new NullFilter());
     this.searchString = searchString;

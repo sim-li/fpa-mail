@@ -19,6 +19,12 @@ public class SenderFilter extends Filter {
     this.operator = operator;
   }
 
+  public SenderFilter(String searchString, FilterOperator operator) {
+    super(new NullFilter());
+    this.searchString = searchString;
+    this.operator = operator;
+  }
+
   public SenderFilter(String searchString) {
     super(new NullFilter());
     this.searchString = searchString;

@@ -11,8 +11,8 @@ import org.eclipse.jface.viewers.TableViewer;
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
-import de.bht.fpa.mail.s000000.common.filter.NullFilter;
 import de.bht.fpa.mail.s000000.common.mail.model.Importance;
+import de.bht.fpa.mail.s797307.util.FilterOperator;
 import de.bht.fpa.mail.s797307.util.FilterWithList;
 import de.bht.fpa.mail.s797307.util.ImportanceFilter;
 import de.bht.fpa.mail.s797307.util.IntersectionFilter;
@@ -54,6 +54,8 @@ public class MaillistExecutionController implements IExecutionListener {
       }
       for (FilterCombination combination : combinations) {
         FilterType filterType = combination.getFilterType();
+        FilterOperator filterOperator = combination.getFilterOperator();
+        FilterValue filterValue = combination.getFilterValue();
         switch (filterType) {
         case IMPORTANCE:
           if (!(combination.getFilterValue() instanceof Importance)) {
@@ -65,29 +67,26 @@ public class MaillistExecutionController implements IExecutionListener {
           if (!(combination.getFilterValue() instanceof String)) {
             break;
           }
-          filter.addFilter(new SenderFilter(new NullFilter(), (String) combination.getFilterValue(), combination
-              .getFilterOperator()));
+          filter.addFilter(new SenderFilter((String) combination.getFilterValue(), combination.getFilterOperator()));
           break;
         case RECIPIENTS:
           if (!(combination.getFilterValue() instanceof String)) {
             break;
           }
-          filter.addFilter(new RecipientsFilter(new NullFilter(), (String) combination.getFilterValue(), combination
-              .getFilterOperator()));
+          filter
+              .addFilter(new RecipientsFilter((String) combination.getFilterValue(), combination.getFilterOperator()));
           break;
         case SUBJECT:
           if (!(combination.getFilterValue() instanceof String)) {
             break;
           }
-          filter.addFilter(new SubjectFilter(new NullFilter(), (String) combination.getFilterValue(), combination
-              .getFilterOperator()));
+          filter.addFilter(new SubjectFilter((String) combination.getFilterValue(), combination.getFilterOperator()));
           break;
         case TEXT:
           if (!(combination.getFilterValue() instanceof String)) {
             break;
           }
-          filter.addFilter(new TextFilter(new NullFilter(), (String) combination.getFilterValue(), combination
-              .getFilterOperator()));
+          filter.addFilter(new TextFilter((String) combination.getFilterValue(), combination.getFilterOperator()));
           break;
         case READ:
           if (!(combination.getFilterValue() instanceof String)) {

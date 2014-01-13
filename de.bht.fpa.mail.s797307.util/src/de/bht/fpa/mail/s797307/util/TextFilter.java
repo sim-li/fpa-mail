@@ -19,6 +19,12 @@ public class TextFilter extends Filter {
     this.operator = operator;
   }
 
+  public TextFilter(String searchString, FilterOperator operator) {
+    super(new NullFilter());
+    this.searchString = searchString;
+    this.operator = operator;
+  }
+
   public TextFilter(String searchString) {
     super(new NullFilter());
     this.searchString = searchString;
