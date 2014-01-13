@@ -5,13 +5,13 @@ import java.util.LinkedList;
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
 
 public abstract class FilterWithList {
-  protected LinkedList<IFilter> filterList;
+  protected LinkedList<IFilter> filterList = new LinkedList<IFilter>();
 
   public void addFilter(IFilter newFilter) {
-    this.filterList.add(newFilter);
+    filterList.add(newFilter);
   }
 
   public void removeFilter(IFilter filter) {
-    this.filterList.remove(filter);
+    filterList.remove(filter);
   }
 }

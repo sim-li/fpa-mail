@@ -79,7 +79,7 @@ public class MaillistExecutionController implements IExecutionListener {
         }
       }
     }
-    System.out.println(tableViewer.getInput().getClass());
+    // System.out.println(tableViewer.getInput().getClass());
   }
 
   @Override
