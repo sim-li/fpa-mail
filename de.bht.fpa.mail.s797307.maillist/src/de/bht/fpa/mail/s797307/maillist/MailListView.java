@@ -155,7 +155,7 @@ public class MailListView extends ViewPart {
 
     ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
         .getService(ICommandService.class);
-    commandService.addExecutionListener(new ExecutionController(tableViewer));
+    commandService.addExecutionListener(new MaillistExecutionController(tableViewer));
   }
 
   public void addMessage(Message message) {

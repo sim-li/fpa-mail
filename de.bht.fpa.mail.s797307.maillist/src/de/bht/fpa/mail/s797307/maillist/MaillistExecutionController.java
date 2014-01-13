@@ -6,10 +6,10 @@ import org.eclipse.core.commands.IExecutionListener;
 import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.jface.viewers.Viewer;
 
-public class ExecutionController implements IExecutionListener {
+public class MaillistExecutionController implements IExecutionListener {
   private final Viewer viewer;
 
-  public ExecutionController(Viewer viewer) {
+  public MaillistExecutionController(Viewer viewer) {
     this.viewer = viewer;
   }
 
@@ -27,7 +27,9 @@ public class ExecutionController implements IExecutionListener {
 
   @Override
   public void postExecuteSuccess(String commandId, Object returnValue) {
-    System.out.println("HELLO JAVA");
+    if (returnValue != null && returnValue instanceof String) {
+      System.out.println("HELLO JAVA");
+    }
   }
 
   @Override

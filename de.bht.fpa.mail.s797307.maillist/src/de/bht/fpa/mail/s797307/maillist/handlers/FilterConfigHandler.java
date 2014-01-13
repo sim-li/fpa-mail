@@ -38,6 +38,6 @@ public class FilterConfigHandler extends AbstractHandler {
     if ((Integer) returnCode != Window.OK || filterCombinations == null) {
       return null;
     }
-    return null;
+    return "Juhu";
   }
 }

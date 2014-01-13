@@ -29,7 +29,7 @@ public class ExecutionController implements IExecutionListener {
 
   @Override
   public void postExecuteSuccess(String commandId, Object returnValue) {
-    if (returnValue != null) {
+    if (returnValue != null && returnValue instanceof TFile) {
       TFile returnFile = (TFile) returnValue;
       viewer.setInput(returnFile);
     }
