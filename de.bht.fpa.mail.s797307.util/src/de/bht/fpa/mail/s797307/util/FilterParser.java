@@ -2,6 +2,7 @@ package de.bht.fpa.mail.s797307.util;
 
 import java.util.LinkedList;
 
+import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
 import de.bht.fpa.mail.s000000.common.filter.NullFilter;
 
