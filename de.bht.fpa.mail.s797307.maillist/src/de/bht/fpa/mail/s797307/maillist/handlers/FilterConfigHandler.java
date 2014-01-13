@@ -1,11 +1,15 @@
 package de.bht.fpa.mail.s797307.maillist.handlers;
 
+import java.util.List;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.jface.window.Window;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterDialog;
 
 /**
@@ -29,11 +33,11 @@ public class FilterConfigHandler extends AbstractHandler {
   public Object execute(ExecutionEvent event) throws ExecutionException {
     IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
     FilterDialog filterDialog = new FilterDialog(window.getShell());
-    filterDialog.open();
-    // MessageDialog.openInformation(
-    // window.getShell(),
-    // "Maillist",
-    // "Hello, Eclipse world");
+    Object returnCode = filterDialog.open();
+    List<FilterCombination> filterCombinations = filterDialog.getFilterCombinations();
+    if ((Integer) returnCode != Window.OK || filterCombinations == null) {
+      return null;
+    }
     return null;
   }
 }
