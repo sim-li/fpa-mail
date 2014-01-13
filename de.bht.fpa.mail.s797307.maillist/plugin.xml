@@ -66,15 +66,6 @@
       </handler>
    </extension>
    <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="de.bht.fpa.mail.s797307.maillist.commands.sampleCommand"
-            contextId="org.eclipse.ui.contexts.window"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M1+6">
-      </key>
-   </extension>
-   <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
@@ -89,18 +80,6 @@
                   mnemonic="S">
             </command>
          </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="de.bht.fpa.mail.s797307.maillist.toolbars.sampleToolbar">
-            <command
-                  commandId="de.bht.fpa.mail.s797307.maillist.commands.sampleCommand"
-                  icon="icons/sample.gif"
-                  id="de.bht.fpa.mail.s797307.maillist.toolbars.sampleCommand"
-                  tooltip="Say hello world">
-            </command>
-         </toolbar>
       </menuContribution>
    </extension>
 
