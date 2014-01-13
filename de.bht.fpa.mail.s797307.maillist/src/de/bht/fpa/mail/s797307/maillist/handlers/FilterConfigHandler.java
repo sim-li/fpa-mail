@@ -11,6 +11,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterDialog;
+import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -34,7 +35,7 @@ public class FilterConfigHandler extends AbstractHandler {
     IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
     FilterDialog filterDialog = new FilterDialog(window.getShell());
     Object returnCode = filterDialog.open();
-    System.out.println(filterDialog.getFilterGroupType());
+    FilterGroupType filterGroupType = filterDialog.getFilterGroupType();
     List<FilterCombination> filterCombinations = filterDialog.getFilterCombinations();
     if ((Integer) returnCode != Window.OK || filterCombinations == null) {
       return null;
