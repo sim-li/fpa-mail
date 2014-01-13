@@ -34,10 +34,11 @@ public class FilterConfigHandler extends AbstractHandler {
     IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
     FilterDialog filterDialog = new FilterDialog(window.getShell());
     Object returnCode = filterDialog.open();
+    System.out.println(filterDialog.getFilterGroupType());
     List<FilterCombination> filterCombinations = filterDialog.getFilterCombinations();
     if ((Integer) returnCode != Window.OK || filterCombinations == null) {
       return null;
     }
-    return "Juhu";
+    return filterCombinations;
   }
 }
