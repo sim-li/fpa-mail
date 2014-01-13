@@ -6,11 +6,17 @@
 <fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.StringCompareHelper"/>
 <fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.filters.IntersectionFilter"/>
 <fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.mail.model.Importance"/>
-<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.IFilter"/>
-<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.FilterOperator"/>
-<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.FilterType"/>
 <fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.FilterType"/>
 <fullyQualifiedTypeName name="org.eclipse.core.commands.AbstractHandler"/>
+<fullyQualifiedTypeName name="java.io.ObjectInputStream.GetField"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.FilterCombination"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.maillist.FilterTransfer"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.FilterType"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.ImportanceFilter"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.FilterOperator"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s797307.util.SenderFilter"/>
+<fullyQualifiedTypeName name="org.eclipse.jface.viewers.ViewerFilter"/>
+<fullyQualifiedTypeName name="de.bht.fpa.mail.s000000.common.filter.IFilter"/>
 </qualifiedTypeNameHistroy>

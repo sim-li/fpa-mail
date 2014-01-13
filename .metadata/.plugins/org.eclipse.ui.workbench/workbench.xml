@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="62" version="2.0">
+<workbench progressCount="44" version="2.0">
 <workbenchAdvisor/>
-<window height="709" maximized="true" width="1280" x="76" y="53">
+<window height="709" width="1280" x="25" y="22">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -24,10 +24,10 @@
 <coolItem id="org.eclipse.pde.ui.buildEditor" itemType="typePlaceholder" x="32" y="22"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wb.core.guiEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wb.core.guiEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.pde.ui.productEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.pde.ui.manifestEditor" itemType="typeToolBarContribution" x="32" y="22"/>
+<coolItem id="org.eclipse.pde.ui.manifestEditor" itemType="typePlaceholder" x="32" y="22"/>
 <coolItem id="org.eclipse.pde.ui.targetEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -43,26 +43,54 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" partName="de.bht.fpa.mail.s797307.fsnavigation" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.fsnavigation/META-INF/MANIFEST.MF" title="de.bht.fpa.mail.s797307.fsnavigation" tooltip="de.bht.fpa.mail.s797307.fsnavigation/META-INF/MANIFEST.MF" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.fsnavigation/META-INF/MANIFEST.MF"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterParser.java" partName="FilterParser.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java" title="FilterParser.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="513" selectionTopPixel="715"/>
 </editor>
-<editor id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" partName="de.bht.fpa.mail.s797307.history" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.history/META-INF/MANIFEST.MF" title="de.bht.fpa.mail.s797307.history" tooltip="de.bht.fpa.mail.s797307.history/META-INF/MANIFEST.MF" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.history/META-INF/MANIFEST.MF"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterWithList.java" partName="FilterWithList.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterWithList.java" title="FilterWithList.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterWithList.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterWithList.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="217" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" partName="de.bht.fpa.mail.s797307.maillist" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.maillist/META-INF/MANIFEST.MF" title="de.bht.fpa.mail.s797307.maillist" tooltip="de.bht.fpa.mail.s797307.maillist/META-INF/MANIFEST.MF" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.maillist/META-INF/MANIFEST.MF"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UnionFilter.java" partName="UnionFilter.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/UnionFilter.java" title="UnionFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/UnionFilter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/UnionFilter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="277" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterConfigHandler.java" partName="FilterConfigHandler.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/FilterConfigHandler.java" title="FilterConfigHandler.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/FilterConfigHandler.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/FilterConfigHandler.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="35" selectionOffset="936" selectionTopPixel="25"/>
+<editor id="org.eclipse.wb.core.guiEditor" name="MailListView.java" partName="MailListView.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MailListView.java" title="MailListView.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MailListView.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MailListView.java"/>
+<editorState selectionHorizontalPixel="7" selectionLength="0" selectionOffset="0" selectionTopPixel="1345"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterDialog.java" partName="FilterDialog.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/BHT-FPA/mailer-common/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterDialog.java" title="FilterDialog.java" tooltip="de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterDialog.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterDialog.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="81" selectionTopPixel="418"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MaillistExecutionController.java" partName="MaillistExecutionController.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistExecutionController.java" title="MaillistExecutionController.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistExecutionController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistExecutionController.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="75" selectionOffset="3344" selectionTopPixel="555"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TableFilter.java" partName="TableFilter.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/TableFilter.java" title="TableFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/TableFilter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/TableFilter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="886" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Filter.java" partName="Filter.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Filter.java" title="Filter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Filter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Filter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="553" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ImportanceFilter.java" partName="ImportanceFilter.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java" title="ImportanceFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="805" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SenderFilter.java" partName="SenderFilter.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SenderFilter.java" title="SenderFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SenderFilter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SenderFilter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="64" selectionOffset="960" selectionTopPixel="100"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DirectoryHandler.java" partName="DirectoryHandler.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.fsnavigation/src/de/bht/fpa/mail/s797307/fsnavigation/handlers/DirectoryHandler.java" title="DirectoryHandler.java" tooltip="de.bht.fpa.mail.s797307.fsnavigation/src/de/bht/fpa/mail/s797307/fsnavigation/handlers/DirectoryHandler.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.fsnavigation/src/de/bht/fpa/mail/s797307/fsnavigation/handlers/DirectoryHandler.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="85"/>
 </editor>
 </editors>
 <views>
@@ -75,7 +103,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (19 items)"/>
+<category IMemento.internal.id="Warnings (26 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="386" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="654"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -311,9 +339,9 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.pde.runtime.LogView"/>
 <view id="org.eclipse.ui.views.TaskList"/>
-<view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
@@ -353,7 +381,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.23664749" ratioLeft="288" ratioRight="929" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.2925226" ratioLeft="356" ratioRight="861" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.77938807" ratioLeft="484" ratioRight="137" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -373,14 +401,14 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@6f286eba" ratio="0.87009805" ratioLeft="710" ratioRight="106" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@525983cc" ratio="0.5995872" ratioLeft="581" ratioRight="388" relationship="4" relative="topLeft">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.egit.ui.RepositoriesView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -392,96 +420,168 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" path="/de.bht.fpa.mail.s797307.maillist/META-INF/MANIFEST.MF"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistExecutionController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/UnionFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wb.core.guiEditor" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MailListView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SubjectFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ViewerFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/tableFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Filter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/TableFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SenderFilter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.fsnavigation/src/de/bht/fpa/mail/s797307/fsnavigation/handlers/DirectoryHandler.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.history/src/de/bht/fpa/mail/s797307/history/actions/SampleAction.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/FilterConfigHandler.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistListener.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" path="/de.bht.fpa.mail.s797307.fsnavigation/META-INF/MANIFEST.MF"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" path="/de.bht.fpa.mail.s797307.history/META-INF/MANIFEST.MF"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/ConfigureFilter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/FilterConfigHandler.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterDialog.java"/>
 </editors>
-<item historyLabel="FilterConfigHandler.java" index="3">
-<position info="not_deleted" x="93" y="0"/>
-</item>
-<item historyLabel="FilterConfigHandler.java" index="3">
-<position info="not_deleted" x="196" y="0"/>
-</item>
-<item historyLabel="FilterConfigHandler.java" index="3">
-<position info="not_deleted" x="397" y="0"/>
-</item>
-<item historyLabel="DirectoryHandler.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="SampleAction.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MaillistListener.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="MaillistListener.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="de.bht.fpa.mail.s797307.fsnavigation" index="5"/>
-<item historyLabel="de.bht.fpa.mail.s797307.history" index="6"/>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="ConfigureFilter.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ConfigureFilter.java" index="7">
+<item historyLabel="MaillistExecutionController.java" index="0">
 <position/>
 </item>
-<item historyLabel="FilterConfigHandler.java" index="8">
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="3789" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="3791" y="0"/>
+</item>
+<item historyLabel="SubjectFilter.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MailListView.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UnionFilter.java" index="2">
+<position info="not_deleted" x="277" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="1">
+<position info="not_deleted" x="513" y="0"/>
+</item>
+<item historyLabel="SubjectFilter.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="1">
+<position info="not_deleted" x="513" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="3791" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="1">
+<position info="not_deleted" x="513" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
 <position/>
 </item>
-<item historyLabel="FilterConfigHandler.java" index="8">
+<item historyLabel="MaillistExecutionController.java" index="0">
 <position/>
 </item>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="FilterConfigHandler.java" index="8">
-<position info="not_deleted" x="797" y="7"/>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="3572" y="0"/>
 </item>
-<item historyLabel="de.bht.fpa.mail.s797307.maillist" index="0"/>
-<item historyLabel="FilterConfigHandler.java" index="8">
-<position info="not_deleted" x="1031" y="0"/>
+<item historyLabel="ViewerFilter.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FilterDialog.java" index="9">
-<position info="not_deleted" x="81" y="0"/>
+<item historyLabel="ViewerFilter.java" index="5">
+<position/>
 </item>
-<item active="true" historyLabel="FilterConfigHandler.java" index="8">
-<position info="not_deleted" x="1031" y="0"/>
+<item historyLabel="ViewerFilter.java" index="5">
+<position/>
+</item>
+<item historyLabel="ViewerFilter.java" index="5">
+<position/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position info="not_deleted" x="312" y="11"/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position info="not_deleted" x="395" y="7"/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position info="not_deleted" x="810" y="0"/>
+</item>
+<item historyLabel="Filter.java" index="7">
+<position info="not_deleted" x="553" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="1">
+<position info="not_deleted" x="513" y="0"/>
+</item>
+<item historyLabel="ImportanceFilter.java" index="8">
+<position info="not_deleted" x="805" y="0"/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position info="not_deleted" x="484" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position info="not_deleted" x="484" y="0"/>
+</item>
+<item historyLabel="tableFilter.java" index="6">
+<position/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="312" y="11"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="3644" y="0"/>
+</item>
+<item historyLabel="Filter.java" index="7">
+<position info="not_deleted" x="553" y="0"/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="25" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="1">
+<position info="not_deleted" x="513" y="0"/>
+</item>
+<item historyLabel="ImportanceFilter.java" index="8">
+<position info="not_deleted" x="805" y="0"/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="25" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="2548" y="0"/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="332" y="13"/>
+</item>
+<item historyLabel="SenderFilter.java" index="10">
+<position info="not_deleted" x="960" y="64"/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="900" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="1">
+<position info="not_deleted" x="513" y="0"/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="900" y="0"/>
+</item>
+<item historyLabel="MaillistExecutionController.java" index="0">
+<position info="not_deleted" x="3344" y="75"/>
+</item>
+<item historyLabel="DirectoryHandler.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SenderFilter.java" index="10">
+<position info="not_deleted" x="960" y="64"/>
+</item>
+<item historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="900" y="0"/>
+</item>
+<item historyLabel="SenderFilter.java" index="10">
+<position info="not_deleted" x="960" y="64"/>
+</item>
+<item active="true" historyLabel="TableFilter.java" index="9">
+<position info="not_deleted" x="900" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -509,41 +609,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterDialog.java" tooltip="de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterDialog.java">
-<persistable path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterDialog.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DirectoryHandler.java" tooltip="de.bht.fpa.mail.s797307.fsnavigation/src/de/bht/fpa/mail/s797307/fsnavigation/handlers/DirectoryHandler.java">
+<persistable path="/de.bht.fpa.mail.s797307.fsnavigation/src/de/bht/fpa/mail/s797307/fsnavigation/handlers/DirectoryHandler.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConfigureFilter.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/ConfigureFilter.java">
-<persistable path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/handlers/ConfigureFilter.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SenderFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SenderFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SenderFilter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="de.bht.fpa.mail.s797307.maillist/META-INF/MANIFEST.MF">
-<persistable path="/de.bht.fpa.mail.s797307.maillist/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ImportanceFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="de.bht.fpa.mail.s797307.history/META-INF/MANIFEST.MF">
-<persistable path="/de.bht.fpa.mail.s797307.history/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Filter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Filter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Filter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="de.bht.fpa.mail.s797307.fsnavigation/META-INF/MANIFEST.MF">
-<persistable path="/de.bht.fpa.mail.s797307.fsnavigation/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ViewerFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ViewerFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ViewerFilter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MaillistListener.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistListener.java">
-<persistable path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistListener.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MaillistExecutionController.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistExecutionController.java">
+<persistable path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MaillistExecutionController.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SampleAction.java" tooltip="de.bht.fpa.mail.s797307.history/src/de/bht/fpa/mail/s797307/history/actions/SampleAction.java">
-<persistable path="/de.bht.fpa.mail.s797307.history/src/de/bht/fpa/mail/s797307/history/actions/SampleAction.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SubjectFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SubjectFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/SubjectFilter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="de.bht.fpa.mail.s797307.util/META-INF/MANIFEST.MF">
-<persistable path="/de.bht.fpa.mail.s797307.util/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wb.core.guiEditor" name="MailListView.java" tooltip="de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MailListView.java">
+<persistable path="/de.bht.fpa.mail.s797307.maillist/src/de/bht/fpa/mail/s797307/maillist/MailListView.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="de.bht.fpa.mail.s797307.messageview/META-INF/MANIFEST.MF">
-<persistable path="/de.bht.fpa.mail.s797307.messageview/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UnionFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/UnionFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/UnionFilter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="plugin.xml" tooltip="de.bht.fpa.examples.icashbox/plugin.xml">
-<persistable path="/de.bht.fpa.examples.icashbox/plugin.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterWithList.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterWithList.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterWithList.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="de.bht.fpa.mail.s797307.main/META-INF/MANIFEST.MF">
-<persistable path="/de.bht.fpa.mail.s797307.main/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterParser.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Perspective.java" tooltip="de.bht.fpa.mail.s797307.main/src/de/bht/fpa/mail/s797307/main/Perspective.java">
-<persistable path="/de.bht.fpa.mail.s797307.main/src/de/bht/fpa/mail/s797307/main/Perspective.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterOperator.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterOperator.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterOperator.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ReadFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ReadFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ReadFilter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TextFilter.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/TextFilter.java">
+<persistable path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/TextFilter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IFilter.java" tooltip="de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/IFilter.java">
+<persistable path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/IFilter.java"/>
 </file>
 </mruList>
 </workbench>
