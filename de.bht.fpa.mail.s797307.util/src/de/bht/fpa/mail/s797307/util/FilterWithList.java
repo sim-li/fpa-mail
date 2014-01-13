@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
 
-public abstract class FilterWithList {
+public abstract class FilterWithList implements de.bht.fpa.mail.s000000.common.filter.IFilter {
   protected LinkedList<IFilter> filterList = new LinkedList<IFilter>();
 
   public void addFilter(IFilter newFilter) {

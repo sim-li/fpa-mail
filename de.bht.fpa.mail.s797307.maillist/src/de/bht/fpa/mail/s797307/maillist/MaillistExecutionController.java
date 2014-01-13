@@ -1,6 +1,8 @@
 package de.bht.fpa.mail.s797307.maillist;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -13,6 +15,7 @@ import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s000000.common.mail.model.Importance;
+import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s797307.util.FilterWithList;
 import de.bht.fpa.mail.s797307.util.ImportanceFilter;
 import de.bht.fpa.mail.s797307.util.IntersectionFilter;
@@ -20,6 +23,7 @@ import de.bht.fpa.mail.s797307.util.ReadFilter;
 import de.bht.fpa.mail.s797307.util.RecipientsFilter;
 import de.bht.fpa.mail.s797307.util.SenderFilter;
 import de.bht.fpa.mail.s797307.util.SubjectFilter;
+import de.bht.fpa.mail.s797307.util.TableFilter;
 import de.bht.fpa.mail.s797307.util.TextFilter;
 import de.bht.fpa.mail.s797307.util.UnionFilter;
 
@@ -73,13 +77,18 @@ public class MaillistExecutionController implements IExecutionListener {
           filter.addFilter(new TextFilter((String) filterValue, filterOperator));
           break;
         case READ:
-          boolean filterValueAsBool = Boolean.parseBoolean((String) filterValue);
+          boolean filterValueAsBool = (Boolean) filterValue;
           filter.addFilter(new ReadFilter(filterValueAsBool));
           break;
         }
       }
+      ArrayList<Message> messages = (ArrayList<Message>) tableViewer.getInput();
+      Set<Message> filteredMessages = filter.filter(messages);
+      TableFilter tableFilter = new TableFilter(filter);
+      tableViewer.resetFilters();
+      tableViewer.addFilter(tableFilter);
+      tableViewer.refresh();
     }
-    // System.out.println(tableViewer.getInput().getClass());
   }
 
   @Override

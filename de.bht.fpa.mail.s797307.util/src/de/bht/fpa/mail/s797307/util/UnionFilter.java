@@ -7,7 +7,7 @@ import java.util.TreeSet;
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
-public class UnionFilter extends FilterWithList implements de.bht.fpa.mail.s000000.common.filter.IFilter {
+public class UnionFilter extends FilterWithList {
 
   public UnionFilter(IFilter... filters) {
     for (IFilter filter : filters) {
