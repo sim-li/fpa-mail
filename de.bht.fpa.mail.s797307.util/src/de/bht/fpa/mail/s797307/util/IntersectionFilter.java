@@ -1,5 +1,6 @@
-package de.bht.fpa.mail.s797307.util.filters;
+package de.bht.fpa.mail.s797307.util;
 
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -7,10 +8,20 @@ import de.bht.fpa.mail.s000000.common.filter.IFilter;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
 public class IntersectionFilter implements IFilter {
-  private final IFilter[] filters;
+  private LinkedList<IFilter> filterList;
 
   public IntersectionFilter(IFilter... filters) {
-    this.filters = filters;
+    for (IFilter filter : filters) {
+      filterList.add(filter);
+    }
+  }
+
+  public void addFilter(IFilter filter) {
+    this.filterList.add(filter);
+  }
+
+  public void removeFilter(IFilter filter) {
+    this.filterList.remove(filter);
   }
 
   @Override
@@ -20,7 +31,7 @@ public class IntersectionFilter implements IFilter {
       filterResults.add(message);
     }
 
-    for (IFilter filter : filters) {
+    for (IFilter filter : filterList) {
       filterResults.retainAll(filter.filter(filterResults));
     }
     return filterResults;

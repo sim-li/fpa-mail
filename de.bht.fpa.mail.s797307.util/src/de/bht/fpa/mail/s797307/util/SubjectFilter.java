@@ -1,4 +1,4 @@
-package de.bht.fpa.mail.s797307.util.filters;
+package de.bht.fpa.mail.s797307.util;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -8,19 +8,18 @@ import de.bht.fpa.mail.s000000.common.filter.IFilter;
 import de.bht.fpa.mail.s000000.common.filter.NullFilter;
 import de.bht.fpa.mail.s000000.common.filter.StringCompareHelper;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
-import de.bht.fpa.mail.s000000.common.mail.model.Recipient;
 
-public class RecipientsFilter extends Filter {
+public class SubjectFilter extends Filter {
   String searchString;
   FilterOperator operator;
 
-  public RecipientsFilter(IFilter filter, String searchString, FilterOperator operator) {
+  public SubjectFilter(IFilter filter, String searchString, FilterOperator operator) {
     super(filter);
     this.searchString = searchString;
     this.operator = operator;
   }
 
-  public RecipientsFilter(String searchString) {
+  public SubjectFilter(String searchString) {
     super(new NullFilter());
     this.searchString = searchString;
   }
@@ -30,12 +29,7 @@ public class RecipientsFilter extends Filter {
     Iterable<Message> messages = filterWithParent(messagesToFilter);
     Set<Message> filteredMessages = new TreeSet<Message>();
     for (Message m : messages) {
-      StringBuilder recipients = new StringBuilder();
-      for (Recipient recipient : m.getRecipients()) {
-        recipients.append(recipient.getEmail());
-        recipients.append(recipient.getPersonal());
-      }
-      if (StringCompareHelper.matches(recipients.toString(), searchString, operator)) {
+      if (StringCompareHelper.matches(m.getSubject(), searchString, operator)) {
         filteredMessages.add(m);
       }
     }

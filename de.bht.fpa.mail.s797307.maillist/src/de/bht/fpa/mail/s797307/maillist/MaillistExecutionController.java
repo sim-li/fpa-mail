@@ -10,6 +10,8 @@ import org.eclipse.jface.viewers.TableViewer;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
+import de.bht.fpa.mail.s000000.common.filter.IFilter;
+import de.bht.fpa.mail.s797307.util.*;
 
 public class MaillistExecutionController implements IExecutionListener {
   private final TableViewer tableViewer;
@@ -37,6 +39,7 @@ public class MaillistExecutionController implements IExecutionListener {
       List<FilterCombination> combinations = transfer.getFilterCombination();
       FilterGroupType groupType = transfer.getFilterGroupType();
       if (groupType.toString() == groupType.INTERSECTION.toString()) {
+        IFilter filter = new IntersectionFilter();
         System.out.println("I got intersection!");
       }
       if (groupType.toString() == groupType.UNION.toString()) {
