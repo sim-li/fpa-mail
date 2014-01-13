@@ -9,11 +9,12 @@ import de.bht.fpa.mail.s000000.common.filter.NullFilter;
 public final class FilterParser {
 
   public static boolean isOperator(String s) {
-    for (FilterOperator operator : FilterOperator.values()) {
-      if (operator.value().toString().equals(s)) {
-        return true;
-      }
-    }
+    // for (FilterOperator operator : FilterOperator.values()) {
+    // if (operator.value().toString().equals(s)) {
+    // return true;
+    // }
+    // }
+    // return false;
     return false;
   }
 
