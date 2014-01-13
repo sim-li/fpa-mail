@@ -9,6 +9,7 @@ import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.jface.viewers.TableViewer;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
+import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 
 public class MaillistExecutionController implements IExecutionListener {
   private final TableViewer tableViewer;
@@ -31,12 +32,15 @@ public class MaillistExecutionController implements IExecutionListener {
 
   @Override
   public void postExecuteSuccess(String commandId, Object returnValue) {
-    if (returnValue != null && returnValue instanceof List<?>) {
-      List<FilterCombination> filterCombinations = (List<FilterCombination>) returnValue;
-      for (FilterCombination combination : filterCombinations) {
-        System.out.println("VAL: " + combination.getFilterValue() + " TYPE:" + combination.getFilterType() + " OP:"
-            + combination.getFilterOperator());
-        ;
+    if (returnValue != null && returnValue instanceof FilterTransfer) {
+      FilterTransfer transfer = (FilterTransfer) returnValue;
+      List<FilterCombination> combinations = transfer.getFilterCombination();
+      FilterGroupType groupType = transfer.getFilterGroupType();
+      if (groupType.toString() == groupType.INTERSECTION.toString()) {
+        System.out.println("I got intersection!");
+      }
+      if (groupType.toString() == groupType.UNION.toString()) {
+        System.out.println("I got Union!");
       }
     }
   }

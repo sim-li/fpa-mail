@@ -1,13 +1,15 @@
 package de.bht.fpa.mail.s797307.maillist;
 
+import java.util.List;
+
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 
 public class FilterTransfer {
   protected FilterGroupType filterGroupType;
-  protected FilterCombination filterCombination;
+  protected List<FilterCombination> filterCombination;
 
-  public FilterTransfer(FilterGroupType filterGroupType, FilterCombination filterCombination) {
+  public FilterTransfer(FilterGroupType filterGroupType, List<FilterCombination> filterCombination) {
     this.filterGroupType = filterGroupType;
     this.filterCombination = filterCombination;
   }
@@ -16,7 +18,7 @@ public class FilterTransfer {
     return filterGroupType;
   }
 
-  public FilterCombination getFilterCombination() {
+  public List<FilterCombination> getFilterCombination() {
     return filterCombination;
   }
 }
