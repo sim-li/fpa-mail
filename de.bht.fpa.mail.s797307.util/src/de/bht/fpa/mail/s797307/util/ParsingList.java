@@ -3,7 +3,7 @@ package de.bht.fpa.mail.s797307.util;
 import java.util.LinkedList;
 
 public class ParsingList {
-  protected LinkedList<String> c;
+  private final LinkedList<String> c;
 
   public ParsingList() {
     c = new LinkedList<String>();

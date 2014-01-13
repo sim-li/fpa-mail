@@ -16,7 +16,7 @@ import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s000000.common.mail.model.Importance;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
-import de.bht.fpa.mail.s797307.util.FilterWithList;
+import de.bht.fpa.mail.s797307.util.CombinationFilter;
 import de.bht.fpa.mail.s797307.util.ImportanceFilter;
 import de.bht.fpa.mail.s797307.util.IntersectionFilter;
 import de.bht.fpa.mail.s797307.util.ReadFilter;
@@ -52,7 +52,7 @@ public class MaillistExecutionController implements IExecutionListener {
       FilterTransfer transfer = (FilterTransfer) returnValue;
       List<FilterCombination> combinations = transfer.getFilterCombination();
       FilterGroupType groupType = transfer.getFilterGroupType();
-      FilterWithList filter = new IntersectionFilter();
+      CombinationFilter filter = new IntersectionFilter();
       if (groupType.toString() == groupType.UNION.toString()) {
         filter = new UnionFilter();
       }
