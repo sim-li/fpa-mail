@@ -28,7 +28,8 @@ public class FilterConfigHandler extends AbstractHandler {
   @Override
   public Object execute(ExecutionEvent event) throws ExecutionException {
     IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-    FilterDialog fd = new FilterDialog(window.getShell());
+    FilterDialog filterDialog = new FilterDialog(window.getShell());
+    filterDialog.open();
     // MessageDialog.openInformation(
     // window.getShell(),
     // "Maillist",
