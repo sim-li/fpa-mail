@@ -18,6 +18,7 @@ import de.bht.fpa.mail.s797307.util.CombinationFilter;
 import de.bht.fpa.mail.s797307.util.FilterGenerator;
 import de.bht.fpa.mail.s797307.util.FilterTransfer;
 import de.bht.fpa.mail.s797307.util.IntersectionFilter;
+import de.bht.fpa.mail.s797307.util.NullFilter;
 import de.bht.fpa.mail.s797307.util.TableFilter;
 import de.bht.fpa.mail.s797307.util.UnionFilter;
 
@@ -42,6 +43,10 @@ public class MaillistExecutionController implements IExecutionListener {
 
   @Override
   public void postExecuteSuccess(String commandId, Object returnValue) {
+    if (returnValue instanceof NullFilter) {
+      tableViewer.resetFilters();
+      return;
+    }
     if (returnValue != null && returnValue instanceof FilterTransfer) {
       FilterTransfer transfer = (FilterTransfer) returnValue;
       List<FilterCombination> combinations = transfer.getFilterCombination();
