@@ -9,7 +9,7 @@ public final class FilterParser {
 
   public static boolean isOperator(String s) {
     for (FilterOperator operator : FilterOperator.values()) {
-      if (operator.value().toString().equals(s)) {
+      if (operator.name().toString().equals(s.toUpperCase())) {
         return true;
       }
     }
@@ -18,30 +18,25 @@ public final class FilterParser {
 
   public static boolean isFilterType(String s) {
     for (FilterType type : FilterType.values()) {
-      if (type.value().equals(s)) {
+      if (type.name().equals(s.toUpperCase())) {
         return true;
       }
     }
     return false;
   }
 
-  // TODO
-  public static boolean isGroupFilter(String s) {
-    return false;
-  }
-
-  public static boolean filterGroupTypeHas(String test) {
+  public static boolean isGroupFilter(String test) {
     for (FilterGroupType c : FilterGroupType.values()) {
-      if (c.name().equals(test)) {
+      if (c.name().equals(test.toUpperCase())) {
         return true;
       }
     }
     return false;
   }
 
-  public static boolean FilterTypeHas(String test) {
+  public static boolean isFilter(String test) {
     for (FilterType c : FilterType.values()) {
-      if (c.name().equals(test)) {
+      if (c.name().equals(test.toUpperCase())) {
         return true;
       }
     }
@@ -51,13 +46,13 @@ public final class FilterParser {
   public static void main(String[] args) {
     String in = "Subject( " + "Union(Importance(Subject(\"Huhu\"), \"high\"), Read(true))," + " \"Mama\" )";
     // parse(in, new UnionFilter());
-    // System.out.println(FilterGroupType.p);
+    System.out.println(FilterGroupType.UNION.value());
   }
 
   public static IFilter parse(String input, CombinationFilter filter) {
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
-    char [] seq = input.toCharArray();
+    char[] seq = input.toCharArray();
     for (int i = 0; i < seq.length; i++) {
       int seqEnd = seq.length - i;
       char braketOpen = seq[i];
@@ -72,23 +67,24 @@ public final class FilterParser {
       }
       if (elementStart != -1 && elementEnd != -1) {
         String inner = input.substring(elementStart, elementEnd);
-        String [] parameters = inner.split(",");
+        String[] parameters = inner.split(",");
         String type = input.substring(0, elementStart);
         String value = parameters[0].trim();
         String operator = parameters[1].trim();
+        BasicFilter innerFilter;
         if (isGroupFilter(type)) {
-          // FilterGenerator.buildFilter(FilterGroupType.)
+          innerFilter = FilterGenerator.buildFilter(FilterGroupType.valueOf(type));
         }
-        if (isOperator(operator)) {
-          String value;
+        if (isFilterType(type)) {
+          innerFilter = FilterGenerator.buildFilter(FilterType.valueOf(type), value);
         }
-        String operator;
+        if (isFilterType(type) && isOperator(operator)) {
+          FilterGenerator.buildFilter(FilterType.valueOf(type), value, FilterOperator.valueOf(operator));
+        }
 
-        filter.addFilter(FilterGenerator.buildFilter(filter, type, value,
-            operator))
       }
-  
-   }
-   return filter;
-   }
+
+    }
+    return filter;
+  }
 }

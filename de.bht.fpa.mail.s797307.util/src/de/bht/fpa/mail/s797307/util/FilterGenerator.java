@@ -10,7 +10,7 @@ import de.bht.fpa.mail.s000000.common.mail.model.Importance;
 
 public final class FilterGenerator {
 
-  private static BasicFilter buildFilter(FilterType type, Object value) {
+  public static BasicFilter buildFilter(FilterType type, Object value) {
     return buildFilter(type, value, null);
   }
 
