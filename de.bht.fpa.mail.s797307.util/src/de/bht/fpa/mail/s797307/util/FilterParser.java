@@ -1,20 +1,17 @@
 package de.bht.fpa.mail.s797307.util;
 
-import java.util.LinkedList;
-
+import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
-import de.bht.fpa.mail.s000000.common.filter.NullFilter;
 
 public final class FilterParser {
 
   public static boolean isOperator(String s) {
-    // for (FilterOperator operator : FilterOperator.values()) {
-    // if (operator.value().toString().equals(s)) {
-    // return true;
-    // }
-    // }
-    // return false;
+    for (FilterOperator operator : FilterOperator.values()) {
+      if (operator.value().toString().equals(s)) {
+        return true;
+      }
+    }
     return false;
   }
 
@@ -29,53 +26,33 @@ public final class FilterParser {
 
   public static void main(String[] args) {
     String in = "Subject( " + "Union(Importance(Subject(\"Huhu\"), \"high\"), Read(true))," + " \"Mama\" )";
-    // String in =
-    // "Union(Sender(\"me@this.com\",contains),Recipient(\"foo@bar.de\",is))";
-    LinkedList<ParsingList> pl = buildList(in);
-    for (ParsingList pel : pl) {
-      System.out.println("--");
-      for (String s : pel.getList()) {
-        System.out.println(s);
-      }
-    }
+    parse(in, new UnionFilter());
   }
 
-  public static IFilter parse(LinkedList<ParsingList> results, IFilter filter) {
-    ParsingList result = results.pop();
-    String filterName = result.getFirst();
-    if (!isFilterName(filterName)) {
-      return new NullFilter();
-    }
-    while (result.size() > 1) {
-      String expression = result.pop();
-      if (isFilterName(expression)) {
-        return new NullFilter();
+  public static IFilter parse(String input, BasicFilter filter) {
+    final char BRAKET_OPEN = '(';
+    final char BRAKET_CLOSE = ')';
+    char [] seq = input.toCharArray();
+    for (int i = 0; i < seq.length; i++) {
+      int seqEnd = seq.length - i;
+      char braketOpen = seq[i];
+      char braketClose = seq[seqEnd];
+      int elementStart = -1;
+      int elementEnd = -1;
+      if (braketOpen == BRAKET_OPEN) {
+        elementStart = i;
       }
-      if (!isOperator(expression)) {
-
+      if (braketClose == BRAKET_CLOSE) {
+        elementEnd = seqEnd;
       }
+      
     }
     return filter;
-  }
-
-  public static LinkedList<ParsingList> buildList(String input) {
-    String[] expressions = input.split("[(),]");
-    // Build List.
-    LinkedList<ParsingList> results = new LinkedList<ParsingList>();
-    ParsingList parsingList = new ParsingList();
-    for (int i = expressions.length - 1; i >= 0; i--) {
-      String rawExpression = expressions[i];
-      String expression = rawExpression.trim();
-      if (expression.isEmpty()) {
-        continue;
-      }
-      parsingList.push(expression);
-      if (!isFilterName(expression)) {
-        continue;
-      }
-      results.push(parsingList);
-      parsingList = new ParsingList();
-    }
-    return results;
+    input.indexOf(ch);
+    input.substring(beginIndex)
+    // ParsingList result = results.pop();
+    // String filterName = result.getFirst();
+    // }
+    // return filter;
   }
 }
