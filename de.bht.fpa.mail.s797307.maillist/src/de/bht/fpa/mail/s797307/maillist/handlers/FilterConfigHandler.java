@@ -12,7 +12,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterDialog;
 import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
-import de.bht.fpa.mail.s797307.maillist.FilterTransfer;
+import de.bht.fpa.mail.s797307.util.FilterTransfer;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.

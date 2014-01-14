@@ -12,19 +12,13 @@ import org.eclipse.jface.viewers.TableViewer;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
-import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
-import de.bht.fpa.mail.s000000.common.filter.FilterType;
-import de.bht.fpa.mail.s000000.common.mail.model.Importance;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
+import de.bht.fpa.mail.s797307.util.BasicFilter;
 import de.bht.fpa.mail.s797307.util.CombinationFilter;
-import de.bht.fpa.mail.s797307.util.ImportanceFilter;
+import de.bht.fpa.mail.s797307.util.FilterGenerator;
+import de.bht.fpa.mail.s797307.util.FilterTransfer;
 import de.bht.fpa.mail.s797307.util.IntersectionFilter;
-import de.bht.fpa.mail.s797307.util.ReadFilter;
-import de.bht.fpa.mail.s797307.util.RecipientsFilter;
-import de.bht.fpa.mail.s797307.util.SenderFilter;
-import de.bht.fpa.mail.s797307.util.SubjectFilter;
 import de.bht.fpa.mail.s797307.util.TableFilter;
-import de.bht.fpa.mail.s797307.util.TextFilter;
 import de.bht.fpa.mail.s797307.util.UnionFilter;
 
 public class MaillistExecutionController implements IExecutionListener {
@@ -52,36 +46,14 @@ public class MaillistExecutionController implements IExecutionListener {
       FilterTransfer transfer = (FilterTransfer) returnValue;
       List<FilterCombination> combinations = transfer.getFilterCombination();
       FilterGroupType groupType = transfer.getFilterGroupType();
-      CombinationFilter filter = new IntersectionFilter();
+
+      CombinationFilter combinationFilter;
       if (groupType.toString() == groupType.UNION.toString()) {
-        filter = new UnionFilter();
+        combinationFilter = new UnionFilter();
+      } else {
+        combinationFilter = new IntersectionFilter();
       }
-      for (FilterCombination combination : combinations) {
-        FilterType filterType = combination.getFilterType();
-        FilterOperator filterOperator = combination.getFilterOperator();
-        Object filterValue = combination.getFilterValue();
-        switch (filterType) {
-        case IMPORTANCE:
-          filter.addFilter(new ImportanceFilter((Importance) filterValue));
-          break;
-        case SENDER:
-          filter.addFilter(new SenderFilter((String) filterValue, filterOperator));
-          break;
-        case RECIPIENTS:
-          filter.addFilter(new RecipientsFilter((String) filterValue, filterOperator));
-          break;
-        case SUBJECT:
-          filter.addFilter(new SubjectFilter((String) filterValue, filterOperator));
-          break;
-        case TEXT:
-          filter.addFilter(new TextFilter((String) filterValue, filterOperator));
-          break;
-        case READ:
-          boolean filterValueAsBool = (Boolean) filterValue;
-          filter.addFilter(new ReadFilter(filterValueAsBool));
-          break;
-        }
-      }
+      BasicFilter filter = FilterGenerator.buildFilter(combinationFilter, combinations);
       ArrayList<Message> messages = (ArrayList<Message>) tableViewer.getInput();
       Set<Message> filteredMessages = filter.filter(messages);
       TableFilter tableFilter = new TableFilter(filter);

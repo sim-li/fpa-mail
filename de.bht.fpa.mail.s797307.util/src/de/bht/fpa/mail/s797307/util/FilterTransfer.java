@@ -1,4 +1,4 @@
-package de.bht.fpa.mail.s797307.maillist;
+package de.bht.fpa.mail.s797307.util;
 
 import java.util.List;
 
