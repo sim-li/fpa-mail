@@ -3,17 +3,28 @@ package de.bht.fpa.mail.s797307.util;
 import java.util.List;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
+import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s000000.common.mail.model.Importance;
 
 public final class FilterGenerator {
 
-  private static BasicFilter returnFilter(FilterType type, Object value) {
-    return returnFilter(type, value, null);
+  private static BasicFilter buildFilter(FilterType type, Object value) {
+    return buildFilter(type, value, null);
   }
 
-  private static BasicFilter returnFilter(FilterType type, Object value, FilterOperator operator) {
+  public static BasicFilter buildFilter(FilterGroupType type) {
+    switch (type) {
+    case UNION:
+      return new UnionFilter();
+    case INTERSECTION:
+      return new IntersectionFilter();
+    }
+    return new NullFilter();
+  }
+
+  public static BasicFilter buildFilter(FilterType type, Object value, FilterOperator operator) {
     switch (type) {
     case IMPORTANCE:
       return new ImportanceFilter((Importance) value);
@@ -41,7 +52,7 @@ public final class FilterGenerator {
       FilterType type = combination.getFilterType();
       Object value = combination.getFilterValue();
       FilterOperator operator = combination.getFilterOperator();
-      filter.addFilter(returnFilter(type, value, operator));
+      filter.addFilter(buildFilter(type, value, operator));
     }
     return filter;
   }

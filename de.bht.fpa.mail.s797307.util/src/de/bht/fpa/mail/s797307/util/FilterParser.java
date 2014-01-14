@@ -1,5 +1,6 @@
 package de.bht.fpa.mail.s797307.util;
 
+import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s000000.common.filter.IFilter;
@@ -15,7 +16,7 @@ public final class FilterParser {
     return false;
   }
 
-  public static boolean isFilterName(String s) {
+  public static boolean isFilterType(String s) {
     for (FilterType type : FilterType.values()) {
       if (type.value().equals(s)) {
         return true;
@@ -24,12 +25,36 @@ public final class FilterParser {
     return false;
   }
 
-  public static void main(String[] args) {
-    String in = "Subject( " + "Union(Importance(Subject(\"Huhu\"), \"high\"), Read(true))," + " \"Mama\" )";
-    parse(in, new UnionFilter());
+  // TODO
+  public static boolean isGroupFilter(String s) {
+    return false;
   }
 
-  public static IFilter parse(String input, BasicFilter filter) {
+  public static boolean filterGroupTypeHas(String test) {
+    for (FilterGroupType c : FilterGroupType.values()) {
+      if (c.name().equals(test)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static boolean FilterTypeHas(String test) {
+    for (FilterType c : FilterType.values()) {
+      if (c.name().equals(test)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static void main(String[] args) {
+    String in = "Subject( " + "Union(Importance(Subject(\"Huhu\"), \"high\"), Read(true))," + " \"Mama\" )";
+    // parse(in, new UnionFilter());
+    // System.out.println(FilterGroupType.p);
+  }
+
+  public static IFilter parse(String input, CombinationFilter filter) {
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
     char [] seq = input.toCharArray();
@@ -45,14 +70,25 @@ public final class FilterParser {
       if (braketClose == BRAKET_CLOSE) {
         elementEnd = seqEnd;
       }
-      
-    }
-    return filter;
-    input.indexOf(ch);
-    input.substring(beginIndex)
-    // ParsingList result = results.pop();
-    // String filterName = result.getFirst();
-    // }
-    // return filter;
-  }
+      if (elementStart != -1 && elementEnd != -1) {
+        String inner = input.substring(elementStart, elementEnd);
+        String [] parameters = inner.split(",");
+        String type = input.substring(0, elementStart);
+        String value = parameters[0].trim();
+        String operator = parameters[1].trim();
+        if (isGroupFilter(type)) {
+          // FilterGenerator.buildFilter(FilterGroupType.)
+        }
+        if (isOperator(operator)) {
+          String value;
+        }
+        String operator;
+
+        filter.addFilter(FilterGenerator.buildFilter(filter, type, value,
+            operator))
+      }
+  
+   }
+   return filter;
+   }
 }
