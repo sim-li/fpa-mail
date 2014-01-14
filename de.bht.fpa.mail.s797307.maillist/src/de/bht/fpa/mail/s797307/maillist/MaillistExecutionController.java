@@ -1,9 +1,6 @@
 package de.bht.fpa.mail.s797307.maillist;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IExecutionListener;
@@ -12,7 +9,6 @@ import org.eclipse.jface.viewers.TableViewer;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterCombination;
 import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
-import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s797307.util.BasicFilter;
 import de.bht.fpa.mail.s797307.util.CombinationFilter;
 import de.bht.fpa.mail.s797307.util.FilterGenerator;
@@ -51,16 +47,13 @@ public class MaillistExecutionController implements IExecutionListener {
       FilterTransfer transfer = (FilterTransfer) returnValue;
       List<FilterCombination> combinations = transfer.getFilterCombination();
       FilterGroupType groupType = transfer.getFilterGroupType();
-
       CombinationFilter combinationFilter;
-      if (groupType.toString() == groupType.UNION.toString()) {
+      if (groupType.toString() == FilterGroupType.UNION.toString()) {
         combinationFilter = new UnionFilter();
       } else {
         combinationFilter = new IntersectionFilter();
       }
       BasicFilter filter = FilterGenerator.buildFilter(combinationFilter, combinations);
-      ArrayList<Message> messages = (ArrayList<Message>) tableViewer.getInput();
-      Set<Message> filteredMessages = filter.filter(messages);
       TableFilter tableFilter = new TableFilter(filter);
       tableViewer.resetFilters();
       tableViewer.addFilter(tableFilter);
