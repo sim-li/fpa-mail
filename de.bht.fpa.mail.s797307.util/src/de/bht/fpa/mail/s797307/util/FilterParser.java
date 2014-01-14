@@ -34,6 +34,10 @@ public final class FilterParser {
     return false;
   }
 
+  public static boolean isSomeFilter(String test) {
+    return isGroupFilter(test) || isFilterType(test);
+  }
+
   public static boolean isFilter(String test) {
     for (FilterType c : FilterType.values()) {
       if (c.name().equals(test.toUpperCase())) {
@@ -41,6 +45,19 @@ public final class FilterParser {
       }
     }
     return false;
+  }
+
+  public static BasicFilter buildCorrectFilter(String type, String operator, String value) {
+    if (isGroupFilter(type)) {
+      return FilterGenerator.buildFilter(FilterGroupType.valueOf(type));
+    }
+    if (isFilterType(type)) {
+      return FilterGenerator.buildFilter(FilterType.valueOf(type), value);
+    }
+    if (isFilterType(type) && isOperator(operator)) {
+      return FilterGenerator.buildFilter(FilterType.valueOf(type), value, FilterOperator.valueOf(operator));
+    }
+    return null;
   }
 
   public static void main(String[] args) {
@@ -70,16 +87,12 @@ public final class FilterParser {
         String[] parameters = inner.split(",");
         String type = input.substring(0, elementStart);
         String value = parameters[0].trim();
+
         String operator = parameters[1].trim();
         BasicFilter innerFilter;
-        if (isGroupFilter(type)) {
-          innerFilter = FilterGenerator.buildFilter(FilterGroupType.valueOf(type));
-        }
-        if (isFilterType(type)) {
-          innerFilter = FilterGenerator.buildFilter(FilterType.valueOf(type), value);
-        }
-        if (isFilterType(type) && isOperator(operator)) {
-          FilterGenerator.buildFilter(FilterType.valueOf(type), value, FilterOperator.valueOf(operator));
+
+        if (value.matches("*(*")) {
+          innerFilter = buildCorrectFilter(type, operator, value);
         }
 
       }
