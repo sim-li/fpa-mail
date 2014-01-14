@@ -11,6 +11,6 @@ public class ReadFilter extends BasicFilter {
 
   @Override
   public boolean filter(Message message) {
-    return message.isRead();
+    return message.isRead() == isRead;
   }
 }

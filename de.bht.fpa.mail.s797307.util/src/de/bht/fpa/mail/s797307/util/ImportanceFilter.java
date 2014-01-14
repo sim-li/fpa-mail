@@ -12,6 +12,6 @@ public class ImportanceFilter extends BasicFilter {
 
   @Override
   public boolean filter(Message message) {
-    return message.getImportance().equals(importance) ? true : false;
+    return message.getImportance().equals(importance);
   }
 }
