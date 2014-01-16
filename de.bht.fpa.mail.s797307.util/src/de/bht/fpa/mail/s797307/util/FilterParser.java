@@ -61,27 +61,26 @@ public final class FilterParser {
   }
 
   public static void main(String[] args) {
-    String in = "Subject( " + "Union(Importance(Subject(\"Huhu\"), \"high\"), Read(true))," + " \"Mama\" )";
-    // parse(in, new UnionFilter());
-    System.out.println(FilterGroupType.UNION.value());
+    String in = "Intersection(Sender(\"mueller\", startsWith), Read(true))";
+    parse(in, new UnionFilter());
   }
 
-  public static IFilter parse(String input, CombinationFilter filter) {
+  public static IFilter parse(String input, BasicFilter filter) {
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
     char[] seq = input.toCharArray();
     for (int i = 0; i < seq.length; i++) {
-      int seqEnd = seq.length - i;
+      int seqEnd = seq.length - i - 1;
       char braketOpen = seq[i];
       char braketClose = seq[seqEnd];
       int elementStart = -1;
       int elementEnd = -1;
       if (braketOpen == BRAKET_OPEN) {
         elementStart = i;
+        for (int i2 = seqEnd; i > 0; i--) {
+        }
       }
-      if (braketClose == BRAKET_CLOSE) {
-        elementEnd = seqEnd;
-      }
+      System.out.println(elementStart + " " + elementEnd);
       if (elementStart != -1 && elementEnd != -1) {
         String inner = input.substring(elementStart, elementEnd);
         String[] parameters = inner.split(",");
@@ -90,14 +89,16 @@ public final class FilterParser {
 
         String operator = parameters[1].trim();
         BasicFilter innerFilter;
-
+        // Not atomic
+        System.out.println("Not entering, " + input.substring(elementStart, elementEnd));
         if (value.matches("*(*")) {
           innerFilter = buildCorrectFilter(type, operator, value);
+          System.out.println("Entering the crowd, " + input.substring(elementStart, elementEnd));
+          return parse(input.substring(elementStart, elementEnd), innerFilter);
         }
-
       }
 
     }
-    return filter;
+    return new NullFilter();
   }
 }

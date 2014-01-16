@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="44" version="2.0">
+<workbench progressCount="37" version="2.0">
 <workbenchAdvisor/>
-<window height="709" width="1195" x="91" y="22">
+<window height="709" maximized="true" width="1198" x="82" y="22">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -43,27 +43,17 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
-<part id="5"/>
-<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterGenerator.java" partName="FilterGenerator.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterGenerator.java" title="FilterGenerator.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterGenerator.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterGenerator.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="416" selectionTopPixel="59"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterParser.java" partName="FilterParser.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java" title="FilterParser.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterParser.java" partName="FilterParser.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java" title="FilterParser.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2992" selectionTopPixel="965"/>
+<editorState selectionHorizontalPixel="14" selectionLength="0" selectionOffset="2697" selectionTopPixel="845"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FilterCombination.java" partName="FilterCombination.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/BHT-FPA/mailer-common/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterCombination.java" title="FilterCombination.java" tooltip="de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterCombination.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterCombination.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="81" selectionTopPixel="149"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyTest.java" partName="MyTest.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/eclipse-workspace/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/MyTest.java" title="MyTest.java" tooltip="de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/MyTest.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/MyTest.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="419" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MessageTestDataProvider.java" partName="MessageTestDataProvider.java" path="/Users/funkjaymatada/Beuth/FPA/fpa-eclipse-macosx-64/BHT-FPA/mailer-common/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/MessageTestDataProvider.java" title="MessageTestDataProvider.java" tooltip="de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/MessageTestDataProvider.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/MessageTestDataProvider.java"/>
@@ -113,7 +103,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (30 items)"/>
+<category IMemento.internal.id="Warnings (28 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="386" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="654"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -328,16 +318,12 @@
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.jdt.junit.ResultView"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.pde.ui.PluginsView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@525983cc" orientation="512" selectedTabId="org.eclipse.egit.ui.RepositoriesView" style="0">
 <fastViews>
 <view id="org.eclipse.egit.ui.RepositoriesView" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="16384" id="topLeft" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">
-<fastViews>
-<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.3"/>
-<view id="org.eclipse.pde.ui.PluginsView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
@@ -345,7 +331,7 @@
 <view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
 <view id="org.eclipse.pde.runtime.LogView" ratio="0.3"/>
 <view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.20673077"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.16987179"/>
 <view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
 <view id="org.eclipse.search.ui.views.SearchView" ratio="0.3"/>
 </fastViews>
@@ -360,12 +346,15 @@
 <layout>
 <mainWindow>
 <info folder="true" part="topLeft">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
-<page content="org.eclipse.pde.ui.PluginsView" label="LabelNotFound"/>
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<page content="org.eclipse.pde.ui.PluginsView" label="Plug-ins"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
 </folder>
 </info>
 <info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="topLeft">
@@ -375,9 +364,9 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.2925226" ratioLeft="356" ratioRight="861" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.28512737" ratioLeft="347" ratioRight="870" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.7487923" ratioLeft="465" ratioRight="156" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
@@ -394,7 +383,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@52f42916" ratio="0.6610608" ratioLeft="511" ratioRight="262" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@52f42916" ratio="0.8777393" ratioLeft="761" ratioRight="106" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.jdt.junit.ResultView" appearance="2" expanded="2">
 <page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -421,7 +410,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/MessageTestDataProvider.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/ITestDataProvider.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/FileSystemTestDataProvider.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.main/src/de/bht/fpa/mail/s797307/main/Activator.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ReadFilter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ImportanceFilter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/IntersectionFilter.java"/>
@@ -430,62 +418,18 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/Activator.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/RecipientsFilter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/MyTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterGenerator.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/FilterParser.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterCombination.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/MessageTestDataProvider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/FileSystemTestDataProvider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ReadFilter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/filter/FilterCombination.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/MessageTestDataProvider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.common/src/de/bht/fpa/mail/s000000/common/mail/testdata/FileSystemTestDataProvider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/de.bht.fpa.mail.s797307.util/src/de/bht/fpa/mail/s797307/util/ReadFilter.java"/>
 </editors>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="MessageTestDataProvider.java" index="3">
-<position info="not_deleted" x="1139" y="0"/>
-</item>
-<item historyLabel="ITestDataProvider.java" index="4">
-<position info="not_deleted" x="859" y="17"/>
-</item>
-<item historyLabel="FileSystemTestDataProvider.java" index="5">
-<position info="not_deleted" x="1540" y="28"/>
-</item>
-<item historyLabel="MessageTestDataProvider.java" index="3">
-<position info="not_deleted" x="1139" y="0"/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="MessageTestDataProvider.java" index="3">
-<position info="not_deleted" x="1090" y="23"/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position info="not_deleted" x="605" y="0"/>
-</item>
-<item historyLabel="Activator.java" index="6">
-<position info="not_deleted" x="539" y="0"/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position info="not_deleted" x="859" y="0"/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position info="not_deleted" x="923" y="0"/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="SimpleTest.java" index="2">
-<position info="not_deleted" x="3176" y="0"/>
-</item>
-<item historyLabel="ReadFilter.java" index="7">
+<item historyLabel="ReadFilter.java" index="6">
 <position info="not_deleted" x="338" y="0"/>
 </item>
 <item historyLabel="FileSystemTestDataProvider.java" index="5">
@@ -500,55 +444,55 @@
 <item historyLabel="SimpleTest.java" index="2">
 <position info="not_deleted" x="3176" y="0"/>
 </item>
-<item historyLabel="ImportanceFilter.java" index="8">
+<item historyLabel="ImportanceFilter.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ImportanceFilter.java" index="8">
+<item historyLabel="ImportanceFilter.java" index="7">
 <position/>
 </item>
-<item historyLabel="ImportanceFilter.java" index="8">
+<item historyLabel="ImportanceFilter.java" index="7">
 <position info="not_deleted" x="450" y="0"/>
 </item>
-<item historyLabel="IntersectionFilter.java" index="9">
+<item historyLabel="IntersectionFilter.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="FilterGenerator.java" index="0">
 <position info="not_deleted" x="416" y="0"/>
 </item>
-<item historyLabel="CombinationFilter.java" index="10">
+<item historyLabel="CombinationFilter.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="BasicFilter.java" index="11">
+<item historyLabel="BasicFilter.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Activator.java" index="12">
+<item historyLabel="Activator.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="RecipientsFilter.java" index="13">
+<item historyLabel="RecipientsFilter.java" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ImportanceFilter.java" index="8">
+<item historyLabel="ImportanceFilter.java" index="7">
 <position info="not_deleted" x="448" y="1"/>
 </item>
-<item historyLabel="RecipientsFilter.java" index="13">
+<item historyLabel="RecipientsFilter.java" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="BasicFilter.java" index="11">
+<item historyLabel="BasicFilter.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Activator.java" index="12">
+<item historyLabel="Activator.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="RecipientsFilter.java" index="13">
+<item historyLabel="RecipientsFilter.java" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Activator.java" index="12">
+<item historyLabel="Activator.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="BasicFilter.java" index="11">
+<item historyLabel="BasicFilter.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ImportanceFilter.java" index="8">
+<item historyLabel="ImportanceFilter.java" index="7">
 <position info="not_deleted" x="448" y="1"/>
 </item>
 <item historyLabel="FilterGenerator.java" index="0">
@@ -572,14 +516,68 @@
 <item historyLabel="Test.java" index="1">
 <position info="not_deleted" x="75" y="0"/>
 </item>
-<item historyLabel="MyTest.java" index="14">
+<item historyLabel="MyTest.java" index="13">
 <position/>
 </item>
 <item historyLabel="SimpleTest.java" index="2">
 <position info="not_deleted" x="599" y="574"/>
 </item>
-<item active="true" historyLabel="MyTest.java" index="14">
-<position info="not_deleted" x="548" y="0"/>
+<item historyLabel="MyTest.java" index="13">
+<position info="not_deleted" x="477" y="0"/>
+</item>
+<item historyLabel="FilterGenerator.java" index="14">
+<position info="not_deleted" x="416" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="15">
+<position info="not_deleted" x="2960" y="0"/>
+</item>
+<item historyLabel="FilterCombination.java" index="16">
+<position info="not_deleted" x="81" y="0"/>
+</item>
+<item historyLabel="MessageTestDataProvider.java" index="17">
+<position info="not_deleted" x="82" y="0"/>
+</item>
+<item historyLabel="MessageTestDataProvider.java" index="17">
+<position info="not_deleted" x="1090" y="23"/>
+</item>
+<item historyLabel="FileSystemTestDataProvider.java" index="18">
+<position info="not_deleted" x="81" y="0"/>
+</item>
+<item historyLabel="FileSystemTestDataProvider.java" index="18">
+<position info="not_deleted" x="1540" y="28"/>
+</item>
+<item historyLabel="ReadFilter.java" index="19">
+<position info="not_deleted" x="338" y="0"/>
+</item>
+<item historyLabel="MyTest.java" index="13">
+<position info="not_deleted" x="1389" y="0"/>
+</item>
+<item historyLabel="MyTest.java" index="13">
+<position info="not_deleted" x="1350" y="0"/>
+</item>
+<item historyLabel="FilterGenerator.java" index="14">
+<position info="not_deleted" x="416" y="0"/>
+</item>
+<item historyLabel="FilterParser.java" index="15">
+<position info="not_deleted" x="2960" y="0"/>
+</item>
+<item historyLabel="FilterCombination.java" index="20">
+<position info="not_deleted" x="81" y="0"/>
+</item>
+<item historyLabel="MessageTestDataProvider.java" index="21">
+<position info="not_deleted" x="82" y="0"/>
+</item>
+<item historyLabel="MessageTestDataProvider.java" index="21">
+<position info="not_deleted" x="1090" y="23"/>
+</item>
+<item historyLabel="FileSystemTestDataProvider.java" index="22">
+<position info="not_deleted" x="81" y="0"/>
+</item>
+<item historyLabel="FileSystemTestDataProvider.java" index="22">
+<position info="not_deleted" x="1540" y="28"/>
+</item>
+<item active="true" historyLabel="ReadFilter.java" index="23">
+<position info="not_deleted" x="338" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -588,7 +586,6 @@
 <actionBarAdvisor/>
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@525983cc"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
