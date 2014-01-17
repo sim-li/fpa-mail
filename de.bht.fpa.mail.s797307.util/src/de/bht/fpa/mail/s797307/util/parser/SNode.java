@@ -10,19 +10,21 @@ public class SNode {
   protected String value;
   protected SNode parentNode;
   private String[] innerElements;
-  private String[] parameters;
+  private final LinkedList<String> parameters;
   private SNodeList childNodes;
-  private final SFilterType filterType;
+  private SFilterType filterType;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
   public SNode(String value) {
     this.filterType = SFilterType.NULL;
+    parameters = new LinkedList<String>();
     parse();
   }
 
   public SNode(SNode parentNode) {
     this.parentNode = parentNode;
     this.filterType = SFilterType.NULL;
+    parameters = new LinkedList<String>();
     parse();
   }
 
@@ -84,7 +86,11 @@ public class SNode {
 
   public void reproduce() {
     for (String el : innerElements) {
-
+      if (getFilterType(el).equals(SFilterType.NULL)) {
+        parameters.add(el);
+      } else {
+        childNodes.add(new SNode(el));
+      }
     }
   }
 
@@ -96,13 +102,13 @@ public class SNode {
     return filterTypes.get(FilterType.valueOf(input.toUpperCase()));
   }
 
-  private SFilterType parseThisFilterType() {
+  private void parseThisFilterType() {
     String[] valueSplit = value.split("(");
-    if (valueSplit.length > 1) {
-      String filterName = valueSplit[0].trim();
-      return getFilterType(filterName);
+    if (valueSplit.length <= 1) {
+      filterType = SFilterType.NULL;
     }
-    return SFilterType.NULL;
+    String filterName = valueSplit[0].trim();
+    filterType = getFilterType(filterName);
   }
 
   // UNION("one"), INTERSECTION("all");
