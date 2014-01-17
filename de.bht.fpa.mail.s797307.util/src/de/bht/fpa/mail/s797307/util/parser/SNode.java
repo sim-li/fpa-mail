@@ -9,7 +9,7 @@ public class SNode {
   protected SNode parentNode;
   private String[] innerElements;
   private final LinkedList<String> parameters;
-  private SNodeList childNodes;
+  private final LinkedList<SNode> childNodes;
   private SFilterType filterType;
   private SFilterName filterName;
   private EnumMap<SFilterName, SFilterType> filterTypes;
@@ -17,6 +17,7 @@ public class SNode {
   public SNode(String input) {
     this.filterType = SFilterType.NULL;
     parameters = new LinkedList<String>();
+    childNodes = new LinkedList<SNode>();
     this.input = input;
     parse();
   }
@@ -25,6 +26,7 @@ public class SNode {
     this.parentNode = parentNode;
     this.filterType = SFilterType.NULL;
     parameters = new LinkedList<String>();
+    childNodes = new LinkedList<SNode>();
     input = parentNode.getValue();
     parse();
   }
@@ -86,7 +88,9 @@ public class SNode {
 
   public void reproduce() {
     for (String el : innerElements) {
-      if (getFilterName(el).equals(SFilterName.NULL)) {
+      String[] prefix = el.split("\\(");
+
+      if (getFilterName(prefix[0]).equals(SFilterName.NULL)) {
         parameters.add(el);
       } else {
         childNodes.add(new SNode(el));
@@ -100,7 +104,7 @@ public class SNode {
 
   public SFilterName getFilterName(String input) {
     for (SFilterName value : SFilterName.values()) {
-      if (value.toString() == input.toUpperCase()) {
+      if (value.toString().equals(input.toUpperCase())) {
         return value;
       }
     }
@@ -109,7 +113,7 @@ public class SNode {
 
   public SFilterType getFilterType(String input) {
     for (SFilterType value : SFilterType.values()) {
-      if (value.toString() == input.toUpperCase()) {
+      if (value.toString().equals(input.toUpperCase())) {
         return value;
       }
     }
@@ -145,7 +149,7 @@ public class SNode {
     return childNodes.size() > 0;
   }
 
-  public SNodeList getChildNodes() {
+  public LinkedList<SNode> getChildNodes() {
     return childNodes;
   }
 
