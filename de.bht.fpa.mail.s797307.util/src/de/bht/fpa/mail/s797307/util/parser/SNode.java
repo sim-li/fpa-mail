@@ -64,24 +64,27 @@ public class SNode {
     final char COMMA = ',';
     char[] seq = input.toCharArray();
     int braketsOpen = 0;
-    LinkedList<Integer> commaPositions = new LinkedList<Integer>();
+    boolean modified = false;
+    int commaPos = -1;
     LinkedList<String> parameters = new LinkedList<String>();
     for (int i = 0; i < seq.length; i++) {
       if (seq[i] == BRAKET_OPEN) {
+        modified = true;
         braketsOpen++;
       }
       if (seq[i] == BRAKET_CLOSE) {
         braketsOpen--;
       }
-      if (braketsOpen == 0 && seq[i] == COMMA) {
-        commaPositions.add(i + 1);
+      if (braketsOpen == 0 && modified == true && seq[i] == COMMA) {
+        commaPos = i;
+        break;
       }
     }
-    int lastIndex = 0;
-    commaPositions.add(seq.length);
-    for (int commaIndex : commaPositions) {
-      parameters.add(input.substring(lastIndex, commaIndex).trim());
-      lastIndex = commaIndex;
+    if (commaPos == -1) {
+      parameters.add(input.trim());
+    } else {
+      parameters.add(input.substring(0, commaPos - 1).trim());
+      parameters.add(input.substring(commaPos + 1, seq.length).trim());
     }
     innerElements = parameters.toArray(new String[parameters.size()]);
   }
