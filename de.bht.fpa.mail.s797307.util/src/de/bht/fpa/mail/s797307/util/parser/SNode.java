@@ -59,6 +59,7 @@ public class SNode {
     int braketsOpen = 0;
     boolean modified = false;
     int commaPos = -1;
+    System.out.println(input);
     LinkedList<String> parameters = new LinkedList<String>();
     for (int i = 0; i < seq.length; i++) {
       if (seq[i] == BRAKET_OPEN) {
@@ -123,15 +124,16 @@ public class SNode {
     return false;
   }
 
-  public String[] getParameters() {
+  public LinkedList<String> getParameters() {
     LinkedList<String> parameters = new LinkedList<String>();
     for (String el : innerElements) {
+      System.out.println(el);
       String[] prefix = el.split("\\(");
       if (generateFilterName(prefix[0]).equals(SFilterName.NULL)) {
-        // parameters.add(el);
+        parameters.add(el);
       }
     }
-    return null;
+    return parameters;
   }
 
   public boolean hasChildNodes() {
