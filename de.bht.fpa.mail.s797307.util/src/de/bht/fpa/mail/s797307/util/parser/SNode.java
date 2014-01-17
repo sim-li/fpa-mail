@@ -72,12 +72,14 @@ public class SNode {
         braketsOpen--;
       }
       if (braketsOpen == 0 && seq[i] == COMMA) {
-        commaPositions.push(i);
+        commaPositions.add(i + 1);
       }
     }
     int lastIndex = 0;
+    commaPositions.add(seq.length);
     for (int commaIndex : commaPositions) {
-      parameters.push(input.substring(lastIndex, commaIndex).trim());
+      parameters.add(input.substring(lastIndex, commaIndex).trim());
+      lastIndex = commaIndex;
     }
     innerElements = parameters.toArray(new String[parameters.size()]);
   }
