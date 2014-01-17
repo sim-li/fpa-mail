@@ -52,12 +52,6 @@
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
-      <key
-            commandId="de.bht.fpa.mail.s797307.fsnavigation.commands.openDirectory"
-            contextId="org.eclipse.ui.contexts.window"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M1+6">
-      </key>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
