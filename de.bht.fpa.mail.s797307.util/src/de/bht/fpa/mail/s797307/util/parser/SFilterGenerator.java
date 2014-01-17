@@ -15,9 +15,9 @@ import de.bht.fpa.mail.s797307.util.filters.UnionFilter;
 
 public final class SFilterGenerator {
 
-  public static BasicFilter buildFilter(SFilterName type, Object value, SOperator operator) {
+  public static BasicFilter buildFilter(SFilterName name, Object value, SOperator operator) {
     FilterOperator operatorConvert = FilterOperator.valueOf(operator.toString());
-    switch (type) {
+    switch (name) {
     case IMPORTANCE:
       return new ImportanceFilter((Importance) value);
     case READ:
@@ -28,7 +28,7 @@ public final class SFilterGenerator {
       return new IntersectionFilter();
     }
     if (operator != SOperator.NULL) {
-      switch (type) {
+      switch (name) {
       case SENDER:
         return new SenderFilter((String) value, operatorConvert);
       case RECIPIENTS:

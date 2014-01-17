@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.LinkedList;
 
 public class SNode {
+  private final String input;
   protected String value;
   protected SNode parentNode;
   private String[] innerElements;
@@ -13,9 +14,10 @@ public class SNode {
   private SFilterName filterName;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
-  public SNode(String value) {
+  public SNode(String input) {
     this.filterType = SFilterType.NULL;
     parameters = new LinkedList<String>();
+    this.input = input;
     parse();
   }
 
@@ -23,10 +25,11 @@ public class SNode {
     this.parentNode = parentNode;
     this.filterType = SFilterType.NULL;
     parameters = new LinkedList<String>();
+    input = parentNode.getValue();
     parse();
   }
 
-  public void parse() {
+  private void parse() {
     parseBraketContent();
     parseInnerElements();
     filterTypes = SEnumMapBuilder.buildFilterTypes();
@@ -35,15 +38,15 @@ public class SNode {
   }
 
   public void parseBraketContent() {
-    String input = parentNode.getValue();
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
     char[] seq = input.toCharArray();
     for (int iBegin = 0; iBegin < seq.length; iBegin++) {
       if (seq[iBegin] == BRAKET_OPEN) {
-        for (int iEnd = seq.length; iEnd > 0; iEnd--) {
+        for (int iEnd = seq.length - 1; iEnd > 0; iEnd--) {
           if (seq[iEnd] == BRAKET_CLOSE) {
-            value = input.substring(iBegin, iEnd);
+            value = input.substring(iBegin + 1, iEnd);
+            return;
           }
         }
       }
@@ -76,7 +79,7 @@ public class SNode {
     for (int commaIndex : commaPositions) {
       parameters.push(input.substring(lastIndex, commaIndex).trim());
     }
-    innerElements = (String[]) parameters.toArray();
+    innerElements = parameters.toArray(new String[parameters.size()]);
   }
 
   public void reproduce() {
@@ -112,7 +115,7 @@ public class SNode {
   }
 
   private void parseThisFilterTypeAndName() {
-    String[] split = value.split("(");
+    String[] split = value.split("\\(");
     if (split.length <= 1) {
       filterName = SFilterName.NULL;
       filterType = SFilterType.NULL;
