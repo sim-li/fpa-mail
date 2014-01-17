@@ -10,21 +10,25 @@ import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
 public class SNode {
   protected String value;
-  private final String[] parameters;
   protected SNode parentNode;
+  private String[] parameters;
   private SNodeList childNodes;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
   public SNode(String value) {
     this.value = parseBraketContent(value);
-    this.parameters = parseParameters(this.value);
+    parse();
   }
 
   public SNode(SNode parentNode) {
     this.parentNode = parentNode;
-    this.value = parseBraketContent(parentNode.getValue());
-    this.parameters = parseParameters(this.value);
-    this.filterTypes = SEnumMapBuilder.buildFilterTypes();
+    parse();
+  }
+
+  public void parse() {
+    value = parseBraketContent(parentNode.getValue());
+    parameters = parseParameters(value);
+    filterTypes = SEnumMapBuilder.buildFilterTypes();
   }
 
   public String parseBraketContent(String input) {
