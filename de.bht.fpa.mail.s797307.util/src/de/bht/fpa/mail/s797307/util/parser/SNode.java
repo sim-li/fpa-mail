@@ -81,7 +81,7 @@ public class SNode {
 
   public void reproduce() {
     for (String el : innerElements) {
-      if (filterType.equals(SFilterType.NULL) || getFilterType(el).equals(SFilterType.NULL)) {
+      if (filterName.equals(SFilterName.NULL) || getFilterName(el).equals(SFilterName.NULL)) {
         parameters.add(el);
       } else {
         childNodes.add(new SNode(el));
@@ -91,6 +91,15 @@ public class SNode {
 
   public String getValue() {
     return value;
+  }
+
+  public SFilterName getFilterName(String input) {
+    for (SFilterName value : SFilterName.values()) {
+      if (value.toString() == input.toUpperCase()) {
+        return value;
+      }
+    }
+    return SFilterName.NULL;
   }
 
   public SFilterType getFilterType(String input) {
@@ -103,12 +112,20 @@ public class SNode {
   }
 
   private void parseThisFilterTypeAndName() {
-    String[] valueSplit = value.split("(");
-    if (valueSplit.length <= 1) {
+    String[] split = value.split("(");
+    if (split.length <= 1) {
+      filterName = SFilterName.NULL;
       filterType = SFilterType.NULL;
     }
-    String filterName = valueSplit[0].trim();
-    filterType = getFilterType(filterName);
+    String trimmed = split[0].trim();
+    filterName = getFilterName(trimmed);
+    SFilterType type = filterTypes.get(filterName);
+    if (type == null) {
+      filterType = SFilterType.NULL;
+    } else {
+      filterType = type;
+    }
+
   }
 
   public boolean hasParameters() {
