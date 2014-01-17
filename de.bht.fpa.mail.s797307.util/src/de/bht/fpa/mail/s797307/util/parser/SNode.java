@@ -3,35 +3,39 @@ package de.bht.fpa.mail.s797307.util.parser;
 import java.util.EnumMap;
 import java.util.LinkedList;
 
-import org.w3c.dom.Node;
-
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
 public class SNode {
   protected String value;
   protected SNode parentNode;
+  private String[] innerElements;
   private String[] parameters;
   private SNodeList childNodes;
+  private final SFilterType filterType;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
   public SNode(String value) {
-    this.value = parseBraketContent(value);
+    this.filterType = SFilterType.NULL;
     parse();
   }
 
   public SNode(SNode parentNode) {
     this.parentNode = parentNode;
+    this.filterType = SFilterType.NULL;
     parse();
   }
 
   public void parse() {
-    value = parseBraketContent(parentNode.getValue());
-    parameters = parseParameters(value);
+    parseBraketContent();
+    parseInnerElements();
     filterTypes = SEnumMapBuilder.buildFilterTypes();
+    parseThisFilterType();
+    reproduce();
   }
 
-  public String parseBraketContent(String input) {
+  public void parseBraketContent() {
+    String input = parentNode.getValue();
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
     char[] seq = input.toCharArray();
@@ -42,16 +46,17 @@ public class SNode {
         elementStart = iBegin;
         for (int iEnd = seq.length; iEnd > 0; iEnd--) {
           if (seq[iEnd] == BRAKET_CLOSE) {
-            return input.substring(iBegin, iEnd);
+            value = input.substring(iBegin, iEnd);
           }
         }
       }
     }
-    return "";
+    value = "";
   }
 
   // Expects braketContent
-  public String[] parseParameters(String input) {
+  public void parseInnerElements() {
+    String input = value;
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
     final char COMMA = ',';
@@ -74,18 +79,28 @@ public class SNode {
     for (int commaIndex : commaPositions) {
       parameters.push(input.substring(lastIndex, commaIndex).trim());
     }
-    return (String[]) parameters.toArray();
+    innerElements = (String[]) parameters.toArray();
+  }
+
+  public void reproduce() {
+    for (String el : innerElements) {
+
+    }
   }
 
   public String getValue() {
     return value;
   }
 
-  public SFilterType getFilterType() {
+  public SFilterType getFilterType(String input) {
+    return filterTypes.get(FilterType.valueOf(input.toUpperCase()));
+  }
+
+  private SFilterType parseThisFilterType() {
     String[] valueSplit = value.split("(");
     if (valueSplit.length > 1) {
       String filterName = valueSplit[0].trim();
-      return filterTypes.get(FilterType.valueOf(filterName.toUpperCase()));
+      return getFilterType(filterName);
     }
     return SFilterType.NULL;
   }
@@ -94,53 +109,32 @@ public class SNode {
   // SENDER("Sender"), RECIPIENTS("Recipients"), SUBJECT("Subject"),
   // TEXT("Contents of EMail"), READ("Read"), IMPORTANCE("Importance");
 
-  public SNode getParentNode() {
-    return parentNode;
+  public boolean hasParameters() {
+    return false;
+  }
+
+  public String[] getParameters() {
+    return null;
   }
 
   public boolean hasChildNodes() {
-    // TODO Auto-generated method stub
-    return false;
+    return childNodes.size() > 0;
   }
 
   public SNodeList getChildNodes() {
     return childNodes;
   }
 
-  public boolean hasParameters() {
-    return false;
+  public SNode getParentNode() {
+    return parentNode;
   }
 
-  public String[] parseParameters() {
-    return null;
+  public SNode getFirstChild() {
+    return childNodes.getFirst();
   }
 
-  public Node getFirstChild() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public Node getLastChild() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public Node getPreviousSibling() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public Node getNextSibling() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public boolean hasNextSibling() {
-    return false;
-  }
-
-  public boolean hasPreviousSibling() {
-    return false;
+  public SNode getLastChild() {
+    return childNodes.getLast();
   }
 
   public BasicFilter buildFilter() {
