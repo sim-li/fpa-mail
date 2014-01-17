@@ -4,7 +4,6 @@ import java.util.EnumMap;
 import java.util.LinkedList;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
-import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
 public class SNode {
   protected String value;
@@ -86,7 +85,7 @@ public class SNode {
 
   public void reproduce() {
     for (String el : innerElements) {
-      if (getFilterType(el).equals(SFilterType.NULL)) {
+      if (filterType.equals(SFilterType.NULL) || getFilterType(el).equals(SFilterType.NULL)) {
         parameters.add(el);
       } else {
         childNodes.add(new SNode(el));
@@ -116,11 +115,11 @@ public class SNode {
   // TEXT("Contents of EMail"), READ("Read"), IMPORTANCE("Importance");
 
   public boolean hasParameters() {
-    return false;
+    return parameters.size() > 0;
   }
 
   public String[] getParameters() {
-    return null;
+    return (String[]) parameters.toArray();
   }
 
   public boolean hasChildNodes() {
@@ -142,10 +141,4 @@ public class SNode {
   public SNode getLastChild() {
     return childNodes.getLast();
   }
-
-  public BasicFilter buildFilter() {
-    return null;
-    // TODO Auto-generated method stub
-  }
-
 }
