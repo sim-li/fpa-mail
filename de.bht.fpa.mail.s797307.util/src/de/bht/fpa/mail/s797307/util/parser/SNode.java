@@ -4,20 +4,16 @@ import java.util.EnumMap;
 import java.util.LinkedList;
 
 public class SNode {
-  private final String input;
+  protected final String input;
   protected String value;
   protected SNode parentNode;
   private String[] innerElements;
-  private final LinkedList<String> parameters;
-  private final LinkedList<SNode> childNodes;
   private SFilterType filterType;
   private SFilterName filterName;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
   public SNode(String input) {
     this.filterType = SFilterType.NULL;
-    parameters = new LinkedList<String>();
-    childNodes = new LinkedList<SNode>();
     this.input = input;
     parse();
   }
@@ -25,40 +21,37 @@ public class SNode {
   public SNode(SNode parentNode) {
     this.parentNode = parentNode;
     this.filterType = SFilterType.NULL;
-    parameters = new LinkedList<String>();
-    childNodes = new LinkedList<SNode>();
-    input = parentNode.getValue();
+    input = parseBraketContent(parentNode.input);
     parse();
   }
 
   private void parse() {
-    parseBraketContent();
     parseInnerElements();
     filterTypes = SEnumMapBuilder.buildFilterTypes();
     parseThisFilterTypeAndName();
-    reproduce();
   }
 
-  public void parseBraketContent() {
+  public String parseBraketContent(String s) {
+    String result;
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
-    char[] seq = input.toCharArray();
+    char[] seq = s.toCharArray();
     for (int iBegin = 0; iBegin < seq.length; iBegin++) {
       if (seq[iBegin] == BRAKET_OPEN) {
         for (int iEnd = seq.length - 1; iEnd > 0; iEnd--) {
           if (seq[iEnd] == BRAKET_CLOSE) {
-            value = input.substring(iBegin + 1, iEnd);
-            return;
+            result = s.substring(iBegin + 1, iEnd);
+            return result;
           }
         }
       }
     }
-    value = "";
+    result = "";
+    return result;
   }
 
   // Expects braketContent
   public void parseInnerElements() {
-    String input = value;
     final char BRAKET_OPEN = '(';
     final char BRAKET_CLOSE = ')';
     final char COMMA = ',';
@@ -75,37 +68,31 @@ public class SNode {
       if (seq[i] == BRAKET_CLOSE) {
         braketsOpen--;
       }
-      if (braketsOpen == 0 && modified == true && seq[i] == COMMA) {
+      if (braketsOpen == 1 && modified == true && seq[i] == COMMA) {
         commaPos = i;
         break;
       }
     }
-    if (commaPos == -1) {
-      parameters.add(input.trim());
-    } else {
-      parameters.add(input.substring(0, commaPos - 1).trim());
+    if (commaPos != -1) {
+      parameters.add(input.substring(0, commaPos).trim());
       parameters.add(input.substring(commaPos + 1, seq.length).trim());
     }
     innerElements = parameters.toArray(new String[parameters.size()]);
-  }
-
-  public void reproduce() {
-    for (String el : innerElements) {
-      String[] prefix = el.split("\\(");
-
-      if (getFilterName(prefix[0]).equals(SFilterName.NULL)) {
-        parameters.add(el);
-      } else {
-        childNodes.add(new SNode(el));
-      }
-    }
   }
 
   public String getValue() {
     return value;
   }
 
-  public SFilterName getFilterName(String input) {
+  public SFilterName getFilterName() {
+    return filterName;
+  }
+
+  public SFilterType getFilterType() {
+    return filterType;
+  }
+
+  public SFilterName generateFilterName(String input) {
     for (SFilterName value : SFilterName.values()) {
       if (value.toString().equals(input.toUpperCase())) {
         return value;
@@ -114,23 +101,14 @@ public class SNode {
     return SFilterName.NULL;
   }
 
-  public SFilterType getFilterType(String input) {
-    for (SFilterType value : SFilterType.values()) {
-      if (value.toString().equals(input.toUpperCase())) {
-        return value;
-      }
-    }
-    return SFilterType.NULL;
-  }
-
   private void parseThisFilterTypeAndName() {
-    String[] split = value.split("\\(");
+    String[] split = input.split("\\(");
     if (split.length <= 1) {
       filterName = SFilterName.NULL;
       filterType = SFilterType.NULL;
     }
     String trimmed = split[0].trim();
-    filterName = getFilterName(trimmed);
+    filterName = generateFilterName(trimmed);
     SFilterType type = filterTypes.get(filterName);
     if (type == null) {
       filterType = SFilterType.NULL;
@@ -141,19 +119,39 @@ public class SNode {
   }
 
   public boolean hasParameters() {
-    return parameters.size() > 0;
+    // return parameters.size() > 0;
+    return false;
   }
 
   public String[] getParameters() {
-    return parameters.toArray(new String[parameters.size()]);
+    LinkedList<String> parameters = new LinkedList<String>();
+    for (String el : innerElements) {
+      String[] prefix = el.split("\\(");
+      if (generateFilterName(prefix[0]).equals(SFilterName.NULL)) {
+        // parameters.add(el);
+      }
+    }
+    return null;
   }
 
   public boolean hasChildNodes() {
-    return childNodes.size() > 0;
+    return false;
+    // return childNodes.size() > 0;
   }
 
   public LinkedList<SNode> getChildNodes() {
+    LinkedList<SNode> childNodes = new LinkedList<SNode>();
+    for (String el : innerElements) {
+      String[] prefix = el.split("\\(");
+      if (!generateFilterName(prefix[0]).equals(SFilterName.NULL)) {
+        childNodes.add(new SNode(this));
+      }
+    }
     return childNodes;
+  }
+
+  public String getInput() {
+    return input;
   }
 
   public SNode getParentNode() {
@@ -161,10 +159,12 @@ public class SNode {
   }
 
   public SNode getFirstChild() {
-    return childNodes.getFirst();
+    return parentNode;
+    // return childNodes.getFirst();
   }
 
   public SNode getLastChild() {
-    return childNodes.getLast();
+    return parentNode;
+    // return childNodes.getLast();
   }
 }
