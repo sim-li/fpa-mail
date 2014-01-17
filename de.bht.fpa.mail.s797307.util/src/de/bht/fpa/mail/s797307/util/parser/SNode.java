@@ -10,17 +10,20 @@ import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
 public class SNode {
   protected String value;
+  private final String[] parameters;
   protected SNode parentNode;
   private SNodeList childNodes;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
   public SNode(String value) {
     this.value = parseBraketContent(value);
+    this.parameters = parseParameters(this.value);
   }
 
   public SNode(SNode parentNode) {
     this.parentNode = parentNode;
     this.value = parseBraketContent(parentNode.getValue());
+    this.parameters = parseParameters(this.value);
     this.filterTypes = SEnumMapBuilder.buildFilterTypes();
   }
 
@@ -59,10 +62,8 @@ public class SNode {
       if (seq[i] == BRAKET_CLOSE) {
         braketsOpen--;
       }
-      if (braketsOpen == 0) {
-        if (seq[i] == COMMA) {
-          commaPositions.push(i);
-        }
+      if (braketsOpen == 0 && seq[i] == COMMA) {
+        commaPositions.push(i);
       }
     }
     int lastIndex = 0;
@@ -79,7 +80,7 @@ public class SNode {
   public SFilterType getFilterType() {
     String[] valueSplit = value.split("(");
     if (valueSplit.length > 1) {
-      String filterName = valueSplit[0];
+      String filterName = valueSplit[0].trim();
       return filterTypes.get(FilterType.valueOf(filterName.toUpperCase()));
     }
     return SFilterType.NULL;
@@ -91,6 +92,11 @@ public class SNode {
 
   public SNode getParentNode() {
     return parentNode;
+  }
+
+  public boolean hasChildNodes() {
+    // TODO Auto-generated method stub
+    return false;
   }
 
   public SNodeList getChildNodes() {
@@ -122,11 +128,6 @@ public class SNode {
   }
 
   public boolean hasPreviousSibling() {
-    return false;
-  }
-
-  public boolean hasChildNodes() {
-    // TODO Auto-generated method stub
     return false;
   }
 
