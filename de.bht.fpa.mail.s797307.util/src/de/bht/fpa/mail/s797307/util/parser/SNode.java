@@ -6,7 +6,6 @@ import java.util.HashSet;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import de.bht.fpa.mail.s000000.common.filter.FilterGroupType;
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
@@ -14,58 +13,35 @@ public class SNode {
   protected String phrase;
   protected SNode parent;
   protected HashSet<SNode> children;
-  protected EnumMap<SFilterName, SFilterType> filterType;
-  
+  protected EnumMap<SFilterName, SFilterType> filterTypes;
+
   public SNode(String phrase) {
     this.phrase = phrase;
-    this.filterType = SEnumMapBuilder.buildFilterTypes();
-    
+
   }
 
   public SNode(SNode parent) {
     this.parent = parent;
     this.phrase = parent.getPhrase();
-  }
-
-  public SNode() {
-    this("");
-  }
-
-  private boolean parse() {
-    return false;
+    this.filterTypes = SEnumMapBuilder.buildFilterTypes();
   }
 
   public void setNodeValue(String phrase) {
     this.phrase = phrase;
   }
 
-  public SFilterCategory getFilterCategory (String filterName) {
-    for (FilterType type : FilterType.values()) {
-      if (type.name().equalsIgnoreCase(filterName)) {
-        return true;
-      }
-    }
-    for (FilterGroupType type : FilterGroupType.values()) {
-      if (type.name().equalsIgnoreCase(filterName)) {
-        return true;
-      }
-     return false;
-    }
-  }
-  
-  public SNodeType getNodeType() {
-    // UNION("one"), INTERSECTION("all");
-    // SENDER("Sender"), RECIPIENTS("Recipients"), SUBJECT("Subject"),
-    // TEXT("Contents of EMail"), READ("Read"), IMPORTANCE("Importance");
+  public SFilterType getFilterType() {
     String[] phraseSplit = phrase.split("(");
     if (phraseSplit.length > 1) {
       String filterName = phraseSplit[0];
-      
-      
-      }
+      return filterTypes.get(FilterType.valueOf(filterName.toUpperCase()));
     }
-    return 
+    return SFilterType.NULL;
   }
+
+  // UNION("one"), INTERSECTION("all");
+  // SENDER("Sender"), RECIPIENTS("Recipients"), SUBJECT("Subject"),
+  // TEXT("Contents of EMail"), READ("Read"), IMPORTANCE("Importance");
 
   public Node getParentNode() {
     // TODO Auto-generated method stub
