@@ -110,10 +110,6 @@ public class SNode {
     filterType = getFilterType(filterName);
   }
 
-  // UNION("one"), INTERSECTION("all");
-  // SENDER("Sender"), RECIPIENTS("Recipients"), SUBJECT("Subject"),
-  // TEXT("Contents of EMail"), READ("Read"), IMPORTANCE("Importance");
-
   public boolean hasParameters() {
     return parameters.size() > 0;
   }

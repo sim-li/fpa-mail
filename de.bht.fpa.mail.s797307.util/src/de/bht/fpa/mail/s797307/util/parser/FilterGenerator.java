@@ -58,6 +58,53 @@ public final class FilterGenerator {
     return new NullFilter();
   }
 
+  public static BasicFilter buildFilter(SFilterName type, Object value, FilterOperator operator) {
+    switch (type) {
+    case IMPORTANCE:
+      return new ImportanceFilter((Importance) value);
+    case READ:
+      return new ReadFilter((Boolean) value);
+    }
+
+    if (operator != null) {
+      switch (type) {
+      case SENDER:
+        return new SenderFilter((String) value, operator);
+      case RECIPIENTS:
+        return new RecipientsFilter((String) value, operator);
+      case SUBJECT:
+        return new SubjectFilter((String) value, operator);
+      case TEXT:
+        new TextFilter((String) value, operator);
+      }
+    }
+    return new NullFilter();
+  }
+
+  public static boolean isOperator(String s) {
+    for (FilterOperator operator : FilterOperator.values()) {
+      if (operator.name().toString().equals(s.toUpperCase())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // public static BasicFilter buildCorrectFilter(String type, String operator,
+  // String value) {
+  // if (isGroupFilter(type)) {
+  // return FilterGenerator.buildFilter(FilterGroupType.valueOf(type));
+  // }
+  // if (isFilterType(type)) {
+  // return FilterGenerator.buildFilter(FilterType.valueOf(type), value);
+  // }
+  // if (isFilterType(type) && isOperator(operator)) {
+  // return FilterGenerator.buildFilter(FilterType.valueOf(type), value,
+  // FilterOperator.valueOf(operator));
+  // }
+  // return null;
+  // }
+  //
   public static BasicFilter buildFilter(CombinationFilter filter, List<FilterCombination> combinations) {
     for (FilterCombination combination : combinations) {
       FilterType type = combination.getFilterType();
