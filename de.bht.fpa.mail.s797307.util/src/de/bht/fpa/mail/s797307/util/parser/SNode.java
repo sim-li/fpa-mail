@@ -1,39 +1,57 @@
 package de.bht.fpa.mail.s797307.util.parser;
 
 import java.util.EnumMap;
-import java.util.HashSet;
-
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
 public class SNode {
-  protected String phrase;
-  protected SNode parent;
-  protected HashSet<SNode> children;
-  protected EnumMap<SFilterName, SFilterType> filterTypes;
+  protected String value;
+  protected SNode parentNode;
+  private SNodeList childNodes;
+  private EnumMap<SFilterName, SFilterType> filterTypes;
 
-  public SNode(String phrase) {
-    this.phrase = phrase;
-
+  public SNode(String value) {
+    this.value = parseBraketContent(value);
   }
 
-  public SNode(SNode parent) {
-    this.parent = parent;
-    this.phrase = parent.getPhrase();
+  public SNode(SNode parentNode) {
+    this.parentNode = parentNode;
+    this.value = parseBraketContent(parentNode.getValue());
     this.filterTypes = SEnumMapBuilder.buildFilterTypes();
   }
 
-  public void setNodeValue(String phrase) {
-    this.phrase = phrase;
+  public String parseBraketContent(String input) {
+    final char BRAKET_OPEN = '(';
+    final char BRAKET_CLOSE = ')';
+    char[] seq = input.toCharArray();
+    for (int iBegin = 0; iBegin < seq.length; iBegin++) {
+      int elementStart = -1;
+      int elementEnd = -1;
+      if (seq[iBegin] == BRAKET_OPEN) {
+        elementStart = iBegin;
+        for (int iEnd = seq.length; iEnd > 0; iEnd--) {
+          if (seq[iEnd] == BRAKET_CLOSE) {
+            return input.substring(iBegin, iEnd);
+          }
+        }
+      }
+    }
+    return "";
+  }
+
+  public String parseParameters(String input) {
+
+  }
+
+  public String getValue() {
+    return value;
   }
 
   public SFilterType getFilterType() {
-    String[] phraseSplit = phrase.split("(");
-    if (phraseSplit.length > 1) {
-      String filterName = phraseSplit[0];
+    String[] valueSplit = value.split("(");
+    if (valueSplit.length > 1) {
+      String filterName = valueSplit[0];
       return filterTypes.get(FilterType.valueOf(filterName.toUpperCase()));
     }
     return SFilterType.NULL;
@@ -43,14 +61,12 @@ public class SNode {
   // SENDER("Sender"), RECIPIENTS("Recipients"), SUBJECT("Subject"),
   // TEXT("Contents of EMail"), READ("Read"), IMPORTANCE("Importance");
 
-  public Node getParentNode() {
-    // TODO Auto-generated method stub
-    return null;
+  public SNode getParentNode() {
+    return parentNode;
   }
 
-  public NodeList getChildNodes() {
-    // TODO Auto-generated method stub
-    return null;
+  public SNodeList getChildNodes() {
+    return childNodes;
   }
 
   public Node getFirstChild() {
@@ -89,10 +105,6 @@ public class SNode {
   public BasicFilter buildFilter() {
     return null;
     // TODO Auto-generated method stub
-  }
-
-  public String getPhrase() {
-    return phrase;
   }
 
 }
