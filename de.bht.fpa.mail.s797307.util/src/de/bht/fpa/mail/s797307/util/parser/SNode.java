@@ -103,6 +103,14 @@ public class SNode {
     return childNodes;
   }
 
+  public boolean hasParameters() {
+    return false;
+  }
+
+  public String[] parseParameters() {
+    return null;
+  }
+
   public Node getFirstChild() {
     // TODO Auto-generated method stub
     return null;
