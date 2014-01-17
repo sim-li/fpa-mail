@@ -3,8 +3,6 @@ package de.bht.fpa.mail.s797307.util.parser;
 import java.util.EnumMap;
 import java.util.LinkedList;
 
-import de.bht.fpa.mail.s000000.common.filter.FilterType;
-
 public class SNode {
   protected String value;
   protected SNode parentNode;
@@ -32,7 +30,7 @@ public class SNode {
     parseBraketContent();
     parseInnerElements();
     filterTypes = SEnumMapBuilder.buildFilterTypes();
-    parseThisFilterType();
+    parseThisFilterTypeAndName();
     reproduce();
   }
 
@@ -99,7 +97,12 @@ public class SNode {
   }
 
   public SFilterType getFilterType(String input) {
-    return filterTypes.get(FilterType.valueOf(input.toUpperCase()));
+    for (SFilterType value : SFilterType.values()) {
+      if (value.toString() == input.toUpperCase()) {
+        return value;
+      }
+    }
+    return SFilterType.NULL;
   }
 
   private void parseThisFilterTypeAndName() {
