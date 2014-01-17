@@ -45,5 +45,4 @@ public class TFile implements Serializable {
   public String getText() {
     return file.getName();
   }
-
 }

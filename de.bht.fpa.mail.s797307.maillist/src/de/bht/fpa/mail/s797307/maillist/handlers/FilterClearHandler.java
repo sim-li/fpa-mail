@@ -4,7 +4,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-import de.bht.fpa.mail.s797307.util.NullFilter;
+import de.bht.fpa.mail.s797307.util.filters.NullFilter;
 
 public class FilterClearHandler extends AbstractHandler {
 

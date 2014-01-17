@@ -1,9 +1,0 @@
-package de.bht.fpa.mail.s797307.main;
-
-class testa {
-  public static void main(String[] args) {
-    System.out.println("TEST");
-    String t = "E";
-    
-  }
-}

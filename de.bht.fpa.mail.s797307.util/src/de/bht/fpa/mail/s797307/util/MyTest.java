@@ -5,9 +5,11 @@ import org.junit.Test;
 
 import de.bht.fpa.mail.s000000.common.filter.FilterOperator;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
+import de.bht.fpa.mail.s797307.util.filters.IntersectionFilter;
+import de.bht.fpa.mail.s797307.util.filters.ReadFilter;
+import de.bht.fpa.mail.s797307.util.filters.SubjectFilter;
 
 public class MyTest {
-
   @Test
   public void testReadIsFalse() {
     Message message = new Message();
