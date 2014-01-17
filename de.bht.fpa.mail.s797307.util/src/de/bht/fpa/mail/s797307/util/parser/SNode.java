@@ -81,7 +81,7 @@ public class SNode {
 
   public void reproduce() {
     for (String el : innerElements) {
-      if (filterName.equals(SFilterName.NULL) || getFilterName(el).equals(SFilterName.NULL)) {
+      if (getFilterName(el).equals(SFilterName.NULL)) {
         parameters.add(el);
       } else {
         childNodes.add(new SNode(el));
