@@ -12,6 +12,7 @@ public class SNode {
   private final LinkedList<String> parameters;
   private SNodeList childNodes;
   private SFilterType filterType;
+  private SFilterName filterName;
   private EnumMap<SFilterName, SFilterType> filterTypes;
 
   public SNode(String value) {
@@ -101,7 +102,7 @@ public class SNode {
     return filterTypes.get(FilterType.valueOf(input.toUpperCase()));
   }
 
-  private void parseThisFilterType() {
+  private void parseThisFilterTypeAndName() {
     String[] valueSplit = value.split("(");
     if (valueSplit.length <= 1) {
       filterType = SFilterType.NULL;
