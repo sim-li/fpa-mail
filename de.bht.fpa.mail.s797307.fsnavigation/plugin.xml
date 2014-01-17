@@ -73,21 +73,5 @@
             </command>
          </menu>
       </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="de.bht.fpa.mail.s797307.fsnavigation.toolbars.sampleToolbar">
-            <command
-                  commandId="de.bht.fpa.mail.s797307.fsnavigation.commands.openDirectory"
-                  id="de.bht.fpa.mail.s797307.fsnavigation.toolbars.openDirectory"
-                  tooltip="">
-            </command>
-            <command
-            	  commandId="de.bht.fpa.mail.s797307.fsnavigation.commands.displayHistory"
-            	  id="de.bht.fpa.mail.s797307.fsnavigation.toolbars.displayHistory"
-            	  tooltip="">
-            </command>
-         </toolbar>
-      </menuContribution>
    </extension>
 </plugin>
