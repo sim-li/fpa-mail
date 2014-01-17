@@ -1,7 +1,10 @@
 package de.bht.fpa.mail.s797307.util.parser;
 
 import java.util.EnumMap;
+import java.util.LinkedList;
+
 import org.w3c.dom.Node;
+
 import de.bht.fpa.mail.s000000.common.filter.FilterType;
 import de.bht.fpa.mail.s797307.util.filters.BasicFilter;
 
@@ -40,8 +43,33 @@ public class SNode {
     return "";
   }
 
-  public String parseParameters(String input) {
-
+  // Expects braketContent
+  public String[] parseParameters(String input) {
+    final char BRAKET_OPEN = '(';
+    final char BRAKET_CLOSE = ')';
+    final char COMMA = ',';
+    char[] seq = input.toCharArray();
+    int braketsOpen = 0;
+    LinkedList<Integer> commaPositions = new LinkedList<Integer>();
+    LinkedList<String> parameters = new LinkedList<String>();
+    for (int i = 0; i < seq.length; i++) {
+      if (seq[i] == BRAKET_OPEN) {
+        braketsOpen++;
+      }
+      if (seq[i] == BRAKET_CLOSE) {
+        braketsOpen--;
+      }
+      if (braketsOpen == 0) {
+        if (seq[i] == COMMA) {
+          commaPositions.push(i);
+        }
+      }
+    }
+    int lastIndex = 0;
+    for (int commaIndex : commaPositions) {
+      parameters.push(input.substring(lastIndex, commaIndex).trim());
+    }
+    return (String[]) parameters.toArray();
   }
 
   public String getValue() {
