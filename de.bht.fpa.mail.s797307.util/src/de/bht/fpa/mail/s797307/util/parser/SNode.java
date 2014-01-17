@@ -25,7 +25,7 @@ public class SNode {
     this("");
   }
 
-  public boolean parse() {
+  private boolean parse() {
     return false;
   }
 
@@ -68,8 +68,12 @@ public class SNode {
     return null;
   }
 
-  public String getPhrase() {
-    return phrase;
+  public boolean hasNextSibling() {
+    return false;
+  }
+
+  public boolean hasPreviousSibling() {
+    return false;
   }
 
   public boolean hasChildNodes() {
@@ -80,6 +84,10 @@ public class SNode {
   public BasicFilter buildFilter() {
     return null;
     // TODO Auto-generated method stub
+  }
+
+  public String getPhrase() {
+    return phrase;
   }
 
 }
