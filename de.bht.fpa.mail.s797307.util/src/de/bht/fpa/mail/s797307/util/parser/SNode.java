@@ -142,7 +142,7 @@ public class SNode {
   }
 
   public String[] getParameters() {
-    return (String[]) parameters.toArray();
+    return parameters.toArray(new String[parameters.size()]);
   }
 
   public boolean hasChildNodes() {
