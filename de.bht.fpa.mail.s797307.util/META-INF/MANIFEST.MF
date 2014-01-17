@@ -10,5 +10,6 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: de.bht.fpa.mail.s797307.util,
- de.bht.fpa.mail.s797307.util.filters
+ de.bht.fpa.mail.s797307.util.filters,
+ de.bht.fpa.mail.s797307.util.parser
 Import-Package: org.junit

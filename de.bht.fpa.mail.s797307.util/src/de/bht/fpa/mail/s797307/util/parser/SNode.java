@@ -35,7 +35,8 @@ public class SNode {
 
   public SNodeTypes getNodeType() {
     // TODO Check for Type an return value
-    return SNodeTypes.HELLO;
+    // return SNodeTypes.HELLO;
+    return null;
   }
 
   public Node getParentNode() {
