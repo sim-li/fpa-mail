@@ -40,10 +40,7 @@ public class SNode {
     final char BRAKET_CLOSE = ')';
     char[] seq = input.toCharArray();
     for (int iBegin = 0; iBegin < seq.length; iBegin++) {
-      int elementStart = -1;
-      int elementEnd = -1;
       if (seq[iBegin] == BRAKET_OPEN) {
-        elementStart = iBegin;
         for (int iEnd = seq.length; iEnd > 0; iEnd--) {
           if (seq[iEnd] == BRAKET_CLOSE) {
             value = input.substring(iBegin, iEnd);
