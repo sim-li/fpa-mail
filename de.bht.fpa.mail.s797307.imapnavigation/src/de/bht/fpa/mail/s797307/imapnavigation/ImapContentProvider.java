@@ -30,6 +30,12 @@ public class ImapContentProvider implements ITreeContentProvider {
 
   @Override
   public Object[] getElements(Object parent) {
+	 FolderNode folder = (FolderNode) parent;
+//	 if (folder.hasAccount()) {
+//		 return new Account[] { 
+//				 folder.getAccount()
+//		};
+//	 }
     return getChildren(parent);
   }
 
@@ -43,6 +49,8 @@ public class ImapContentProvider implements ITreeContentProvider {
 
   @Override
   public Object getParent(Object element) {
-    return null;
+	  return null;
+//	  FolderNode folder = (FolderNode) element;
+//	  return folder;
   }
 }

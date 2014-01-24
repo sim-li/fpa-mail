@@ -53,13 +53,14 @@ public final class ImapNavigationView extends ViewPart {
 	  
 	  Account account = AccountBuilder.newAccountBuilder()
 			      .id(4711L)
-			      	.name("My Account")
+			      	.name("Alice-IMAP")
 			      		.host("googlemail.com")
 			      			.folder(inboxBuilder)
 			      				.folder(sentBuilder)
 			      					.build();
-
-	  return new FolderNode(account);
+	  FolderNode baseFolder = new FolderNode();
+	  baseFolder.addAccount(account);
+	  return baseFolder;
   }
 
   public void setInput(Object input) {

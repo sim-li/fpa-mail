@@ -9,14 +9,17 @@ import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 
 public class FolderNode {
 	Collection <FolderNode> children = new LinkedList<FolderNode>();
-	Object child;
+	Object element;
 	
+	public FolderNode() {
+		
+	}
 	public FolderNode(Account account) {
-		this.child = account;
+		this.element = account;
 		children.addAll(wrapFolders(account.getFolders()));
 	}
 	public FolderNode(Folder folder) {
-		this.child = folder;
+		this.element = folder;
 		children.addAll(wrapFolders(folder.getFolders()));
 	}
 	
@@ -27,6 +30,11 @@ public class FolderNode {
 		}
 		return foldersWrapped;
 	}
+	
+	public void addAccount(Account account) {
+		children.add(new FolderNode(account));
+	}
+	
 	public FolderNode[] getChildren() {
 		FolderNode [] folders = new FolderNode [children.size()];
 		children.toArray(folders);
@@ -34,29 +42,29 @@ public class FolderNode {
 	}
 	
 	public Account getAccount() {
-		if (child instanceof Account) {
-			return (Account) child;
+		if (element instanceof Account) {
+			return (Account) element;
 		}
 		// See if sinnvoll.
 		return new Account();
 	}
 	
 	public boolean hasAccount() {
-		return child instanceof Account;
+		return element instanceof Account;
 	}
 	
 	public boolean hasFolder() {
-		return child instanceof Folder;
+		return element instanceof Folder;
 	}
 	
 	public Folder getFolder() {
-		if (child instanceof Folder) {
-			return (Folder) child;
+		if (element instanceof Folder) {
+			return (Folder) element;
 		}
 		return new Folder();
 	}
 	
 	public Object getChild() {
-		return child;
+		return element;
 	}
 }

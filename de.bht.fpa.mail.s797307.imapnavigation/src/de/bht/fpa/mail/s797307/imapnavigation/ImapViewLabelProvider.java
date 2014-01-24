@@ -3,34 +3,34 @@ package de.bht.fpa.mail.s797307.imapnavigation;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-public class ImapViewLabelProvider extends LabelProvider {
-//  private final ImagefolderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico")
-//      .createImage();
-//  private final Image fileIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/file.ico")
-//      .createImage();
+import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 
+public class ImapViewLabelProvider extends LabelProvider {
+  private final Image folderIcon;
+  private final Image accountIcon;
+
+  public ImapViewLabelProvider() {
+	  folderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico")
+		      .createImage();
+	  accountIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/account.ico")
+		      .createImage();
+  }
   @Override
   public String getText(Object element) {
 	  FolderNode folder = (FolderNode) element;
-	  System.out.println(folder.hasFolder());
+	  if (folder.hasAccount()) {
+		  return folder.getAccount().getName();
+	  }
 	  return folder.getFolder().getFullName();
   }
 
   @Override
   public Image getImage(Object element) {
-	  return null;
-//    TFile file = (TFile) element;
-//    if (file.isDirectory()) {
-//      return folderIcon;
-//    }
-//    return fileIcon;
+	  FolderNode node = (FolderNode) element;
+	  return node.hasAccount() ? accountIcon : folderIcon;
   }
 
   public Image getImage() {
-    // if (file.isDirectory()) {
-    // return folderIcon;
-    // }
-    // return fileIcon;
-    return null;
+    return folderIcon;
   }
 }
