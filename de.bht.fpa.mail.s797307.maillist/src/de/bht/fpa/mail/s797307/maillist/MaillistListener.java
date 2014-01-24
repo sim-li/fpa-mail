@@ -8,7 +8,9 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 
+import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
+import de.bht.fpa.mail.s797307.util.FolderNode;
 import de.bht.fpa.mail.s797307.util.TFile;
 
 public class MaillistListener implements ISelectionListener {
@@ -22,13 +24,36 @@ public class MaillistListener implements ISelectionListener {
   public void selectionChanged(IWorkbenchPart part, ISelection selection) {
     if (selection instanceof TreeSelection) {
       Object firstElement = ((TreeSelection) selection).getFirstElement();
+      if (firstElement == null) {
+    	  return;
+      }
       if (firstElement instanceof TFile) {
-        parseDirectory((TFile) firstElement);
+        addXmlDirectory((TFile) firstElement);
+      }
+      if (firstElement instanceof FolderNode) {
+    	  FolderNode element = (FolderNode) firstElement;
+    	  addImapFolder(element);
       }
     }
   }
 
-  public void parseDirectory(TFile directory) {
+  public void addImapFolder(FolderNode folderNode) {
+	  	mailListView.clear();
+	  	Message emptyMessage = new Message();
+	  	emptyMessage.setId(new Long(0));
+	  	if (folderNode.hasFolder()) {
+		  	Folder folder = folderNode.getFolder(); 
+		  		for (Message message : folder.getMessages()) {
+		  			if (!message.equals(emptyMessage)) {
+		  				mailListView.addMessage(message);
+		  			}
+		  		}
+	  	}
+	  	mailListView.updateMessages();
+	  	mailListView.refresh();
+  }
+  
+  public void addXmlDirectory(TFile directory) {
     mailListView.clear();
     if (!directory.hasChildren(FilterFactory.xmlFilter())) {
       return;

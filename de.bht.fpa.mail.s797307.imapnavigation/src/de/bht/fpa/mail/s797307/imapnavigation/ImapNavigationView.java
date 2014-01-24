@@ -1,5 +1,8 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PlatformUI;
@@ -11,8 +14,8 @@ import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.FolderBuilder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.MessageBuilder;
-import de.bht.fpa.mail.s000000.common.mail.testdata.MessageTestDataProvider;
 import de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider;
+import de.bht.fpa.mail.s797307.util.FolderNode;
 
 public final class ImapNavigationView extends ViewPart {
   private TreeViewer viewer;
@@ -32,34 +35,39 @@ public final class ImapNavigationView extends ViewPart {
   }
 
   private FolderNode createModel() {
-	  FolderBuilder inboxBuilder = FolderBuilder.newFolderBuilder()
-			  .id(4711L)
-			     .fullName("INBOX")
-			        .message(MessageBuilder.newMessageBuilder()
-			      )
-			      .folder(FolderBuilder.newFolderBuilder()
-			        .fullName("Private Emails"))
-				        .folder(FolderBuilder.newFolderBuilder()
-				           .fullName("Business"))
-				           .folder(FolderBuilder.newFolderBuilder()
-							        .fullName("Spam")
-			      );
+	 
+	  RandomTestDataProvider data = new RandomTestDataProvider(20);
 	  
-	  FolderBuilder sentBuilder = FolderBuilder.newFolderBuilder()
+	 
+	  
+
+	  
+	  
+	  
+	  Folder sent = FolderBuilder.newFolderBuilder()
 			  .id(4711L)
-			     .fullName("Sent")
-			        .message(MessageBuilder.newMessageBuilder()
-			      );
+			     .fullName("Sent").builtMessages(data.getMessages()).build();
+	  
+	  Folder in = FolderBuilder.newFolderBuilder()
+			  .id(4718L)
+			     .fullName("In").build();
+	  in.setMessages(data.getMessages());
+	  
+	  List <Folder> folders = new LinkedList <Folder>();
+	  folders.add(sent);
+	  folders.add(in);
 	  
 	  Account account = AccountBuilder.newAccountBuilder()
-			      .id(4711L)
-			      	.name("Alice-IMAP")
-			      		.host("googlemail.com")
-			      			.folder(inboxBuilder)
-			      				.folder(sentBuilder)
-			      					.build();
+		      .id(4711L)
+		      	.name("Alice-IMAP")
+		      		.host("googlemail.com").build();
+	  account.setFolders(folders);
+	  
+	  
 	  FolderNode baseFolder = new FolderNode();
 	  baseFolder.addAccount(account);
+	  
+	 
 	  return baseFolder;
   }
 

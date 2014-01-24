@@ -4,6 +4,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
+import de.bht.fpa.mail.s797307.util.FolderNode;
 
 public class ImapViewLabelProvider extends LabelProvider {
   private final Image folderIcon;

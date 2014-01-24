@@ -8,6 +8,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
+import de.bht.fpa.mail.s797307.util.FolderNode;
 
 public class ImapContentProvider implements ITreeContentProvider {
   protected ImapNavigationView view;
@@ -17,8 +18,8 @@ public class ImapContentProvider implements ITreeContentProvider {
   }
 
   @Override
-  public Object[] getChildren(Object parentElement) {
-	 FolderNode folder = (FolderNode) parentElement;
+  public Object[] getChildren(Object parent) {
+	 FolderNode folder = (FolderNode) parent;
 	 return folder.getChildren();
   }
 
@@ -30,13 +31,8 @@ public class ImapContentProvider implements ITreeContentProvider {
 
   @Override
   public Object[] getElements(Object parent) {
-	 FolderNode folder = (FolderNode) parent;
-//	 if (folder.hasAccount()) {
-//		 return new Account[] { 
-//				 folder.getAccount()
-//		};
-//	 }
-    return getChildren(parent);
+	  
+	  return getChildren(parent);
   }
 
   @Override
