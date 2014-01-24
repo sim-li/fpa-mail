@@ -9,7 +9,6 @@ public final class FilterParser {
   public static void main(String[] args) {
     // String in = "Intersection(Sender(\"mueller\", startsWith), Read(true))";
     // parse(in, new UnionFilter());
-    System.out.println(Character.getNumericValue(' '));
   }
 
   public static IFilter parse(String input, BasicFilter filter) {

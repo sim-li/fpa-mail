@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Imapnavigation
+Bundle-SymbolicName: de.bht.fpa.s797307.imapnavigation
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.bht.fpa.s797307.imapnavigation.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
