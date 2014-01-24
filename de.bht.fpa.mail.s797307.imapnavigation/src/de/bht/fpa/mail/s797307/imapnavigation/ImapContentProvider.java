@@ -18,26 +18,14 @@ public class ImapContentProvider implements ITreeContentProvider {
 
   @Override
   public Object[] getChildren(Object parentElement) {
-	  Collection <Object> folders = new LinkedList <Object>();
-	  if (parentElement instanceof Account) {
-		  Account account = (Account) parentElement;
-		  folders.addAll(account.getFolders());
-	  } else {
-		  Folder parent = (Folder) parentElement;
-		  folders.addAll(parent.getFolders());
-	  }
-	  Folder [] output = new Folder [folders.size()];
-	  folders.toArray(output);
-	  return output;
+	 FolderNode folder = (FolderNode) parentElement;
+	 return folder.getChildren();
   }
 
   @Override
   public boolean hasChildren(Object element) {
-//	  Account parent = (Account) element;
-//	  if (parent.getFolders().size() > 0) {
-//		  return true;
-//	  }
-	  return true;
+	  FolderNode folder = (FolderNode) element;
+	  return folder.getChildren().length > 0;
   }
 
   @Override

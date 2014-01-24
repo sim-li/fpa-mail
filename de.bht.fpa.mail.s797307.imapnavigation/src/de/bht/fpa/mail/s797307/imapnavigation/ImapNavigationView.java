@@ -1,7 +1,5 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
-import java.util.Collection;
-
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PlatformUI;
@@ -9,7 +7,6 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
-import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.FolderBuilder;
 import de.bht.fpa.mail.s000000.common.mail.testdata.MessageTestDataProvider;
@@ -32,7 +29,7 @@ public final class ImapNavigationView extends ViewPart {
     initalizeExecutionListener();
   }
 
-  private Account createModel() {
+  private FolderNode createModel() {
 	  MessageTestDataProvider testMsgProvider = new MessageTestDataProvider();
 	  RandomTestDataProvider randomTestDataProvider = new RandomTestDataProvider(30);
 	  testMsgProvider.setTestDataProvider(randomTestDataProvider);
@@ -46,7 +43,7 @@ public final class ImapNavigationView extends ViewPart {
 	  accountBuilder.password("Easy rider");
 	  accountBuilder.username("SamuelRudolfson");
 	  Account account = accountBuilder.build();
-	  return account;
+	  return new FolderNode(account);
   }
 
   public void setInput(Object input) {
