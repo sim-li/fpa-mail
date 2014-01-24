@@ -27,8 +27,8 @@ public class FolderNode {
 		}
 		return foldersWrapped;
 	}
-	public Folder[] getChildren() {
-		Folder [] folders = new Folder [children.size()];
+	public FolderNode[] getChildren() {
+		FolderNode [] folders = new FolderNode [children.size()];
 		children.toArray(folders);
 		return folders;
 	}
