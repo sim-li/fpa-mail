@@ -7,8 +7,10 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
+import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.FolderBuilder;
+import de.bht.fpa.mail.s000000.common.mail.model.builder.MessageBuilder;
 import de.bht.fpa.mail.s000000.common.mail.testdata.MessageTestDataProvider;
 import de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider;
 
@@ -30,21 +32,33 @@ public final class ImapNavigationView extends ViewPart {
   }
 
   private FolderNode createModel() {
-	  MessageTestDataProvider testMsgProvider = new MessageTestDataProvider();
-	  RandomTestDataProvider randomTestDataProvider = new RandomTestDataProvider(30);
-	  testMsgProvider.setTestDataProvider(randomTestDataProvider);
-	  FolderBuilder folderBuilder = FolderBuilder.newFolderBuilder();
-	  folderBuilder.fullName("Hello Kitty");
-	  folderBuilder.builtMessages(testMsgProvider.getMessages());
-	  AccountBuilder accountBuilder = AccountBuilder.newAccountBuilder();
-	  accountBuilder.folder(folderBuilder);
-	  accountBuilder.id(new Long(1));
-	  accountBuilder.host("mysherona.com");
-	  accountBuilder.name("Rudolf Frankelstein");
-	  accountBuilder.password("Easy rider");
-	  accountBuilder.username("SamuelRudolfson");
-	  Account account = accountBuilder.build();
+	  FolderBuilder inboxBuilder = FolderBuilder.newFolderBuilder()
+			  .id(4711L)
+			     .fullName("INBOX")
+			        .message(MessageBuilder.newMessageBuilder()
+			      )
+			      .folder(FolderBuilder.newFolderBuilder()
+			        .fullName("Private Emails"))
+				        .folder(FolderBuilder.newFolderBuilder()
+				           .fullName("Business"))
+				           .folder(FolderBuilder.newFolderBuilder()
+							        .fullName("Spam")
+			      );
 	  
+	  FolderBuilder sentBuilder = FolderBuilder.newFolderBuilder()
+			  .id(4711L)
+			     .fullName("Sent")
+			        .message(MessageBuilder.newMessageBuilder()
+			      );
+	  
+	  Account account = AccountBuilder.newAccountBuilder()
+			      .id(4711L)
+			      	.name("My Account")
+			      		.host("googlemail.com")
+			      			.folder(inboxBuilder)
+			      				.folder(sentBuilder)
+			      					.build();
+
 	  return new FolderNode(account);
   }
 
