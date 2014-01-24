@@ -1,5 +1,6 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import java.awt.List;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -7,18 +8,25 @@ import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 
 public class FolderNode {
-	Collection <Folder> children = new LinkedList<Folder>();
+	Collection <FolderNode> children = new LinkedList<FolderNode>();
 	Object child;
 	
 	public FolderNode(Account account) {
 		this.child = account;
-		children.addAll(account.getFolders());
+		children.addAll(wrapFolders(account.getFolders()));
 	}
 	public FolderNode(Folder folder) {
 		this.child = folder;
-		children.addAll(folder.getFolders());
+		children.addAll(wrapFolders(folder.getFolders()));
 	}
 	
+	public Collection<FolderNode> wrapFolders(Collection<Folder> input) {
+		Collection <FolderNode> foldersWrapped = new LinkedList<FolderNode>();
+		for (Folder folder : input) {
+			foldersWrapped.add(new FolderNode(folder));
+		}
+		return foldersWrapped;
+	}
 	public Folder[] getChildren() {
 		Folder [] folders = new Folder [children.size()];
 		children.toArray(folders);
