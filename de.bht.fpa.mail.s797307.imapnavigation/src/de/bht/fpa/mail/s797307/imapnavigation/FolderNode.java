@@ -41,6 +41,14 @@ public class FolderNode {
 		return new Account();
 	}
 	
+	public boolean hasAccount() {
+		return child instanceof Account;
+	}
+	
+	public boolean hasFolder() {
+		return child instanceof Folder;
+	}
+	
 	public Folder getFolder() {
 		if (child instanceof Folder) {
 			return (Folder) child;

@@ -1,11 +1,7 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
-import java.io.File;
-
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
-
-import de.bht.fpa.mail.s797307.util.TFile;
 
 public class ImapViewLabelProvider extends LabelProvider {
 //  private final ImagefolderIcon = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/folder.ico")
@@ -15,8 +11,9 @@ public class ImapViewLabelProvider extends LabelProvider {
 
   @Override
   public String getText(Object element) {
-//    return ((TFile) element).getText();
-	  return "Hello Java";
+	  FolderNode folder = (FolderNode) element;
+	  System.out.println(folder.hasFolder());
+	  return folder.getFolder().getFullName();
   }
 
   @Override

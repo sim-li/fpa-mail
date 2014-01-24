@@ -34,6 +34,7 @@ public final class ImapNavigationView extends ViewPart {
 	  RandomTestDataProvider randomTestDataProvider = new RandomTestDataProvider(30);
 	  testMsgProvider.setTestDataProvider(randomTestDataProvider);
 	  FolderBuilder folderBuilder = FolderBuilder.newFolderBuilder();
+	  folderBuilder.fullName("Hello Kitty");
 	  folderBuilder.builtMessages(testMsgProvider.getMessages());
 	  AccountBuilder accountBuilder = AccountBuilder.newAccountBuilder();
 	  accountBuilder.folder(folderBuilder);
@@ -43,6 +44,7 @@ public final class ImapNavigationView extends ViewPart {
 	  accountBuilder.password("Easy rider");
 	  accountBuilder.username("SamuelRudolfson");
 	  Account account = accountBuilder.build();
+	  
 	  return new FolderNode(account);
   }
 
