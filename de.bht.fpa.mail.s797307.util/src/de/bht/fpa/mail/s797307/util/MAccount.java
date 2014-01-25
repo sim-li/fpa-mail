@@ -44,4 +44,14 @@ public class MAccount implements MTargetNode {
 		return false;
 	}
 
+	@Override
+	public String getLabel() {
+		return account.getName();
+	}
+
+	@Override
+	public boolean isFolder() {
+		return false;
+	}
+
 }

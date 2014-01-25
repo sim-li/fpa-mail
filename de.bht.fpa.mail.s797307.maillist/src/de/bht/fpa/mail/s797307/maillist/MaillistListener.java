@@ -10,7 +10,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
-import de.bht.fpa.mail.s797307.util.FolderNode;
+import de.bht.fpa.mail.s797307.util.MTargetNode;
 import de.bht.fpa.mail.s797307.util.TFile;
 
 public class MaillistListener implements ISelectionListener {
@@ -23,32 +23,25 @@ public class MaillistListener implements ISelectionListener {
   @Override
   public void selectionChanged(IWorkbenchPart part, ISelection selection) {
     if (selection instanceof TreeSelection) {
-      Object firstElement = ((TreeSelection) selection).getFirstElement();
-      if (firstElement == null) {
+      Object element = ((TreeSelection) selection).getFirstElement();
+      if (element == null) {
     	  return;
       }
-      if (firstElement instanceof TFile) {
-        addXmlDirectory((TFile) firstElement);
+      if (element instanceof TFile) {
+    	  addXmlDirectory((TFile) element);
       }
-      if (firstElement instanceof FolderNode) {
-    	  FolderNode element = (FolderNode) firstElement;
-    	  addImapFolder(element);
+      
+      if (element instanceof MTargetNode) {
+    	  addMessages((MTargetNode) element);
       }
     }
   }
 
-  public void addImapFolder(FolderNode folderNode) {
+  public void addMessages(MTargetNode node) {
 	  	mailListView.clear();
-	  	Message emptyMessage = new Message();
-	  	emptyMessage.setId(new Long(0));
-	  	if (folderNode.hasFolder()) {
-		  	Folder folder = folderNode.getFolder(); 
-		  		for (Message message : folder.getMessages()) {
-		  			if (!message.equals(emptyMessage)) {
-		  				mailListView.addMessage(message);
-		  			}
-		  		}
-	  	}
+	  	for (Object m : node.getMessages()) {
+	  		mailListView.addMessage((Message) m);
+		}
 	  	mailListView.updateMessages();
 	  	mailListView.refresh();
   }

@@ -13,9 +13,9 @@ import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.FolderBuilder;
-import de.bht.fpa.mail.s000000.common.mail.model.builder.MessageBuilder;
 import de.bht.fpa.mail.s000000.common.mail.testdata.RandomTestDataProvider;
-import de.bht.fpa.mail.s797307.util.FolderNode;
+import de.bht.fpa.mail.s797307.util.MAccount;
+import de.bht.fpa.mail.s797307.util.MTargetNode;
 
 public final class ImapNavigationView extends ViewPart {
   private TreeViewer viewer;
@@ -34,7 +34,7 @@ public final class ImapNavigationView extends ViewPart {
     initalizeExecutionListener();
   }
 
-  private FolderNode createModel() {
+  private MTargetNode createModel() {
 	 
 	  RandomTestDataProvider data = new RandomTestDataProvider(20);
 	  
@@ -64,11 +64,9 @@ public final class ImapNavigationView extends ViewPart {
 	  account.setFolders(folders);
 	  
 	  
-	  FolderNode baseFolder = new FolderNode();
-	  baseFolder.addAccount(account);
-	  
+	  MTargetNode rootNode= new MAccount(account);
 	 
-	  return baseFolder;
+	  return rootNode;
   }
 
   public void setInput(Object input) {

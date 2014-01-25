@@ -9,6 +9,8 @@ public abstract List<?> getMessages();
 public abstract boolean hasElement();
 public abstract boolean hasChildren();
 public abstract boolean hasMessages();
+public abstract boolean isFolder();
 public abstract Object getElement();
+public String getLabel();
 
 }

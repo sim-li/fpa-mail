@@ -3,8 +3,8 @@ package de.bht.fpa.mail.s797307.imapnavigation;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-import de.bht.fpa.mail.s000000.common.mail.model.Folder;
-import de.bht.fpa.mail.s797307.util.FolderNode;
+import de.bht.fpa.mail.s797307.util.MTargetNode;
+import de.bht.fpa.mail.s797307.util.Tools;
 
 public class ImapViewLabelProvider extends LabelProvider {
   private final Image folderIcon;
@@ -18,17 +18,17 @@ public class ImapViewLabelProvider extends LabelProvider {
   }
   @Override
   public String getText(Object element) {
-	  FolderNode folder = (FolderNode) element;
-	  if (folder.hasAccount()) {
-		  return folder.getAccount().getName();
+	  MTargetNode node = Tools.makeMTargetNode(element);
+	  if (node.hasElement()) {
+		  return node.getLabel();
 	  }
-	  return folder.getFolder().getFullName();
+	  return "Empty";
   }
 
   @Override
   public Image getImage(Object element) {
-	  FolderNode node = (FolderNode) element;
-	  return node.hasAccount() ? accountIcon : folderIcon;
+	  MTargetNode node = Tools.makeMTargetNode(element);
+	  return node.isFolder() ? folderIcon : accountIcon;
   }
 
   public Image getImage() {

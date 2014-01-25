@@ -1,14 +1,10 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
-import java.util.Collection;
-import java.util.LinkedList;
-
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.bht.fpa.mail.s000000.common.mail.model.Account;
-import de.bht.fpa.mail.s000000.common.mail.model.Folder;
-import de.bht.fpa.mail.s797307.util.FolderNode;
+import de.bht.fpa.mail.s797307.util.MTargetNode;
+import de.bht.fpa.mail.s797307.util.Tools;
 
 public class ImapContentProvider implements ITreeContentProvider {
   protected ImapNavigationView view;
@@ -18,21 +14,20 @@ public class ImapContentProvider implements ITreeContentProvider {
   }
 
   @Override
-  public Object[] getChildren(Object parent) {
-	 FolderNode folder = (FolderNode) parent;
-	 return folder.getChildren();
+  public Object[] getChildren(Object element) {
+	 MTargetNode node = Tools.makeMTargetNode(element);
+	 return Tools.listToArray(node.getChildren());
   }
 
   @Override
   public boolean hasChildren(Object element) {
-	  FolderNode folder = (FolderNode) element;
-	  return folder.getChildren().length > 0;
+	  MTargetNode node = Tools.makeMTargetNode(element);
+	  return node.hasChildren();
   }
 
   @Override
-  public Object[] getElements(Object parent) {
-	  
-	  return getChildren(parent);
+  public Object[] getElements(Object element) {
+	  return getChildren(element);
   }
 
   @Override
@@ -46,7 +41,5 @@ public class ImapContentProvider implements ITreeContentProvider {
   @Override
   public Object getParent(Object element) {
 	  return null;
-//	  FolderNode folder = (FolderNode) element;
-//	  return folder;
   }
 }

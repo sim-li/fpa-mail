@@ -42,4 +42,14 @@ public class MFolder implements MTargetNode {
 		 return folder.getMessages().size() > 0;
 	}
 
+	@Override
+	public String getLabel() {
+		return folder.getFullName();
+	}
+
+	@Override
+	public boolean isFolder() {
+		return true;
+	}
+
 }
