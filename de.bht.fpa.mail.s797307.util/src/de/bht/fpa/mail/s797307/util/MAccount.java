@@ -1,5 +1,6 @@
 package de.bht.fpa.mail.s797307.util;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 

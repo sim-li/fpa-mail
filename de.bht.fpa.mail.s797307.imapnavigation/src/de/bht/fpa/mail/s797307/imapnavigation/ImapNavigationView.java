@@ -29,8 +29,6 @@ public final class ImapNavigationView extends ViewPart {
     viewer.setContentProvider(cp);
     viewer.setInput(createModel());
     getSite().setSelectionProvider(viewer);
-    // getViewSite().getPage().addSelectionListener(new
-    // NavigationListener(this));
     initalizeExecutionListener();
   }
 
@@ -64,8 +62,8 @@ public final class ImapNavigationView extends ViewPart {
 	  account.setFolders(folders);
 	  
 	  
-	  MTargetNode rootNode= new MAccount(account);
-	 
+	  MTargetNode rootNode = new MAccount(account);
+	  System.out.println(rootNode.getElement().toString());
 	  return rootNode;
   }
 

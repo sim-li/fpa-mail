@@ -21,6 +21,10 @@ public final class Tools {
 		if (element instanceof Account) {
 			return new MAccount((Account) element);
 		}
+		if (element instanceof MAccount) {
+			return (MAccount) element;
+		}
+		System.out.println(element.getClass());
 		return new MFolder(new Folder());
 	}
 }
