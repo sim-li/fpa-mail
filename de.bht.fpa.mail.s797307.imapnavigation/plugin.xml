@@ -22,35 +22,48 @@
          </view>
       </perspectiveExtension>
    </extension>
+   
    <extension
          point="org.eclipse.ui.commands">
       <category
             id="de.bht.fpa.mail.s797307.imapnavigation.commands.category"
-            name="Basic Menu Commands">
+            name="IMAP Menu Commands">
       </category>
+      <command
+            categoryId="de.bht.fpa.mail.s797307.imapnavigation.commands.category"
+            id="de.bht.fpa.mail.s797307.imapnavigation.commands.synchronize"
+            name="Synchronize">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.bht.fpa.mail.s797307.imapnavigation.handlers.SynchronizeHandler"
+            commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.synchronize">
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
    </extension>
    <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            id="de.bht.fpa.mail.s797307.imapnavigation.actionSet"
-            label="Sample Action Set"
-            visible="true">
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               id="imapMenu"
-               label="IMAP Navigation">
+               id="de.bht.fpa.mail.s797307.mapnavigation.menus.imap"
+               label="IMAP Navigation"
+               mnemonic="I">
+            <command
+                  commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.synchronize"
+                  id="de.bht.fpa.mail.s797307.mapnavigation.menus.imap"
+                  mnemonic="O">
+            </command>
          </menu>
-         <action
-               class="de.bht.fpa.mail.s797307.imapnavigation.actions.imapnav"
-               icon="icons/sample.gif"
-               id="de.bht.fpa.mail.s797307.imapnavigation.actions.imapnav"
-               label="&amp;ImapNavigation"
-               menubarPath="imapMenu/imapgroup"
-               toolbarPath="imapgroup"
-               tooltip="Hello girl.">
-         </action>
-      </actionSet>
+      </menuContribution>
    </extension>
+   
+   
+   
+   
+   
 </plugin>
