@@ -30,13 +30,27 @@
       </category>
    </extension>
    <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="de.bht.fpa.mail.s797307.imapnavigation.handlers.DirectoryHandler"
-            commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.openDirectory">
-      </handler>
+         point="org.eclipse.ui.bindings">
    </extension>
    <extension
-         point="org.eclipse.ui.bindings">
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="de.bht.fpa.mail.s797307.imapnavigation.actionSet"
+            label="Sample Action Set"
+            visible="true">
+         <menu
+               id="imapMenu"
+               label="IMAP Navigation">
+         </menu>
+         <action
+               class="de.bht.fpa.mail.s797307.imapnavigation.actions.imapnav"
+               icon="icons/sample.gif"
+               id="de.bht.fpa.mail.s797307.imapnavigation.actions.imapnav"
+               label="&amp;ImapNavigation"
+               menubarPath="imapMenu/imapgroup"
+               toolbarPath="imapgroup"
+               tooltip="Hello girl.">
+         </action>
+      </actionSet>
    </extension>
 </plugin>
