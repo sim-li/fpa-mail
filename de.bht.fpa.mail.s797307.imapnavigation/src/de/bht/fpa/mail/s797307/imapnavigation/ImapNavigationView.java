@@ -63,7 +63,6 @@ public final class ImapNavigationView extends ViewPart {
 	  
 	  
 	  MTargetNode rootNode = new MAccount(account);
-	  System.out.println(rootNode.getElement().toString());
 	  return rootNode;
   }
 

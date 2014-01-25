@@ -8,10 +8,11 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 
-import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
+import de.bht.fpa.mail.s797307.util.MFolder;
 import de.bht.fpa.mail.s797307.util.MTargetNode;
 import de.bht.fpa.mail.s797307.util.TFile;
+import de.bht.fpa.mail.s797307.util.Tools;
 
 public class MaillistListener implements ISelectionListener {
   private final MailListView mailListView;
@@ -27,13 +28,12 @@ public class MaillistListener implements ISelectionListener {
       if (element == null) {
     	  return;
       }
-      if (element instanceof TFile) {
+      if (element instanceof TFile) { //TODO: Clear out this shit.
     	  addXmlDirectory((TFile) element);
+    	  return;
       }
-      
-      if (element instanceof MTargetNode) {
-    	  addMessages((MTargetNode) element);
-      }
+      MTargetNode node = Tools.makeMTargetNode(element);
+      addMessages(node);
     }
   }
 
