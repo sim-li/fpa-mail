@@ -10,7 +10,9 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 
 import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
 import de.bht.fpa.mail.s000000.common.mail.imapsync.SynchronizationException;
@@ -26,40 +28,58 @@ public class SynchronizeHandler extends AbstractHandler{
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 	  // Boiler-Plate
-	  RandomTestDataProvider data = new RandomTestDataProvider(20);
-	  Folder sent = FolderBuilder.newFolderBuilder()
-			  .id(4711L)
-			     .fullName("Sent").build();
-	  
-	  Folder in = FolderBuilder.newFolderBuilder()
-			  .id(4718L)
-			     .fullName("In").build();
-	  	  
-	  List <Folder> folders = new LinkedList <Folder>();
-	  folders.add(sent);
-	  folders.add(in);
-	 final Account account = AccountBuilder.newAccountBuilder()
+						  RandomTestDataProvider data = new RandomTestDataProvider(20);
+						  Folder sent = FolderBuilder.newFolderBuilder()
+								  .id(4711L)
+								     .fullName("Sent").build();
+						  
+						  Folder in = FolderBuilder.newFolderBuilder()
+								  .id(4718L)
+								     .fullName("In").build();
+						  	  
+						  List <Folder> folders = new LinkedList <Folder>();
+						  folders.add(sent);
+						  folders.add(in);
+	
+	  final Account account = AccountBuilder.newAccountBuilder()
 		      .id(4711L)
-		      	.name("Alice-IMAP Two00")
+		      	.name("Google Mail")
 		      		.host("imap.googlemail.com")
 		      		  .username("bhtfpa@googlemail.com")
 		      		  	.password("B-BgxkT_anr2bubbyTLM")
 		      		  		.build();
-//	  account.setFolders(folders);
-		  
-	  
-	  Job job = new Job("Simon's job") {
-	      @Override
-	      protected IStatus run(IProgressMonitor monitor) {
-	    	syncMsg(account, monitor);
-	        return Status.OK_STATUS;
-	      }
-	    };
-	  job.setUser(false);
+	  Job job = new Job("Long running Job") {
+		  @Override
+		  protected IStatus run(IProgressMonitor monitor) {
+			  try {
+				  monitor.beginTask("Doing fancy stuff, you fucker", 100);
+				  ImapHelper.setDebug(true);
+				  ImapHelper.syncAllFoldersToAccount(account, monitor);
+				  if (monitor.isCanceled()) {
+					  return Status.CANCEL_STATUS;
+				  }
+				  return Status.OK_STATUS;
+			  }
+			  catch (SynchronizationException e) {
+				  System.err.println("Legend of the phoenix.");
+				  return Status.CANCEL_STATUS;
+			  } finally {
+				  monitor.done();
+			  }
+		  }
+	  };
+
+	  job.addJobChangeListener(new JobChangeAdapter() {
+	        public void done(IJobChangeEvent event) {
+	        if (event.getResult().isOK())
+	           System.out.println("Job completed successfully");
+	           else
+	              System.out.println("Job did not complete successfully");
+	        }
+	     });
 	  job.schedule();
-	
-		// TODO Auto-generated method stub
-	  return null;
+	return null;
+	  
 	}
 	
 	public static void printMsg(Collection <Message> c) {
@@ -73,6 +93,5 @@ public class SynchronizeHandler extends AbstractHandler{
 		} catch (SynchronizationException e) {
 			System.err.println("Sync error");
 		}
-    	Account accountRetrieved = ImapHelper.getAccount(account.getName());
 	}
 }
