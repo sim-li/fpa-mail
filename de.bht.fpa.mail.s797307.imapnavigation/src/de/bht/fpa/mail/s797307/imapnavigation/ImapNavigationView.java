@@ -38,6 +38,7 @@ public final class ImapNavigationView extends ViewPart {
 				  if (event.getResult().isOK()) {
 					  MailJob job = (MailJob) event.getJob();
 					  System.out.println(job.getAccount().getId());
+					  System.out.println(job.getAccount().getFolders().get(0).getMessages().get(0).getSubject());
 //					  MTargetNode rootNode = new MAccount(job.getAccount());
 //					  System.out.println(rootNode.getMessages().isEmpty());
 //					  viewer.setInput(rootNode);
