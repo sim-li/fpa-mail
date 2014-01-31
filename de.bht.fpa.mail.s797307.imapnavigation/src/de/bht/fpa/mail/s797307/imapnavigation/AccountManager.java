@@ -37,10 +37,6 @@ public final class AccountManager {
 		return accounts;
 	}
 	
-	public static void loadAccounts() {
-	
-	}
-	
 	public static void saveAccount(MAccount mAccount) {
 		Account account = (Account) mAccount.getElement();
 		if (ImapHelper.getAccount(account.getName()) == null) {
@@ -81,7 +77,10 @@ public final class AccountManager {
 	}
 	
 	public static void loadSettings() {
-		
+		accounts = JAXB.unmarshal(SETTINGS_FILE, MAccountList.class);
+		System.out.println("Hello dear");
+		System.out.println(accounts.size());
+		accounts.swipeList();
 	}
 	
 	public static IStatus syncAll(IProgressMonitor monitor) {

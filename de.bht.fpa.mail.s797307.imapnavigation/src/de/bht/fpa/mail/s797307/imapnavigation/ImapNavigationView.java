@@ -34,12 +34,12 @@ public final class ImapNavigationView extends ViewPart {
 		viewer.setContentProvider(cp);
 		
 //		Account account = ImapHelper.getAccount("FPA Demo");
-		Account account = AccountBuilder.newAccountBuilder().id(4711L)
-                    .name("FPA Demo").host("imap.a-studios.org")
-                    .username("fpademo@a-studios.org").password("fpademo").build();
-		
-		AccountManager.saveAccount(new MAccount(account));
-		
+//		Account account = AccountBuilder.newAccountBuilder().id(4711L)
+//                    .name("FPA Demo").host("imap.a-studios.org")
+//                    .username("fpademo@a-studios.org").password("fpademo").build();
+//		
+//		AccountManager.saveAccount(new MAccount(account));
+		AccountManager.loadSettings();
 		viewer.setInput(AccountManager.getInput());
 		
 		

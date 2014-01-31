@@ -26,7 +26,14 @@ public class MAccountList implements MTargetNode {
 		elements = new LinkedList <MAccount>();
 		baseElements = new LinkedList <Account>();
 	}
-
+	
+	public void swipeList() {
+		elements = new LinkedList <MAccount>();
+		for (Account account : baseElements) {
+			elements.add(new MAccount(account));
+		}
+	}
+	
 	@Override
 	public List<?> getChildren() {
 		System.out.println("Got children: " + elements.size());
