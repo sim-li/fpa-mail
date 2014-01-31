@@ -20,17 +20,8 @@ public final class ImapNavigationView extends ViewPart {
 		viewer = new TreeViewer(parent);
 		viewer.setLabelProvider(l);
 		viewer.setContentProvider(cp);
-		
-//		Account account = ImapHelper.getAccount("FPA Demo");
-//		Account account = AccountBuilder.newAccountBuilder().id(4711L)
-//                    .name("FPA Demo -2- ").host("imap.a-studios.org")
-//                    .username("fpademo@a-studios.org").password("fpademo").build();
-//		
-//		AccountManager.saveAccount(new MAccount(account));
 		AccountManager.loadSettings();
 		viewer.setInput(AccountManager.getInput());
-		
-		
 		initializeSync();
 		getSite().setSelectionProvider(viewer);
 		initalizeExecutionListener();
@@ -40,13 +31,14 @@ public final class ImapNavigationView extends ViewPart {
 		Job.getJobManager().addJobChangeListener(new JobChangeAdapter() {
 			public void done(IJobChangeEvent event) {
 				final IJobChangeEvent myEvent = event;
-				if (event.getJob().getName() == "MailJob") {
+				if (event.getJob().getName() == "Synchronizing Mail") {
 					Display.getDefault().asyncExec(new Runnable() {
 						@Override
 						public void run() {
 							if (myEvent.getResult().isOK()) {
 								viewer.setInput(AccountManager.getInput());
 								viewer.refresh();
+								System.out.println("Tried to get some.");
 							} else {
 								System.err
 										.println("Hey man, I've got a problem retrieving your mails.");
