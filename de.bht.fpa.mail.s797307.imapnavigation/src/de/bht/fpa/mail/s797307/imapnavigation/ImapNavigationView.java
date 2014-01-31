@@ -35,7 +35,7 @@ public final class ImapNavigationView extends ViewPart {
 		
 //		Account account = ImapHelper.getAccount("FPA Demo");
 //		Account account = AccountBuilder.newAccountBuilder().id(4711L)
-//                    .name("FPA Demo").host("imap.a-studios.org")
+//                    .name("FPA Demo -2- ").host("imap.a-studios.org")
 //                    .username("fpademo@a-studios.org").password("fpademo").build();
 //		
 //		AccountManager.saveAccount(new MAccount(account));
@@ -58,6 +58,7 @@ public final class ImapNavigationView extends ViewPart {
 						public void run() {
 							if (myEvent.getResult().isOK()) {
 								viewer.setInput(AccountManager.getInput());
+								viewer.refresh();
 							} else {
 								System.err
 										.println("Hey man, I've got a problem retrieving your mails.");

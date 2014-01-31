@@ -49,6 +49,7 @@ public final class AccountManager {
 	
 	public static void saveAccount(Account account) {
 		saveAccount(new MAccount(account));
+		saveSettings();
 	}
 
 	/*
@@ -87,7 +88,6 @@ public final class AccountManager {
 		for (Object element : accounts.getElements()) {
 			MAccount mAccount = (MAccount) element;
 			Account account = (Account) mAccount.getElement();
-			System.out.println(account.getName());
 			Account refrAccount = ImapHelper.getAccount(account.getName());
 			if (refrAccount != null) {
 				reloadedAccounts.add(refrAccount);
