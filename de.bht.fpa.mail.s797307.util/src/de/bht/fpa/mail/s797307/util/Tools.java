@@ -14,6 +14,16 @@ public final class Tools {
 		return array;
 	}
 	
+	public static Account clearOutAccount(Account account) {
+		Account a = new Account();
+		a.setHost(account.getHost());
+		a.setId(account.getId());
+		a.setName(account.getName());
+		a.setPassword(account.getPassword());
+		a.setUsername(a.getUsername());
+		return a;
+	}
+	
 	public static MTargetNode makeMTargetNode(Object element) {
 		if (element instanceof Folder) {
 			return new MFolder((Folder) element);

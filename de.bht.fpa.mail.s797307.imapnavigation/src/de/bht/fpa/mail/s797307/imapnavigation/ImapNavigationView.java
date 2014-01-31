@@ -3,6 +3,9 @@ package de.bht.fpa.mail.s797307.imapnavigation;
 import java.io.File;
 
 import javax.xml.bind.JAXB;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
@@ -36,8 +39,17 @@ public final class ImapNavigationView extends ViewPart {
                     .username("fpademo@a-studios.org").password("fpademo").build();
 		
 		AccountManager.saveAccount(new MAccount(account));
-		
-		JAXB.marshal(AccountManager.getInput(), new File("/Users/funkjaymatada/test.xml"));
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance(MAccountList.class);
+			Marshaller m = context.createMarshaller();
+		    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			m.marshal(AccountManager.getInput(), new File("/Users/funkjaymatada/test.xml"));
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+      
 		viewer.setInput(AccountManager.getInput());
 		
 		
