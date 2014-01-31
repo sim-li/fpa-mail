@@ -24,6 +24,9 @@ public final class ImapNavigationView extends ViewPart {
 		viewer = new TreeViewer(parent);
 		viewer.setLabelProvider(l);
 		viewer.setContentProvider(cp);
+		Account account = ImapHelper.getAccount("FPA Demo");
+		MAccount accountNode = new MAccount(account);
+		viewer.setInput(accountNode);
 		initializeSync();
 		getSite().setSelectionProvider(viewer);
 		initalizeExecutionListener();
