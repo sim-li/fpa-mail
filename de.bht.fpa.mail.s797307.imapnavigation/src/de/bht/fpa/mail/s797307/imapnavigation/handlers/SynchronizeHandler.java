@@ -14,15 +14,13 @@ public class SynchronizeHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		Job mailJob = new Job("Synchronizing Mail") {
-
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				monitor.beginTask("Doing fancy stuff.", 100);
 				return AccountManager.syncAll(monitor);
 			}
-
-			
 		};
+		mailJob.schedule();
 		return null;
 	}
 }
