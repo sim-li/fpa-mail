@@ -79,10 +79,24 @@ public final class AccountManager {
 	public static void loadSettings() {
 		MBaseAccountList baseAccounts = JAXB.unmarshal(SETTINGS_FILE, MBaseAccountList.class);
 		accounts = baseAccounts.getMAccountList();
+		loadData();
 	}
 	
 	public static void loadData() {
-		
+		MAccountList reloadedAccounts = new MAccountList();
+		for (Object element : accounts.getElements()) {
+			MAccount mAccount = (MAccount) element;
+			Account account = (Account) mAccount.getElement();
+			System.out.println(account.getName());
+			Account refrAccount = ImapHelper.getAccount(account.getName());
+			if (refrAccount != null) {
+				reloadedAccounts.add(refrAccount);
+			} else {
+				reloadedAccounts.add(account);
+				ImapHelper.saveAccount(account);
+			}
+		}
+		accounts = reloadedAccounts;
 	}
 	
 	public static IStatus syncAll(IProgressMonitor monitor) {
