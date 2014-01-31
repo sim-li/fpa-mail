@@ -2,6 +2,8 @@ package de.bht.fpa.mail.s797307.util;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElementWrapper;
+
 public interface MTargetNode {
 
 public abstract List<?> getChildren();

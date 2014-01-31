@@ -1,5 +1,9 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import java.io.File;
+
+import javax.xml.bind.JAXB;
+
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
@@ -13,6 +17,7 @@ import org.eclipse.ui.part.ViewPart;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
 import de.bht.fpa.mail.s797307.util.MAccount;
+import de.bht.fpa.mail.s797307.util.MAccountList;
 
 public final class ImapNavigationView extends ViewPart {
 	private TreeViewer viewer;
@@ -32,6 +37,7 @@ public final class ImapNavigationView extends ViewPart {
 		
 		AccountManager.saveAccount(new MAccount(account));
 		
+		JAXB.marshal(AccountManager.getInput(), new File("/Users/funkjaymatada/test.xml"));
 		viewer.setInput(AccountManager.getInput());
 		
 		

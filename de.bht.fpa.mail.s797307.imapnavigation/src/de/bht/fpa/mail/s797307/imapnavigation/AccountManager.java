@@ -1,5 +1,7 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import javax.xml.bind.JAXB;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -8,6 +10,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
 import de.bht.fpa.mail.s000000.common.mail.imapsync.SynchronizationException;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
+import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s797307.util.MAccount;
 import de.bht.fpa.mail.s797307.util.MAccountList;
 
@@ -26,6 +29,10 @@ public final class AccountManager {
 	
 	public static MAccountList getInput () {
 		return accounts;
+	}
+	
+	public static void loadAccounts() {
+	
 	}
 	
 	public static void saveAccount(MAccount mAccount) {
