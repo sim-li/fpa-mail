@@ -28,14 +28,24 @@ public final class AccountManager {
 		return accounts;
 	}
 	
-	public static void addAccount(MAccount account) {
-		accounts.add(account);
+	public static void saveAccount(MAccount mAccount) {
+		Account account = (Account) mAccount.getElement();
+		if (ImapHelper.getAccount(account.getName()) == null) {
+			ImapHelper.saveAccount(account); 
+			accounts.add(mAccount);
+		} else {
+			accounts.add(new MAccount(ImapHelper.getAccount(account.getName())));
+		}
 	}
 	
-	public static void addAccount(Account account) {
-		accounts.add(new MAccount(account));
+	public static void saveAccount(Account account) {
+		saveAccount(new MAccount(account));
 	}
-	
+
+	/*
+	 * Just removes from local collection, so it won't be
+	 * displayed, account remains in database.
+	 */
 	public static void removeAccount(MAccount account) {
 		accounts.remove(account);
 	}

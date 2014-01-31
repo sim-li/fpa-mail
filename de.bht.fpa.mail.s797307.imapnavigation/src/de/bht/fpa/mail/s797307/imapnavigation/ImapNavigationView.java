@@ -10,8 +10,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
 
-import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
+import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
+import de.bht.fpa.mail.s797307.util.MAccount;
 
 public final class ImapNavigationView extends ViewPart {
 	private TreeViewer viewer;
@@ -23,11 +24,14 @@ public final class ImapNavigationView extends ViewPart {
 		viewer = new TreeViewer(parent);
 		viewer.setLabelProvider(l);
 		viewer.setContentProvider(cp);
-		Account account = ImapHelper.getAccount("FPA Demo");
-//		Account account = AccountBuilder.newAccountBuilder().id(4711L)
-//                    .name("FPA Demo").host("imap.a-studios.org")
-//                    .username("fpademo@a-studios.org").password("fpademo").build();
-		AccountManager.addAccount(account);
+		
+//		Account account = ImapHelper.getAccount("FPA Demo");
+		Account account = AccountBuilder.newAccountBuilder().id(4711L)
+                    .name("FPA Demo").host("imap.a-studios.org")
+                    .username("fpademo@a-studios.org").password("fpademo").build();
+		
+		AccountManager.saveAccount(new MAccount(account));
+		
 		viewer.setInput(AccountManager.getInput());
 		
 		
