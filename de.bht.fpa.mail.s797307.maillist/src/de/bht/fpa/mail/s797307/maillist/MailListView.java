@@ -5,26 +5,26 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.part.ViewPart;
+import de.bht.fpa.mail.s797307.util.*;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.commands.ICommandService;
-import org.eclipse.ui.part.ViewPart;
-
-import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s000000.common.mail.model.Recipient;
 import de.ralfebert.rcputils.properties.BaseValue;
 import de.ralfebert.rcputils.tables.ColumnBuilder;
 import de.ralfebert.rcputils.tables.TableViewerBuilder;
 import de.ralfebert.rcputils.tables.format.Formatter;
 import de.ralfebert.rcputils.tables.format.StringValueFormatter;
+import org.eclipse.swt.widgets.Label;
+import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
 public class MailListView extends ViewPart {
   public MailListView() {
@@ -112,7 +112,7 @@ public class MailListView extends ViewPart {
     tableViewer.addFilter(new ViewerFilter() {
       @Override
       public boolean select(Viewer viewer, Object parentElement, Object element) {
-        if (element instanceof Message) {
+        if (element != null && element instanceof Message) {
           // • Message.subject,
           // • Message.text,
           // • Message.received,
@@ -126,15 +126,15 @@ public class MailListView extends ViewPart {
           for (Recipient recipient : message.getRecipients()) {
             receiverContent.append(recipient.getEmail());
             receiverContent.append(recipient.getPersonal());
-
           }
-          boolean textFound = message.getSubject().contains(searchString) || message.getText().contains(searchString)
-              || message.getReceived().toString().contains(searchString)
-              || message.getSent().toString().contains(searchString)
-              || message.getSender().getEmail().contains(searchString)
-              || message.getSender().getPersonal().contains(searchString)
-              || receiverContent.toString().contains(searchString);
-          return textFound;
+	          boolean textFound = Tools.friendlyFilter(message.getSubject(), searchString) ||
+	              Tools.friendlyFilter(message.getText(), searchString) ||
+	              Tools.friendlyFilter(message.getReceived().toString(), searchString) ||
+	              Tools.friendlyFilter(message.getSent().toString(), searchString) ||
+	              Tools.friendlyFilter(message.getSender().getEmail(), searchString) ||
+	              Tools.friendlyFilter(message.getSender().getPersonal(), searchString) ||
+	              Tools.friendlyFilter(receiverContent.toString() , searchString);
+	          return textFound;
         }
         return false;
       }

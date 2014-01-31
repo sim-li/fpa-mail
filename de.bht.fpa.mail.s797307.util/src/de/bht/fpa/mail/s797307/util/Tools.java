@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
+import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
 public final class Tools {
 	private Tools() {};
@@ -12,6 +13,13 @@ public final class Tools {
 		Object [] array = new Object[list.size()];
 		list.toArray(array);
 		return array;
+	}
+	
+	public static boolean friendlyFilter(String s1, String s2) {
+		if (s1 == null || s2 == null) { 
+			return false;
+		}
+		return s1.contains(s2);
 	}
 	
 	public static Account clearOutAccount(Account account) {
