@@ -1,8 +1,12 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 
 import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
+import de.bht.fpa.mail.s000000.common.mail.imapsync.SynchronizationException;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s797307.util.MAccount;
 import de.bht.fpa.mail.s797307.util.MAccountList;
@@ -40,11 +44,21 @@ public final class AccountManager {
 		accounts.remove(new MAccount(account));
 	}
 	
-	public static void syncAll() {
-		for (Object accountNode : accounts.getElements()) {
-			MAccount account = (MAccount) accountNode;
-			
-			
+	public static IStatus syncAll(IProgressMonitor monitor) {
+		ImapHelper.setDebug(false);
+		try {
+			for (Object accountNode : accounts.getElements()) {
+				MAccount account = (MAccount) accountNode;
+				ImapHelper.syncAllFoldersToAccount((Account) account.getElement(), 
+						new SubProgressMonitor(monitor, accounts.size()));
+			}
 		}
+		catch (SynchronizationException e) {
+			System.err.println("Legend of the phoenix.");
+			return Status.CANCEL_STATUS;
+		} finally {
+			monitor.done();
+		}
+		return Status.OK_STATUS;
 	}
 }

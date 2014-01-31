@@ -20,10 +20,13 @@ public class MAccountList implements MTargetNode {
 
 	@Override
 	public List<?> getMessages() {
-		System.out.println("Got Karl. ");
 		return new LinkedList <Message>();
 	}
 
+	public int size() {
+		return elements.size();
+	}
+	
 	public void add(MTargetNode element) {
 		elements.add(element);
 	}
@@ -49,7 +52,6 @@ public class MAccountList implements MTargetNode {
 
 	@Override
 	public boolean isFolder() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
