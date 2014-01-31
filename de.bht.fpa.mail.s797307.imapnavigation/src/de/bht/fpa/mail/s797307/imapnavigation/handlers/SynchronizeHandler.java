@@ -11,7 +11,7 @@ public class SynchronizeHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		AccountManager manager = AccountManager.getInstance();
-//		manager.sync();
+		manager.sync();
 		return null;
 	}
 }

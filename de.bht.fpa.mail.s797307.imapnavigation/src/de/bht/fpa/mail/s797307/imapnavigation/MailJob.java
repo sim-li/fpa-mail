@@ -3,6 +3,7 @@ package de.bht.fpa.mail.s797307.imapnavigation;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
 import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
@@ -28,7 +29,7 @@ public class MailJob extends Job {
 		try {
 			  monitor.beginTask("Doing fancy stuff.", 100);
 			  ImapHelper.setDebug(true);
-			  ImapHelper.syncAllFoldersToAccount(account, monitor);
+			  ImapHelper.syncAllFoldersToAccount(account, new SubProgressMonitor(monitor, 1));
 			  if (monitor.isCanceled()) {
 				  return Status.CANCEL_STATUS;
 			  }

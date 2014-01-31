@@ -1,5 +1,8 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import org.eclipse.core.runtime.SubProgressMonitor;
+
+import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s797307.util.MAccount;
 import de.bht.fpa.mail.s797307.util.MAccountList;
@@ -37,5 +40,11 @@ public final class AccountManager {
 		accounts.remove(new MAccount(account));
 	}
 	
-	
+	public static void syncAll() {
+		for (Object accountNode : accounts.getElements()) {
+			MAccount account = (MAccount) accountNode;
+			
+			
+		}
+	}
 }
