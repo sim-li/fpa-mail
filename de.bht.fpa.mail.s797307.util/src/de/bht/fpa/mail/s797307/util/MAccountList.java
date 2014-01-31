@@ -3,37 +3,38 @@ package de.bht.fpa.mail.s797307.util;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
 public class MAccountList implements MTargetNode {
-	private List <Account> accounts;
+	private List <MTargetNode> elements;
 	
 	public MAccountList() {
-		accounts = new LinkedList <Account>();
+		elements = new LinkedList <MTargetNode>();
 	}
 	
 	@Override
 	public List<?> getChildren() {
-		return accounts;
+		System.out.println("Got children: " + elements.size());
+		return elements;
 	}
 
 	@Override
 	public List<?> getMessages() {
+		System.out.println("Got Karl. ");
 		return new LinkedList <Message>();
 	}
 
-	public void addAccount(Account account) {
-		accounts.add(account);
+	public void add(MTargetNode element) {
+		elements.add(element);
 	}
 	
-	public void removeAccount(Account account) {
-		accounts.remove(account);
+	public void remove(MTargetNode element) {
+		elements.remove(element);
 	}
 	
 	@Override
 	public boolean hasElement() {
-		return accounts.size() > 0;
+		return elements.size() > 0;
 	}
 
 	@Override

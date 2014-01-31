@@ -13,6 +13,7 @@ import org.eclipse.ui.part.ViewPart;
 import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s797307.util.MAccount;
+import de.bht.fpa.mail.s797307.util.MAccountList;
 
 public final class ImapNavigationView extends ViewPart {
 	private TreeViewer viewer;
@@ -29,14 +30,25 @@ public final class ImapNavigationView extends ViewPart {
 		MAccount accountNode = new MAccount(account);
 	
 		MAccount emptynode = new MAccount(new Account());
-		viewer.setInput(emptynode);
-		viewer.add(emptynode, accountNode);
 		
 		Account testAccount = new Account();
 		testAccount.setId(20L);
 		testAccount.setName("My sherona");
 		MAccount testNode = new MAccount(testAccount);
-		viewer.add(emptynode, testNode);
+		
+		
+		MAccountList accounts = new MAccountList();
+		accounts.add(accountNode);
+		accounts.add(testNode);
+	
+		for (Object accountRetrieved : accounts.getChildren()) {
+			MAccount shia = (MAccount) accountRetrieved;
+			Account ac = (Account) shia.getElement();
+			System.out.println(ac.getName());
+		}
+		
+		viewer.setInput(accounts);
+		
 		
 		initializeSync();
 		getSite().setSelectionProvider(viewer);
