@@ -8,6 +8,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import de.bht.fpa.mail.s797307.imapnavigation.NewMessageView;
+import de.bht.fpa.mail.s797307.imapnavigation.SendMessage;
 
 public class SendmailHandler extends AbstractHandler {
 
@@ -16,9 +17,7 @@ public class SendmailHandler extends AbstractHandler {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 	    NewMessageView dialog = new  NewMessageView(window.getShell());
 	    if (dialog.open() == Window.OK) {
-		    System.out.println(dialog.getRecipient());
-		    System.out.println(dialog.getSubject());
-		    System.out.println(dialog.getMessage());
+	    	SendMessage.send(dialog.getRecipient(), dialog.getSubject(), dialog.getMessage());
 	    }
 	    return null;
 	}
