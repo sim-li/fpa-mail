@@ -1,6 +1,9 @@
 package de.bht.fpa.mail.s797307.imapnavigation.handlers;
 
+import java.io.File;
 import java.util.Collection;
+
+import javax.xml.bind.JAXB;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -19,10 +22,13 @@ public class SynchronizeHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		final Account account = AccountBuilder.newAccountBuilder().id(4711L)
+		final Account accountx = AccountBuilder.newAccountBuilder().id(4711L)
 				.name("FPA Demo").host("imap.a-studios.org")
 				.username("fpademo@a-studios.org").password("fpademo").build();
-
+		JAXB.marshal(accountx, new File("/Users/funkjaymatada/test.xml"));
+		
+		final Account account = JAXB.unmarshal(new File("/Users/funkjaymatada/test.xml"), Account.class);
+		
 		Job job = new MailJob(account);
 		job.schedule();
 		return null;
