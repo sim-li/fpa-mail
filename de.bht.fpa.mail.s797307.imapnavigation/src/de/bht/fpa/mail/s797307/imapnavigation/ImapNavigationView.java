@@ -39,17 +39,7 @@ public final class ImapNavigationView extends ViewPart {
                     .username("fpademo@a-studios.org").password("fpademo").build();
 		
 		AccountManager.saveAccount(new MAccount(account));
-		JAXBContext context;
-		try {
-			context = JAXBContext.newInstance(MAccountList.class);
-			Marshaller m = context.createMarshaller();
-		    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.marshal(AccountManager.getInput(), new File("/Users/funkjaymatada/test.xml"));
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-      
+		
 		viewer.setInput(AccountManager.getInput());
 		
 		

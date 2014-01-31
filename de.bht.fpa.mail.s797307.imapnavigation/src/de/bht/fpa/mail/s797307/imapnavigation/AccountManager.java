@@ -1,6 +1,11 @@
 package de.bht.fpa.mail.s797307.imapnavigation;
 
+import java.io.File;
+
 import javax.xml.bind.JAXB;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -18,6 +23,7 @@ import de.bht.fpa.mail.s797307.util.MAccountList;
 public final class AccountManager {
 	private static final AccountManager INSTANCE = new AccountManager();
 	private static MAccountList accounts;
+	private static final File SETTINGS_FILE = new File("/Users/funkjaymatada/test.xml");
 	
 	private AccountManager() {
 		accounts = new MAccountList();
@@ -59,6 +65,23 @@ public final class AccountManager {
 	
 	public static void removeAccount(Account account) {
 		accounts.remove(new MAccount(account));
+	}
+	
+	public static void saveSettings() {
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance(MAccountList.class);
+			Marshaller m = context.createMarshaller();
+		    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			m.marshal(getInput(), SETTINGS_FILE);
+		} catch (JAXBException e) {
+			System.err.println("Got a problem saving that configuration file, you know.");
+			e.printStackTrace();
+		}
+	}
+	
+	public static void loadSettings() {
+		
 	}
 	
 	public static IStatus syncAll(IProgressMonitor monitor) {
