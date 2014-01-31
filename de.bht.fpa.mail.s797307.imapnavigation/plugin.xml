@@ -34,12 +34,21 @@
             id="de.bht.fpa.mail.s797307.imapnavigation.commands.synchronize"
             name="Synchronize">
       </command>
+      <command
+            categoryId="de.bht.fpa.mail.s797307.imapnavigation.commands.category"
+            id="de.bht.fpa.mail.s797307.imapnavigation.commands.sendmail"
+            name="Send Mail">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="de.bht.fpa.mail.s797307.imapnavigation.handlers.SynchronizeHandler"
             commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.synchronize">
+      </handler>
+      <handler
+            class="de.bht.fpa.mail.s797307.imapnavigation.handlers.SendmailHandler"
+            commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.sendmail">
       </handler>
    </extension>
    <extension
@@ -55,7 +64,12 @@
                mnemonic="I">
             <command
                   commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.synchronize"
-                  id="de.bht.fpa.mail.s797307.mapnavigation.menus.imap"
+                  id="de.bht.fpa.mail.s797307.mapnavigation.menus.synchronize"
+                  mnemonic="O">
+            </command>
+             <command
+                  commandId="de.bht.fpa.mail.s797307.imapnavigation.commands.sendmail"
+                  id="de.bht.fpa.mail.s797307.mapnavigation.menus.sendmail"
                   mnemonic="O">
             </command>
          </menu>

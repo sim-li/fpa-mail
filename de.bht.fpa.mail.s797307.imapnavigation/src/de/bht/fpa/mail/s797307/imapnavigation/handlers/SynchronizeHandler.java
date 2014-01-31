@@ -15,7 +15,7 @@ import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s000000.common.mail.model.builder.AccountBuilder;
 import de.bht.fpa.mail.s797307.imapnavigation.MailJob;
 
-public class SynchronizeHandler extends AbstractHandler{
+public class SynchronizeHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
