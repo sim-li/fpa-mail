@@ -15,9 +15,9 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import de.bht.fpa.mail.s000000.common.mail.imapsync.ImapHelper;
 import de.bht.fpa.mail.s000000.common.mail.imapsync.SynchronizationException;
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
-import de.bht.fpa.mail.s000000.common.mail.model.Message;
 import de.bht.fpa.mail.s797307.util.MAccount;
 import de.bht.fpa.mail.s797307.util.MAccountList;
+import de.bht.fpa.mail.s797307.util.MBaseAccountList;
 
 
 public final class AccountManager {
@@ -69,7 +69,7 @@ public final class AccountManager {
 			context = JAXBContext.newInstance(MAccountList.class);
 			Marshaller m = context.createMarshaller();
 		    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.marshal(getInput(), SETTINGS_FILE);
+			m.marshal(new MBaseAccountList(getInput()), SETTINGS_FILE);
 		} catch (JAXBException e) {
 			System.err.println("Got a problem saving that configuration file, you know.");
 			e.printStackTrace();
@@ -77,10 +77,12 @@ public final class AccountManager {
 	}
 	
 	public static void loadSettings() {
-		accounts = JAXB.unmarshal(SETTINGS_FILE, MAccountList.class);
-		System.out.println("Hello dear");
-		System.out.println(accounts.size());
-		accounts.swipeList();
+		MBaseAccountList baseAccounts = JAXB.unmarshal(SETTINGS_FILE, MBaseAccountList.class);
+		accounts = baseAccounts.getMAccountList();
+	}
+	
+	public static void loadData() {
+		
 	}
 	
 	public static IStatus syncAll(IProgressMonitor monitor) {

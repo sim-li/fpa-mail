@@ -19,6 +19,9 @@ public class MBaseAccountList {
 	private List <Account> baseElements;
 	
 
+    public MBaseAccountList() {
+    	
+    }
 	public MBaseAccountList(MAccountList accounts) {
 		baseElements = new LinkedList <Account>();
 		for (Object account : accounts.getElements()) {
