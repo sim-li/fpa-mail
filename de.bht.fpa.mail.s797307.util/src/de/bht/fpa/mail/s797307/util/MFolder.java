@@ -1,7 +1,9 @@
 package de.bht.fpa.mail.s797307.util;
 
+import java.util.LinkedList;
 import java.util.List;
 
+import de.bht.fpa.mail.s000000.common.mail.model.Account;
 import de.bht.fpa.mail.s000000.common.mail.model.Folder;
 import de.bht.fpa.mail.s000000.common.mail.model.Message;
 
@@ -50,6 +52,13 @@ public class MFolder implements MTargetNode {
 	@Override
 	public boolean isFolder() {
 		return true;
+	}
+
+	@Override
+	public List<?> getElements() {
+		LinkedList<Folder> elements = new LinkedList<Folder>();
+		elements.add(folder);
+		return elements;
 	}
 
 }

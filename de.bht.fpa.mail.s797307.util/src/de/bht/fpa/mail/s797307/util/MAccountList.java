@@ -39,7 +39,7 @@ public class MAccountList implements MTargetNode {
 
 	@Override
 	public boolean hasChildren() {
-		return hasElement();
+		return elements.size() > 0;
 	}
 
 	@Override
@@ -55,12 +55,19 @@ public class MAccountList implements MTargetNode {
 
 	@Override
 	public Object getElement() {
-		return false;
+		return null;
 	}
+	
+	
 	
 	@Override
 	public String getLabel() {
 		return "Accounts";
+	}
+
+	@Override
+	public List<?> getElements() {
+		return elements;
 	}
 
 }

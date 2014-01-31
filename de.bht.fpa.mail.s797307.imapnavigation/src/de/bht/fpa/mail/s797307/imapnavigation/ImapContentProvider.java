@@ -28,9 +28,7 @@ public class ImapContentProvider implements ITreeContentProvider {
   @Override
   public Object[] getElements(Object element) {
 	  MTargetNode node = Tools.makeMTargetNode(element);
-	  return new Object[] {
-			  node.getElement()
-	  };
+	  return Tools.listToArray(node.getElements());
   }
 
   @Override

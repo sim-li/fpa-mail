@@ -54,4 +54,11 @@ public class MAccount implements MTargetNode {
 		return false;
 	}
 
+	@Override
+	public List<?> getElements() {
+		LinkedList<Account> elements = new LinkedList<Account>();
+		elements.add(account);
+		return elements;
+	}
+
 }
