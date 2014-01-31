@@ -11,4 +11,5 @@ public final class AccountManager {
 	public static AccountManager getInstance() {
 		return INSTANCE;
 	}
+	
 }
