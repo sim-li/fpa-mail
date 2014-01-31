@@ -17,7 +17,7 @@ public final class AccountManager {
 		return INSTANCE;
 	}
 	
-	public static MAccountList getAccounts () {
+	public static MAccountList getInput () {
 		return accounts;
 	}
 	

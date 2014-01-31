@@ -64,10 +64,7 @@ public final class ImapNavigationView extends ViewPart {
 						@Override
 						public void run() {
 							if (myEvent.getResult().isOK()) {
-								Account account = ImapHelper
-										.getAccount("FPA Demo");
-								MAccount accountNode = new MAccount(account);
-								viewer.setInput(accountNode);
+								viewer.setInput(AccountManager.getInput());
 							} else {
 								System.err
 										.println("Hey man, I've got a problem retrieving your mails.");
