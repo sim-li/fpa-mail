@@ -38,7 +38,6 @@ public final class ImapNavigationView extends ViewPart {
 							if (myEvent.getResult().isOK()) {
 								viewer.setInput(AccountManager.getInput());
 								viewer.refresh();
-								System.out.println("Tried to get some.");
 							} else {
 								System.err
 										.println("Hey man, I've got a problem retrieving your mails.");

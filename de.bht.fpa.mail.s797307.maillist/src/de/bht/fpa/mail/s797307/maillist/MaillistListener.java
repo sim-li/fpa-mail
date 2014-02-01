@@ -26,6 +26,7 @@ public class MaillistListener implements ISelectionListener {
     if (selection instanceof TreeSelection) {
       Object element = ((TreeSelection) selection).getFirstElement();
       if (element == null) {
+    	  mailListView.clear();
     	  return;
       }
       if (element instanceof TFile) { //TODO: Clear out this shit.
