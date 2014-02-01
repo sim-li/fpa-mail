@@ -20,10 +20,10 @@ public final class SendMessage {
 		System.out.println(account.getPassword());
 		props.put("mail.smtp.host", account.getHost());
 		props.put("mail.smtp.socketFactory.port", "465");
-		props.put("mail.smtp.socketFactory.class",
-				"javax.net.ssl.SSLSocketFactory");
+//		props.put("mail.smtp.socketFactory.class",
+//				"javax.net.ssl.SSLSocketFactory");
 		props.put("mail.smtp.auth", "true");
-		props.put("mail.ssl.auth", "true");
+//		props.put("mail.ssl.auth", "true");
 		props.put("mail.smtp.port", "465");
 		Session session = Session.getDefaultInstance(props, null);
 		try {
@@ -37,7 +37,7 @@ public final class SendMessage {
             transport.connect(account.getHost(), account.getUsername(), account.getPassword());
             transport.sendMessage(msg, msg.getAllRecipients());
             transport.close();
-			Transport.send(msg);
+//			Transport.send(msg);
 			System.out.println("Done");
  
 		} catch (MessagingException e) {

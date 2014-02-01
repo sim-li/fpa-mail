@@ -29,12 +29,12 @@ public class SendmailHandler extends AbstractHandler {
 	    	gmailSend.setPassword("B-BgxkT_anr2bubbyTLM");	
 	    	gmailSend.setName("bhtfpa@googlemail.com");
 	    	
-	    	Account ySend = new Account();
-	    	ySend.setHost("smtp.mail.yahoo.com");
-		    ySend.setUsername("funkjaymatada@ymail.com");
-		    gmailSend.setName("funkjaymatada@ymail.com");
-		    ySend.setPassword("sonysaqz");
-		    SendMessage.send(ySend, "simon@a-studios.org", "Testing the west", "Doing it again");
+//	    	Account ySend = new Account();
+//	    	ySend.setHost("smtp.mail.yahoo.com");
+//		    ySend.setUsername("funkjaymatada@ymail.com");
+//		    gmailSend.setName("funkjaymatada@ymail.com");
+//		    ySend.setPassword("sonysaqz");
+		    SendMessage.send(gmailSend, "simon@a-studios.org", "Testing the west", "Doing it again");
 //	    	SendMessage.send(ySend, dialog.getRecipient(), dialog.getSubject(), dialog.getMessage());
 	    }
 	    return null;
