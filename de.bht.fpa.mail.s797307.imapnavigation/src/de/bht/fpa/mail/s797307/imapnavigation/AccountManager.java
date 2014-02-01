@@ -105,7 +105,7 @@ public final class AccountManager {
 			for (Object accountNode : accounts.getElements()) {
 				MAccount account = (MAccount) accountNode;
 				ImapHelper.syncAllFoldersToAccount((Account) account.getElement(), 
-						new SubProgressMonitor(monitor, accounts.size()));
+						new SubProgressMonitor(monitor, 100 / accounts.size()));
 			}
 		}
 		catch (SynchronizationException e) {
