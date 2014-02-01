@@ -34,10 +34,14 @@ public final class SendMessage {
 			msg.setText(text);
 			System.out.println(recipient + ">" + subject  + ">" + text);
 			Transport transport = session.getTransport("smtp");
-            transport.connect(account.getHost(), account.getUsername(), account.getPassword());
-            transport.sendMessage(msg, msg.getAllRecipients());
+            System.out.println("Connecting...");
+			transport.connect(account.getHost(), account.getUsername(), account.getPassword());
+			System.out.println("Setting transport sendmessage");
+			transport.sendMessage(msg, msg.getAllRecipients());
+			System.out.println("Closing");
             transport.close();
-//			Transport.send(msg);
+            System.out.println("Sending...");
+			Transport.send(msg);
 			System.out.println("Done");
  
 		} catch (MessagingException e) {
