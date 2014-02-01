@@ -11,8 +11,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import de.bht.fpa.mail.s000000.common.mail.model.Account;
-import de.bht.fpa.mail.s000000.common.mail.model.Message;
-import de.bht.fpa.mail.s000000.common.mail.model.Recipient;
 import de.bht.fpa.mail.s797307.imapnavigation.NewMessageView;
 import de.bht.fpa.mail.s797307.imapnavigation.SendMessage;
 
@@ -27,15 +25,7 @@ public class SendmailHandler extends AbstractHandler {
 	    	gmailSend.setHost("smtp.googlemail.com");
 	    	gmailSend.setUsername("bhtfpa@googlemail.com");
 	    	gmailSend.setPassword("B-BgxkT_anr2bubbyTLM");	
-	    	gmailSend.setName("bhtfpa@googlemail.com");
-	    	
-//	    	Account ySend = new Account();
-//	    	ySend.setHost("smtp.mail.yahoo.com");
-//		    ySend.setUsername("funkjaymatada@ymail.com");
-//		    gmailSend.setName("funkjaymatada@ymail.com");
-//		    ySend.setPassword("sonysaqz");
-		    SendMessage.send(gmailSend, "simon@a-studios.org", "Testing the west", "Doing it again");
-//	    	SendMessage.send(ySend, dialog.getRecipient(), dialog.getSubject(), dialog.getMessage());
+	    	SendMessage.send(gmailSend, dialog.getRecipient(), dialog.getSubject(), dialog.getMessage());
 	    }
 	    return null;
 	}
